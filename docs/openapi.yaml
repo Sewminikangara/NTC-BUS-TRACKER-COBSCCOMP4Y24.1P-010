@@ -1,0 +1,177 @@
+openapi: 3.0.3
+info:
+  title: NTC Bus Tracker API
+  version: 1.0.0
+  description: API for real-time inter-provincial bus tracking in Sri Lanka
+
+servers:
+  - url: http://localhost:3000
+    description: Local development server
+
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: Authorization
+
+  schemas:
+    Route:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        origin:
+          type: string
+        destination:
+          type: string
+        stops:
+          type: array
+          items:
+            type: string
+    Bus:
+      type: object
+      properties:
+        id:
+          type: integer
+        regNo:
+          type: string
+        capacity:
+          type: integer
+        routeId:
+          type: integer
+        status:
+          type: string
+    Trip:
+      type: object
+      properties:
+        id:
+          type: integer
+        busId:
+          type: integer
+        routeId:
+          type: integer
+        startTime:
+          type: string
+          format: date-time
+        endTime:
+          type: string
+          format: date-time
+        status:
+          type: string
+    LocationUpdate:
+      type: object
+      properties:
+        busId:
+          type: integer
+        timestamp:
+          type: string
+          format: date-time
+        lat:
+          type: number
+        lng:
+          type: number
+        speed:
+          type: number
+
+paths:
+  /routes:
+    get:
+      summary: List all routes
+      responses:
+        '200':
+          description: Array of routes
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Route'
+    post:
+      summary: Add a new route
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Route'
+      responses:
+        '201':
+          description: Route created
+
+  /buses:
+    get:
+      summary: List all buses
+      parameters:
+        - in: query
+          name: routeId
+          schema:
+            type: integer
+          description: Filter by route
+        - in: query
+          name: status
+          schema:
+            type: string
+          description: Filter by status
+      responses:
+        '200':
+          description: Array of buses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Bus'
+    post:
+      summary: Add a new bus
+      security:
+        - ApiKeyAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Bus'
+      responses:
+        '201':
+          description: Bus created
+
+  /buses/{busId}/location:
+    post:
+      summary: Update bus location
+      security:
+        - ApiKeyAuth: []
+      parameters:
+        - in: path
+          name: busId
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationUpdate'
+      responses:
+        '200':
+          description: Location updated
+    get:
+      summary: Get latest bus location
+      parameters:
+        - in: path
+          name: busId
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Latest location
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LocationUpdate'
