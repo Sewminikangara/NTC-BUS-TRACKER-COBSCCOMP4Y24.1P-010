@@ -7,6 +7,7 @@
  * @module controllers/locationController
  */
 
+const mongoose = require('mongoose');
 const LocationUpdate = require('../models/LocationUpdate');
 const Bus = require('../models/Bus');
 const { ApiError } = require('../middleware/errorHandler');
@@ -239,7 +240,7 @@ exports.getBusLocationStats = asyncHandler(async (req, res) => {
 
     const stats = await LocationUpdate.aggregate([
         {
-            $match: { busId: require('mongoose').Types.ObjectId(busId) },
+            $match: { busId: mongoose.Types.ObjectId(busId) },
         },
         {
             $group: {
