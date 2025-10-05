@@ -1,4 +1,7 @@
 ﻿/**
+ * Error Handler Middleware
+ * NTC Bus Tracker API - COBSCCOMP24.1P-010
+ */
 
 const logger = require('../config/logger');
 
