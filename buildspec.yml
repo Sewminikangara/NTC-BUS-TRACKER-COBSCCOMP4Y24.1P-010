@@ -1,0 +1,13 @@
+version: 1.0
+os: linux
+files:
+  - source: /
+    destination: /var/app/current/
+commands:
+  01_install_dependencies:
+    command: npm install --production
+  02_set_permissions:
+    command: chmod +x server.js
+container_commands:
+  01_reload_app:
+    command: "killall node || true"
