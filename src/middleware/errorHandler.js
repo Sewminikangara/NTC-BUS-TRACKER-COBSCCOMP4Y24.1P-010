@@ -6,6 +6,8 @@
 const logger = require('../config/logger');
 
 /**
+ * Custom API Error Class
+ */
 class ApiError extends Error {
     constructor(message, statusCode) {
         super(message);
@@ -16,12 +18,16 @@ class ApiError extends Error {
 }
 
 /**
+ * Handle MongoDB CastError
+ */
 const handleCastErrorDB = (err) => {
     const message = `Invalid ${err.path}: ${err.value}`;
     return new ApiError(message, 400);
 };
 
 /**
+ * Handle MongoDB duplicate fields error
+ */
 const handleDuplicateFieldsDB = (err) => {
     const value = err.errmsg.match(/(["'])(\\?.)*?\1/)[0];
     const message = `Duplicate field value: ${value}. Please use another value!`;
@@ -29,6 +35,8 @@ const handleDuplicateFieldsDB = (err) => {
 };
 
 /**
+ * Handle MongoDB validation error
+ */
 const handleValidationErrorDB = (err) => {
     const errors = Object.values(err.errors).map((el) => el.message);
     const message = `Invalid input data. ${errors.join('. ')}`;
@@ -36,12 +44,18 @@ const handleValidationErrorDB = (err) => {
 };
 
 /**
+ * Handle JWT token error
+ */
 const handleJWTError = () => new ApiError('Invalid token. Please log in again!', 401);
 
 /**
+ * Handle JWT expired error
+ */
 const handleJWTExpiredError = () => new ApiError('Your token has expired! Please log in again.', 401);
 
 /**
+ * Send detailed error for development
+ */
 const sendErrorDev = (err, res) => {
     res.status(err.statusCode || 500).json({
         status: err.status || 'error',
@@ -52,6 +66,8 @@ const sendErrorDev = (err, res) => {
 };
 
 /**
+ * Send simplified error for production
+ */
 const sendErrorProd = (err, res) => {
     if (err.isOperational) {
         res.status(err.statusCode).json({
@@ -68,6 +84,8 @@ const sendErrorProd = (err, res) => {
 };
 
 /**
+ * Global error handling middleware
+ */
 const errorHandler = (err, req, res, next) => {
     const statusCode = err.statusCode || 500;
     const status = err.status || 'error';
