@@ -1,13 +1,6 @@
-/**
- * LocationUpdate Model
- * 
- * Stores real-time GPS location updates from buses.
- * Tracks bus movement history for monitoring and analytics.
- * 
- * @module models/LocationUpdate
- */
+﻿const mongoose = require('mongoose');
 
-const mongoose = require('mongoose');
+const locationUpdateSchema = new mongoose.Schema(
 
 const locationUpdateSchema = new mongoose.Schema(
     {
@@ -55,7 +48,6 @@ const locationUpdateSchema = new mongoose.Schema(
             type: Date,
             default: Date.now,
             required: true,
-            index: true,
         },
         status: {
             type: String,
@@ -68,27 +60,17 @@ const locationUpdateSchema = new mongoose.Schema(
     },
 );
 
-// Compound indexes for efficient queries
 locationUpdateSchema.index({ busId: 1, timestamp: -1 });
 locationUpdateSchema.index({ tripId: 1, timestamp: -1 });
 locationUpdateSchema.index({ timestamp: -1 });
 locationUpdateSchema.index({ 'coordinates.lat': 1, 'coordinates.lng': 1 });
 
-// TTL index to auto-delete old location data after 30 days
 locationUpdateSchema.index(
     { timestamp: 1 },
     { expireAfterSeconds: 30 * 24 * 60 * 60 },
 );
 
 /**
- * Calculate distance between two coordinates using Haversine formula
- * 
- * @param {number} lat1 - First latitude
- * @param {number} lng1 - First longitude
- * @param {number} lat2 - Second latitude
- * @param {number} lng2 - Second longitude
- * @returns {number} Distance in kilometers
- */
 locationUpdateSchema.statics.calculateDistance = function (lat1, lng1, lat2, lng2) {
     const R = 6371; // Radius of the Earth in km
     const dLat = (lat2 - lat1) * (Math.PI / 180);
@@ -96,9 +78,6 @@ locationUpdateSchema.statics.calculateDistance = function (lat1, lng1, lat2, lng
 
     const a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
         + Math.cos(lat1 * (Math.PI / 180))
-        * Math.cos(lat2 * (Math.PI / 180))
-        * Math.sin(dLng / 2)
-        * Math.sin(dLng / 2);
 
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distance = R * c;
@@ -107,11 +86,6 @@ locationUpdateSchema.statics.calculateDistance = function (lat1, lng1, lat2, lng
 };
 
 /**
- * Get latest location for a specific bus
- * 
- * @param {ObjectId} busId - Bus ID
- * @returns {Promise<Object|null>} Latest location or null
- */
 locationUpdateSchema.statics.getLatestLocation = async function (busId) {
     return this.findOne({ busId })
         .sort({ timestamp: -1 })
@@ -120,13 +94,6 @@ locationUpdateSchema.statics.getLatestLocation = async function (busId) {
 };
 
 /**
- * Get location history for a bus within a time range
- * 
- * @param {ObjectId} busId - Bus ID
- * @param {Date} startTime - Start time
- * @param {Date} endTime - End time
- * @returns {Promise<Array>} Array of location updates
- */
 locationUpdateSchema.statics.getLocationHistory = async function (
     busId,
     startTime,
@@ -141,8 +108,6 @@ locationUpdateSchema.statics.getLocationHistory = async function (
 };
 
 /**
- * Pre-save middleware to auto-determine status based on speed
- */
 locationUpdateSchema.pre('save', function (next) {
     if (this.speed === 0) {
         this.status = 'stopped';
@@ -155,8 +120,6 @@ locationUpdateSchema.pre('save', function (next) {
 });
 
 /**
- * Pre-find middleware to populate references
- */
 locationUpdateSchema.pre(/^find/, function (next) {
     if (!this.getOptions().skipPopulate) {
         this.populate({
@@ -170,3 +133,4 @@ locationUpdateSchema.pre(/^find/, function (next) {
 const LocationUpdate = mongoose.model('LocationUpdate', locationUpdateSchema);
 
 module.exports = LocationUpdate;
+

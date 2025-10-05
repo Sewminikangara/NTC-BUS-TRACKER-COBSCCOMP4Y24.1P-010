@@ -1,13 +1,4 @@
-/**
- * User Model
- * 
- * Represents users in the system (NTC Admin, Bus Operators, Commuters).
- * Handles authentication and authorization.
- * 
- * @module models/User
- */
-
-const mongoose = require('mongoose');
+﻿const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
@@ -57,7 +48,6 @@ const userSchema = new mongoose.Schema(
         operatorId: {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Operator',
-            // Only required for users with operator role
             required: function () {
                 return this.role === 'operator';
             },
@@ -73,23 +63,16 @@ const userSchema = new mongoose.Schema(
     },
 );
 
-// Indexes for performance
-userSchema.index({ email: 1 });
 userSchema.index({ role: 1 });
 userSchema.index({ status: 1 });
 
 /**
- * Hash password before saving
- * Pre-save middleware
- */
 userSchema.pre('save', async function (next) {
-    // Only hash the password if it has been modified
     if (!this.isModified('password')) {
         return next();
     }
 
     try {
-        // Generate salt and hash password
         const salt = await bcrypt.genSalt(10);
         this.password = await bcrypt.hash(this.password, salt);
         next();
@@ -99,20 +82,11 @@ userSchema.pre('save', async function (next) {
 });
 
 /**
- * Compare provided password with hashed password in database
- * 
- * @param {string} enteredPassword - Password to compare
- * @returns {Promise<boolean>} True if passwords match
- */
 userSchema.methods.comparePassword = async function (enteredPassword) {
     return bcrypt.compare(enteredPassword, this.password);
 };
 
 /**
- * Generate JWT token for user
- * 
- * @returns {string} JWT token
- */
 userSchema.methods.generateAuthToken = function () {
     return jwt.sign(
         { id: this._id, role: this.role },
@@ -124,8 +98,6 @@ userSchema.methods.generateAuthToken = function () {
 };
 
 /**
- * Update last login timestamp
- */
 userSchema.methods.updateLastLogin = async function () {
     this.lastLogin = Date.now();
     await this.save({ validateBeforeSave: false });
@@ -134,3 +106,4 @@ userSchema.methods.updateLastLogin = async function () {
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
+

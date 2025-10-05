@@ -1,12 +1,3 @@
-/**
- * Location Update Controller
- * 
- * Handles real-time GPS location updates for buses.
- * Provides location history and tracking features.
- * 
- * @module controllers/locationController
- */
-
 const mongoose = require('mongoose');
 const LocationUpdate = require('../models/LocationUpdate');
 const Bus = require('../models/Bus');
@@ -14,22 +5,16 @@ const { ApiError } = require('../middleware/errorHandler');
 const { asyncHandler } = require('../middleware/auth');
 const logger = require('../config/logger');
 
-/**
- * Create new location update
- * 
- * @route POST /api/locations
- * @access Private (Operator only)
- */
 exports.createLocationUpdate = asyncHandler(async (req, res) => {
-    const { busId, tripId, coordinates, speed, heading, accuracy } = req.body;
+    const {
+        busId, tripId, coordinates, speed, heading, accuracy,
+    } = req.body;
 
-    // Verify bus exists
     const bus = await Bus.findById(busId);
     if (!bus) {
         throw new ApiError('Bus not found', 404);
     }
 
-    // Create location update
     const locationUpdate = await LocationUpdate.create({
         busId,
         tripId,
@@ -42,21 +27,21 @@ exports.createLocationUpdate = asyncHandler(async (req, res) => {
 
     logger.info(`Location updated for bus: ${bus.registrationNumber}`);
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
+    res.set('Content-Location', `${baseUrl}/locations/bus/${busId}/latest`);
+
     res.status(201).json({
         status: 'success',
         message: 'Location updated successfully',
-        data: {
-            locationUpdate,
+        data: locationUpdate,
+        _links: {
+            self: { href: `${baseUrl}/locations/bus/${busId}/latest`, method: 'GET' },
+            history: { href: `${baseUrl}/locations/bus/${busId}/history`, method: 'GET' },
+            bus: { href: `${baseUrl}/buses/${busId}`, method: 'GET' },
         },
     });
 });
 
-/**
- * Get latest location for a specific bus
- * 
- * @route GET /api/locations/bus/:busId/latest
- * @access Public
- */
 exports.getLatestLocation = asyncHandler(async (req, res) => {
     const location = await LocationUpdate.getLatestLocation(req.params.busId);
 
@@ -64,28 +49,31 @@ exports.getLatestLocation = asyncHandler(async (req, res) => {
         throw new ApiError('No location data found for this bus', 404);
     }
 
+    const lastModified = new Date(location.timestamp);
+    res.set('Last-Modified', lastModified.toUTCString());
+
+    const ifModifiedSince = req.get('If-Modified-Since');
+    if (ifModifiedSince && new Date(ifModifiedSince) >= lastModified) {
+        return res.status(304).end();
+    }
+
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
-        data: {
-            location,
+        data: location,
+        _links: {
+            self: { href: `${baseUrl}/locations/bus/${req.params.busId}/latest`, method: 'GET' },
+            history: { href: `${baseUrl}/locations/bus/${req.params.busId}/history`, method: 'GET' },
+            bus: { href: `${baseUrl}/buses/${req.params.busId}`, method: 'GET' },
+            stats: { href: `${baseUrl}/locations/bus/${req.params.busId}/stats`, method: 'GET' },
         },
     });
 });
 
-/**
- * Get location history for a bus
- * 
- * @route GET /api/locations/bus/:busId/history
- * @access Public
- * @query {date} startTime - Start time (default: 24 hours ago)
- * @query {date} endTime - End time (default: now)
- * @query {number} limit - Limit results (default: 100)
- */
 exports.getLocationHistory = asyncHandler(async (req, res) => {
     const { busId } = req.params;
     const limit = parseInt(req.query.limit, 10) || 100;
 
-    // Default to last 24 hours
     const endTime = req.query.endTime ? new Date(req.query.endTime) : new Date();
     const startTime = req.query.startTime
         ? new Date(req.query.startTime)
@@ -93,9 +81,20 @@ exports.getLocationHistory = asyncHandler(async (req, res) => {
 
     const locations = await LocationUpdate.getLocationHistory(busId, startTime, endTime);
 
-    // Limit results
     const limitedLocations = locations.slice(0, limit);
 
+    const lastModified = limitedLocations.length > 0
+        ? new Date(limitedLocations[0].timestamp)
+        : new Date();
+
+    res.set('Last-Modified', lastModified.toUTCString());
+
+    const ifModifiedSince = req.get('If-Modified-Since');
+    if (ifModifiedSince && new Date(ifModifiedSince) >= lastModified) {
+        return res.status(304).end();
+    }
+
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         results: limitedLocations.length,
@@ -105,35 +104,31 @@ exports.getLocationHistory = asyncHandler(async (req, res) => {
             endTime,
             locations: limitedLocations,
         },
+        _links: {
+            self: { href: `${baseUrl}/locations/bus/${busId}/history?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`, method: 'GET' },
+            latest: { href: `${baseUrl}/locations/bus/${busId}/latest`, method: 'GET' },
+            bus: { href: `${baseUrl}/buses/${busId}`, method: 'GET' },
+        },
     });
 });
 
-/**
- * Get location updates for a specific trip
- * 
- * @route GET /api/locations/trip/:tripId
- * @access Public
- */
 exports.getLocationsByTrip = asyncHandler(async (req, res) => {
     const locations = await LocationUpdate.find({
         tripId: req.params.tripId,
     }).sort('timestamp').select('coordinates speed timestamp status');
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         results: locations.length,
-        data: {
-            locations,
+        data: locations,
+        _links: {
+            self: { href: `${baseUrl}/locations/trip/${req.params.tripId}`, method: 'GET' },
+            trip: { href: `${baseUrl}/trips/${req.params.tripId}`, method: 'GET' },
         },
     });
 });
 
-/**
- * Get all buses' latest locations
- * 
- * @route GET /api/locations/all-buses
- * @access Public
- */
 exports.getAllBusesLatestLocation = asyncHandler(async (req, res) => {
     const buses = await Bus.find({ status: 'active' }).select('_id registrationNumber routeId');
 
@@ -153,27 +148,20 @@ exports.getAllBusesLatestLocation = asyncHandler(async (req, res) => {
 
     const busesWithLocations = await Promise.all(locationsPromises);
 
-    // Filter out buses without location data
     const activeBuses = busesWithLocations.filter((bus) => bus.lastLocation !== null);
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         results: activeBuses.length,
-        data: {
-            buses: activeBuses,
+        data: activeBuses,
+        _links: {
+            self: { href: `${baseUrl}/locations/all-buses`, method: 'GET' },
+            nearby: { href: `${baseUrl}/locations/nearby`, method: 'GET' },
         },
     });
 });
 
-/**
- * Get buses near a specific location
- * 
- * @route GET /api/locations/nearby
- * @access Public
- * @query {number} lat - Latitude
- * @query {number} lng - Longitude
- * @query {number} radius - Radius in kilometers (default: 5)
- */
 exports.getNearbyBuses = asyncHandler(async (req, res) => {
     const { lat, lng } = req.query;
     const radius = parseFloat(req.query.radius) || 5;
@@ -185,7 +173,6 @@ exports.getNearbyBuses = asyncHandler(async (req, res) => {
     const latitude = parseFloat(lat);
     const longitude = parseFloat(lng);
 
-    // Get recent locations (last 10 minutes)
     const recentTime = new Date(Date.now() - 10 * 60 * 1000);
 
     const locations = await LocationUpdate.find({
@@ -195,7 +182,6 @@ exports.getNearbyBuses = asyncHandler(async (req, res) => {
         select: 'registrationNumber routeId status',
     });
 
-    // Calculate distances and filter by radius
     const nearbyBuses = locations
         .map((loc) => {
             const distance = LocationUpdate.calculateDistance(
@@ -218,6 +204,7 @@ exports.getNearbyBuses = asyncHandler(async (req, res) => {
         .filter((item) => parseFloat(item.distance) <= radius)
         .sort((a, b) => parseFloat(a.distance) - parseFloat(b.distance));
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         results: nearbyBuses.length,
@@ -226,21 +213,19 @@ exports.getNearbyBuses = asyncHandler(async (req, res) => {
             radius,
             buses: nearbyBuses,
         },
+        _links: {
+            self: { href: `${baseUrl}/locations/nearby?lat=${latitude}&lng=${longitude}&radius=${radius}`, method: 'GET' },
+            allBuses: { href: `${baseUrl}/locations/all-buses`, method: 'GET' },
+        },
     });
 });
 
-/**
- * Get location statistics for a bus
- * 
- * @route GET /api/locations/bus/:busId/stats
- * @access Public
- */
 exports.getBusLocationStats = asyncHandler(async (req, res) => {
     const { busId } = req.params;
 
     const stats = await LocationUpdate.aggregate([
         {
-            $match: { busId: mongoose.Types.ObjectId(busId) },
+            $match: { busId: new mongoose.Types.ObjectId(busId) },
         },
         {
             $group: {
@@ -255,6 +240,7 @@ exports.getBusLocationStats = asyncHandler(async (req, res) => {
 
     const latestLocation = await LocationUpdate.getLatestLocation(busId);
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         data: {
@@ -262,16 +248,15 @@ exports.getBusLocationStats = asyncHandler(async (req, res) => {
             stats: stats[0] || null,
             latestLocation,
         },
+        _links: {
+            self: { href: `${baseUrl}/locations/bus/${busId}/stats`, method: 'GET' },
+            latest: { href: `${baseUrl}/locations/bus/${busId}/latest`, method: 'GET' },
+            history: { href: `${baseUrl}/locations/bus/${busId}/history`, method: 'GET' },
+            bus: { href: `${baseUrl}/buses/${busId}`, method: 'GET' },
+        },
     });
 });
 
-/**
- * Delete old location data (Admin only)
- * 
- * @route DELETE /api/locations/cleanup
- * @access Private (Admin only)
- * @query {number} days - Delete data older than this many days
- */
 exports.cleanupOldLocations = asyncHandler(async (req, res) => {
     const days = parseInt(req.query.days, 10) || 30;
     const cutoffDate = new Date(Date.now() - days * 24 * 60 * 60 * 1000);

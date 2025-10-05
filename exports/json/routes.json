@@ -1,0 +1,554 @@
+[
+  {
+    "routeNumber": "001",
+    "name": "Colombo - Kandy Express",
+    "origin": "Colombo",
+    "destination": "Kandy",
+    "distance": 115,
+    "estimatedDuration": 180,
+    "stops": [
+      {
+        "name": "Colombo Fort",
+        "order": 1,
+        "coordinates": {
+          "lat": 6.9344,
+          "lng": 79.8428
+        },
+        "_id": "68e2018a0a047400d5606621",
+        "id": "68e2018a0a047400d5606621"
+      },
+      {
+        "name": "Kadawatha",
+        "order": 2,
+        "coordinates": {
+          "lat": 7.0008,
+          "lng": 79.952
+        },
+        "_id": "68e2018a0a047400d5606622",
+        "id": "68e2018a0a047400d5606622"
+      },
+      {
+        "name": "Gampaha",
+        "order": 3,
+        "coordinates": {
+          "lat": 7.0916,
+          "lng": 79.9999
+        },
+        "_id": "68e2018a0a047400d5606623",
+        "id": "68e2018a0a047400d5606623"
+      },
+      {
+        "name": "Pasyala",
+        "order": 4,
+        "coordinates": {
+          "lat": 7.1655,
+          "lng": 80.1189
+        },
+        "_id": "68e2018a0a047400d5606624",
+        "id": "68e2018a0a047400d5606624"
+      },
+      {
+        "name": "Ambepussa",
+        "order": 5,
+        "coordinates": {
+          "lat": 7.2641,
+          "lng": 80.1989
+        },
+        "_id": "68e2018a0a047400d5606625",
+        "id": "68e2018a0a047400d5606625"
+      },
+      {
+        "name": "Kegalle",
+        "order": 6,
+        "coordinates": {
+          "lat": 7.2523,
+          "lng": 80.3436
+        },
+        "_id": "68e2018a0a047400d5606626",
+        "id": "68e2018a0a047400d5606626"
+      },
+      {
+        "name": "Mawanella",
+        "order": 7,
+        "coordinates": {
+          "lat": 7.2531,
+          "lng": 80.4467
+        },
+        "_id": "68e2018a0a047400d5606627",
+        "id": "68e2018a0a047400d5606627"
+      },
+      {
+        "name": "Kadugannawa",
+        "order": 8,
+        "coordinates": {
+          "lat": 7.255,
+          "lng": 80.5208
+        },
+        "_id": "68e2018a0a047400d5606628",
+        "id": "68e2018a0a047400d5606628"
+      },
+      {
+        "name": "Peradeniya",
+        "order": 9,
+        "coordinates": {
+          "lat": 7.265,
+          "lng": 80.5975
+        },
+        "_id": "68e2018a0a047400d5606629",
+        "id": "68e2018a0a047400d5606629"
+      },
+      {
+        "name": "Kandy",
+        "order": 10,
+        "coordinates": {
+          "lat": 7.2906,
+          "lng": 80.6337
+        },
+        "_id": "68e2018a0a047400d560662a",
+        "id": "68e2018a0a047400d560662a"
+      }
+    ],
+    "status": "active",
+    "fare": 350,
+    "_id": "68e2018a0a047400d5606620",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.006Z",
+    "updatedAt": "2025-10-05T05:26:35.006Z",
+    "id": "68e2018a0a047400d5606620"
+  },
+  {
+    "routeNumber": "002",
+    "name": "Colombo - Galle Coastal Route",
+    "origin": "Colombo",
+    "destination": "Galle",
+    "distance": 119,
+    "estimatedDuration": 150,
+    "stops": [
+      {
+        "name": "Colombo Fort",
+        "order": 1,
+        "coordinates": {
+          "lat": 6.9344,
+          "lng": 79.8428
+        },
+        "_id": "68e2018a0a047400d560662c",
+        "id": "68e2018a0a047400d560662c"
+      },
+      {
+        "name": "Mount Lavinia",
+        "order": 2,
+        "coordinates": {
+          "lat": 6.8365,
+          "lng": 79.863
+        },
+        "_id": "68e2018a0a047400d560662d",
+        "id": "68e2018a0a047400d560662d"
+      },
+      {
+        "name": "Moratuwa",
+        "order": 3,
+        "coordinates": {
+          "lat": 6.7727,
+          "lng": 79.8816
+        },
+        "_id": "68e2018a0a047400d560662e",
+        "id": "68e2018a0a047400d560662e"
+      },
+      {
+        "name": "Panadura",
+        "order": 4,
+        "coordinates": {
+          "lat": 6.7133,
+          "lng": 79.9026
+        },
+        "_id": "68e2018a0a047400d560662f",
+        "id": "68e2018a0a047400d560662f"
+      },
+      {
+        "name": "Kalutara",
+        "order": 5,
+        "coordinates": {
+          "lat": 6.5831,
+          "lng": 79.9607
+        },
+        "_id": "68e2018a0a047400d5606630",
+        "id": "68e2018a0a047400d5606630"
+      },
+      {
+        "name": "Aluthgama",
+        "order": 6,
+        "coordinates": {
+          "lat": 6.4255,
+          "lng": 79.9989
+        },
+        "_id": "68e2018a0a047400d5606631",
+        "id": "68e2018a0a047400d5606631"
+      },
+      {
+        "name": "Hikkaduwa",
+        "order": 7,
+        "coordinates": {
+          "lat": 6.1408,
+          "lng": 80.1025
+        },
+        "_id": "68e2018a0a047400d5606632",
+        "id": "68e2018a0a047400d5606632"
+      },
+      {
+        "name": "Galle",
+        "order": 8,
+        "coordinates": {
+          "lat": 6.0535,
+          "lng": 80.221
+        },
+        "_id": "68e2018a0a047400d5606633",
+        "id": "68e2018a0a047400d5606633"
+      }
+    ],
+    "status": "active",
+    "fare": 320,
+    "_id": "68e2018a0a047400d560662b",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.010Z",
+    "updatedAt": "2025-10-05T05:26:35.010Z",
+    "id": "68e2018a0a047400d560662b"
+  },
+  {
+    "routeNumber": "003",
+    "name": "Colombo - Matara Southern Highway",
+    "origin": "Colombo",
+    "destination": "Matara",
+    "distance": 160,
+    "estimatedDuration": 180,
+    "stops": [
+      {
+        "name": "Colombo Fort",
+        "order": 1,
+        "coordinates": {
+          "lat": 6.9344,
+          "lng": 79.8428
+        },
+        "_id": "68e2018a0a047400d5606635",
+        "id": "68e2018a0a047400d5606635"
+      },
+      {
+        "name": "Panadura",
+        "order": 2,
+        "coordinates": {
+          "lat": 6.7133,
+          "lng": 79.9026
+        },
+        "_id": "68e2018a0a047400d5606636",
+        "id": "68e2018a0a047400d5606636"
+      },
+      {
+        "name": "Kalutara",
+        "order": 3,
+        "coordinates": {
+          "lat": 6.5831,
+          "lng": 79.9607
+        },
+        "_id": "68e2018a0a047400d5606637",
+        "id": "68e2018a0a047400d5606637"
+      },
+      {
+        "name": "Hikkaduwa",
+        "order": 4,
+        "coordinates": {
+          "lat": 6.1408,
+          "lng": 80.1025
+        },
+        "_id": "68e2018a0a047400d5606638",
+        "id": "68e2018a0a047400d5606638"
+      },
+      {
+        "name": "Galle",
+        "order": 5,
+        "coordinates": {
+          "lat": 6.0535,
+          "lng": 80.221
+        },
+        "_id": "68e2018a0a047400d5606639",
+        "id": "68e2018a0a047400d5606639"
+      },
+      {
+        "name": "Ahangama",
+        "order": 6,
+        "coordinates": {
+          "lat": 5.9753,
+          "lng": 80.3686
+        },
+        "_id": "68e2018a0a047400d560663a",
+        "id": "68e2018a0a047400d560663a"
+      },
+      {
+        "name": "Weligama",
+        "order": 7,
+        "coordinates": {
+          "lat": 5.9736,
+          "lng": 80.4297
+        },
+        "_id": "68e2018a0a047400d560663b",
+        "id": "68e2018a0a047400d560663b"
+      },
+      {
+        "name": "Matara",
+        "order": 8,
+        "coordinates": {
+          "lat": 5.9549,
+          "lng": 80.555
+        },
+        "_id": "68e2018a0a047400d560663c",
+        "id": "68e2018a0a047400d560663c"
+      }
+    ],
+    "status": "active",
+    "fare": 420,
+    "_id": "68e2018a0a047400d5606634",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.012Z",
+    "updatedAt": "2025-10-05T05:26:35.012Z",
+    "id": "68e2018a0a047400d5606634"
+  },
+  {
+    "routeNumber": "004",
+    "name": "Colombo - Jaffna A9 Highway",
+    "origin": "Colombo",
+    "destination": "Jaffna",
+    "distance": 395,
+    "estimatedDuration": 480,
+    "stops": [
+      {
+        "name": "Colombo Fort",
+        "order": 1,
+        "coordinates": {
+          "lat": 6.9344,
+          "lng": 79.8428
+        },
+        "_id": "68e2018a0a047400d560663e",
+        "id": "68e2018a0a047400d560663e"
+      },
+      {
+        "name": "Vavuniya",
+        "order": 2,
+        "coordinates": {
+          "lat": 8.7543,
+          "lng": 80.497
+        },
+        "_id": "68e2018a0a047400d560663f",
+        "id": "68e2018a0a047400d560663f"
+      },
+      {
+        "name": "Mannar",
+        "order": 3,
+        "coordinates": {
+          "lat": 8.981,
+          "lng": 79.9042
+        },
+        "_id": "68e2018a0a047400d5606640",
+        "id": "68e2018a0a047400d5606640"
+      },
+      {
+        "name": "Kilinochchi",
+        "order": 4,
+        "coordinates": {
+          "lat": 9.3961,
+          "lng": 80.3994
+        },
+        "_id": "68e2018a0a047400d5606641",
+        "id": "68e2018a0a047400d5606641"
+      },
+      {
+        "name": "Elephant Pass",
+        "order": 5,
+        "coordinates": {
+          "lat": 9.5239,
+          "lng": 80.4093
+        },
+        "_id": "68e2018a0a047400d5606642",
+        "id": "68e2018a0a047400d5606642"
+      },
+      {
+        "name": "Jaffna",
+        "order": 6,
+        "coordinates": {
+          "lat": 9.6615,
+          "lng": 80.0255
+        },
+        "_id": "68e2018a0a047400d5606643",
+        "id": "68e2018a0a047400d5606643"
+      }
+    ],
+    "status": "active",
+    "fare": 1200,
+    "_id": "68e2018a0a047400d560663d",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.014Z",
+    "updatedAt": "2025-10-05T05:26:35.014Z",
+    "id": "68e2018a0a047400d560663d"
+  },
+  {
+    "routeNumber": "005",
+    "name": "Kandy - Jaffna Central Route",
+    "origin": "Kandy",
+    "destination": "Jaffna",
+    "distance": 285,
+    "estimatedDuration": 360,
+    "stops": [
+      {
+        "name": "Kandy",
+        "order": 1,
+        "coordinates": {
+          "lat": 7.2906,
+          "lng": 80.6337
+        },
+        "_id": "68e2018a0a047400d5606645",
+        "id": "68e2018a0a047400d5606645"
+      },
+      {
+        "name": "Matale",
+        "order": 2,
+        "coordinates": {
+          "lat": 7.4697,
+          "lng": 80.6234
+        },
+        "_id": "68e2018a0a047400d5606646",
+        "id": "68e2018a0a047400d5606646"
+      },
+      {
+        "name": "Dambulla",
+        "order": 3,
+        "coordinates": {
+          "lat": 7.8606,
+          "lng": 80.6517
+        },
+        "_id": "68e2018a0a047400d5606647",
+        "id": "68e2018a0a047400d5606647"
+      },
+      {
+        "name": "Anuradhapura",
+        "order": 4,
+        "coordinates": {
+          "lat": 8.3114,
+          "lng": 80.4037
+        },
+        "_id": "68e2018a0a047400d5606648",
+        "id": "68e2018a0a047400d5606648"
+      },
+      {
+        "name": "Vavuniya",
+        "order": 5,
+        "coordinates": {
+          "lat": 8.7543,
+          "lng": 80.497
+        },
+        "_id": "68e2018a0a047400d5606649",
+        "id": "68e2018a0a047400d5606649"
+      },
+      {
+        "name": "Kilinochchi",
+        "order": 6,
+        "coordinates": {
+          "lat": 9.3961,
+          "lng": 80.3994
+        },
+        "_id": "68e2018a0a047400d560664a",
+        "id": "68e2018a0a047400d560664a"
+      },
+      {
+        "name": "Jaffna",
+        "order": 7,
+        "coordinates": {
+          "lat": 9.6615,
+          "lng": 80.0255
+        },
+        "_id": "68e2018a0a047400d560664b",
+        "id": "68e2018a0a047400d560664b"
+      }
+    ],
+    "status": "active",
+    "fare": 950,
+    "_id": "68e2018a0a047400d5606644",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.014Z",
+    "updatedAt": "2025-10-05T05:26:35.014Z",
+    "id": "68e2018a0a047400d5606644"
+  },
+  {
+    "routeNumber": "006",
+    "name": "Colombo - Trincomalee East Coast",
+    "origin": "Colombo",
+    "destination": "Trincomalee",
+    "distance": 257,
+    "estimatedDuration": 300,
+    "stops": [
+      {
+        "name": "Colombo Fort",
+        "order": 1,
+        "coordinates": {
+          "lat": 6.9344,
+          "lng": 79.8428
+        },
+        "_id": "68e2018a0a047400d560664d",
+        "id": "68e2018a0a047400d560664d"
+      },
+      {
+        "name": "Kurunegala",
+        "order": 2,
+        "coordinates": {
+          "lat": 7.4863,
+          "lng": 80.3623
+        },
+        "_id": "68e2018a0a047400d560664e",
+        "id": "68e2018a0a047400d560664e"
+      },
+      {
+        "name": "Dambulla",
+        "order": 3,
+        "coordinates": {
+          "lat": 7.8606,
+          "lng": 80.6517
+        },
+        "_id": "68e2018a0a047400d560664f",
+        "id": "68e2018a0a047400d560664f"
+      },
+      {
+        "name": "Habarana",
+        "order": 4,
+        "coordinates": {
+          "lat": 8.0363,
+          "lng": 80.7518
+        },
+        "_id": "68e2018a0a047400d5606650",
+        "id": "68e2018a0a047400d5606650"
+      },
+      {
+        "name": "Polonnaruwa",
+        "order": 5,
+        "coordinates": {
+          "lat": 7.9403,
+          "lng": 81.0188
+        },
+        "_id": "68e2018a0a047400d5606651",
+        "id": "68e2018a0a047400d5606651"
+      },
+      {
+        "name": "Trincomalee",
+        "order": 6,
+        "coordinates": {
+          "lat": 8.5874,
+          "lng": 81.2152
+        },
+        "_id": "68e2018a0a047400d5606652",
+        "id": "68e2018a0a047400d5606652"
+      }
+    ],
+    "status": "active",
+    "fare": 780,
+    "_id": "68e2018a0a047400d560664c",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.015Z",
+    "updatedAt": "2025-10-05T05:26:35.015Z",
+    "id": "68e2018a0a047400d560664c"
+  }
+]

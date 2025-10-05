@@ -1,12 +1,4 @@
-/**
- * Operator Model
- * 
- * Represents bus operators/companies that operate buses on routes.
- * 
- * @module models/Operator
- */
-
-const mongoose = require('mongoose');
+﻿const mongoose = require('mongoose');
 
 const operatorSchema = new mongoose.Schema(
     {
@@ -74,12 +66,8 @@ const operatorSchema = new mongoose.Schema(
     },
 );
 
-// Indexes for performance
-operatorSchema.index({ registrationNumber: 1 });
 operatorSchema.index({ status: 1 });
-operatorSchema.index({ licenseNumber: 1 });
 
-// Virtual for buses owned by this operator
 operatorSchema.virtual('buses', {
     ref: 'Bus',
     localField: '_id',
@@ -87,17 +75,11 @@ operatorSchema.virtual('buses', {
 });
 
 /**
- * Check if license is expired
- * 
- * @returns {boolean} True if license is expired
- */
 operatorSchema.methods.isLicenseExpired = function () {
     return this.licenseExpiry < new Date();
 };
 
 /**
- * Pre-save middleware to check license expiry
- */
 operatorSchema.pre('save', function (next) {
     if (this.isLicenseExpired() && this.status === 'active') {
         this.status = 'suspended';
@@ -108,3 +90,4 @@ operatorSchema.pre('save', function (next) {
 const Operator = mongoose.model('Operator', operatorSchema);
 
 module.exports = Operator;
+

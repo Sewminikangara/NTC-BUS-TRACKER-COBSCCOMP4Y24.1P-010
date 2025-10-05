@@ -1,19 +1,9 @@
-/**
- * Request Validation Middleware
- * 
- * 
- * @module middleware/validate
- */
+﻿/**
 
 const Joi = require('joi');
 const { ApiError } = require('./errorHandler');
 
 /**
- * Validate request data against Joi schema
- * 
- * @param {Object} schema - Joi validation schema
- * @returns {Function} Middleware function
- */
 const validate = (schema) => (req, res, next) => {
     const validSchema = Object.keys(schema).filter(
         (key) => ['body', 'query', 'params'].includes(key),
@@ -40,3 +30,4 @@ const validate = (schema) => (req, res, next) => {
 };
 
 module.exports = validate;
+

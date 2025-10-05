@@ -1,32 +1,9 @@
-/**
- * Bus Controller
- * 
- * Handles all bus-related operations including CRUD and advanced queries.
- * Implements filtering, sorting, and pagination for Level 5 compliance.
- * 
- * @module controllers/busController
- */
-
 const Bus = require('../models/Bus');
 const { ApiError } = require('../middleware/errorHandler');
 const { asyncHandler } = require('../middleware/auth');
 const APIFeatures = require('../utils/apiFeatures');
 const logger = require('../config/logger');
 
-/**
- * Get all buses with filtering, sorting, and pagination
- * 
- * @route GET /api/buses
- * @access Public
- * 
- * @query {string} routeId - Filter by route ID
- * @query {string} operatorId - Filter by operator ID
- * @query {string} status - Filter by status
- * @query {number} capacity[gte] - Min capacity
- * @query {string} sort - Sort fields
- * @query {number} page - Page number
- * @query {number} limit - Items per page
- */
 exports.getAllBuses = asyncHandler(async (req, res) => {
     const totalBuses = await Bus.countDocuments();
 
@@ -40,22 +17,41 @@ exports.getAllBuses = asyncHandler(async (req, res) => {
 
     const pagination = features.getPaginationMeta(totalBuses);
 
-    res.status(200).json({
+    const lastModified = buses.length > 0
+        ? new Date(Math.max(...buses.map((b) => new Date(b.updatedAt || b.createdAt))))
+        : new Date();
+
+    res.set('Last-Modified', lastModified.toUTCString());
+
+    const ifModifiedSince = req.get('If-Modified-Since');
+    if (ifModifiedSince && new Date(ifModifiedSince) >= lastModified) {
+        return res.status(304).end();
+    }
+
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
+    const responseData = {
         status: 'success',
         results: buses.length,
         pagination,
-        data: {
-            buses,
+        data: buses,
+        _links: {
+            self: { href: `${baseUrl}/buses`, method: 'GET' },
+            create: { href: `${baseUrl}/buses`, method: 'POST' },
         },
-    });
+    };
+
+    if (pagination.page > 1) {
+        responseData._links.first = { href: `${baseUrl}/buses?page=1&limit=${pagination.limit}`, method: 'GET' };
+        responseData._links.prev = { href: `${baseUrl}/buses?page=${pagination.page - 1}&limit=${pagination.limit}`, method: 'GET' };
+    }
+    if (pagination.page < pagination.pages) {
+        responseData._links.next = { href: `${baseUrl}/buses?page=${pagination.page + 1}&limit=${pagination.limit}`, method: 'GET' };
+        responseData._links.last = { href: `${baseUrl}/buses?page=${pagination.pages}&limit=${pagination.limit}`, method: 'GET' };
+    }
+
+    res.status(200).json(responseData);
 });
 
-/**
- * Get single bus by ID
- * 
- * @route GET /api/buses/:id
- * @access Public
- */
 exports.getBus = asyncHandler(async (req, res) => {
     const bus = await Bus.findById(req.params.id);
 
@@ -63,40 +59,57 @@ exports.getBus = asyncHandler(async (req, res) => {
         throw new ApiError('Bus not found', 404);
     }
 
-    res.status(200).json({
+    const lastModified = new Date(bus.updatedAt || bus.createdAt);
+    res.set('Last-Modified', lastModified.toUTCString());
+
+    const ifModifiedSince = req.get('If-Modified-Since');
+    if (ifModifiedSince && new Date(ifModifiedSince) >= lastModified) {
+        return res.status(304).end();
+    }
+
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
+    const responseData = {
         status: 'success',
-        data: {
-            bus,
+        data: bus,
+        _links: {
+            self: { href: `${baseUrl}/buses/${bus._id}`, method: 'GET' },
+            update: { href: `${baseUrl}/buses/${bus._id}`, method: 'PUT' },
+            delete: { href: `${baseUrl}/buses/${bus._id}`, method: 'DELETE' },
+            collection: { href: `${baseUrl}/buses`, method: 'GET' },
+            related: {
+                route: { href: `${baseUrl}/routes/${bus.routeId}`, method: 'GET' },
+                operator: { href: `${baseUrl}/operators/${bus.operatorId}`, method: 'GET' },
+                trips: { href: `${baseUrl}/trips/bus/${bus._id}`, method: 'GET' },
+                location: { href: `${baseUrl}/locations/bus/${bus._id}/latest`, method: 'GET' },
+            },
         },
-    });
+    };
+
+    res.status(200).json(responseData);
 });
 
-/**
- * Create new bus
- * 
- * @route POST /api/buses
- * @access Private (Admin only)
- */
 exports.createBus = asyncHandler(async (req, res) => {
     const bus = await Bus.create(req.body);
 
     logger.info(`New bus created: ${bus.registrationNumber} by user ${req.user.email}`);
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
+    const resourceUrl = `${baseUrl}/buses/${bus._id}`;
+    res.set('Content-Location', resourceUrl);
+
     res.status(201).json({
         status: 'success',
         message: 'Bus created successfully',
-        data: {
-            bus,
+        data: bus,
+        _links: {
+            self: { href: resourceUrl, method: 'GET' },
+            update: { href: resourceUrl, method: 'PUT' },
+            delete: { href: resourceUrl, method: 'DELETE' },
+            collection: { href: `${baseUrl}/buses`, method: 'GET' },
         },
     });
 });
 
-/**
- * Update bus
- * 
- * @route PUT /api/buses/:id
- * @access Private (Admin only)
- */
 exports.updateBus = asyncHandler(async (req, res) => {
     const bus = await Bus.findByIdAndUpdate(
         req.params.id,
@@ -113,21 +126,20 @@ exports.updateBus = asyncHandler(async (req, res) => {
 
     logger.info(`Bus updated: ${bus.registrationNumber} by user ${req.user.email}`);
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         message: 'Bus updated successfully',
-        data: {
-            bus,
+        data: bus,
+        _links: {
+            self: { href: `${baseUrl}/buses/${bus._id}`, method: 'GET' },
+            update: { href: `${baseUrl}/buses/${bus._id}`, method: 'PUT' },
+            delete: { href: `${baseUrl}/buses/${bus._id}`, method: 'DELETE' },
+            collection: { href: `${baseUrl}/buses`, method: 'GET' },
         },
     });
 });
 
-/**
- * Delete bus
- * 
- * @route DELETE /api/buses/:id
- * @access Private (Admin only)
- */
 exports.deleteBus = asyncHandler(async (req, res) => {
     const bus = await Bus.findByIdAndDelete(req.params.id);
 
@@ -144,53 +156,43 @@ exports.deleteBus = asyncHandler(async (req, res) => {
     });
 });
 
-/**
- * Get buses by route
- * 
- * @route GET /api/buses/route/:routeId
- * @access Public
- */
 exports.getBusesByRoute = asyncHandler(async (req, res) => {
     const buses = await Bus.find({
         routeId: req.params.routeId,
         status: { $in: ['active', 'maintenance'] },
     }).sort('registrationNumber');
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         results: buses.length,
-        data: {
-            buses,
+        data: buses,
+        _links: {
+            self: { href: `${baseUrl}/buses/route/${req.params.routeId}`, method: 'GET' },
+            route: { href: `${baseUrl}/routes/${req.params.routeId}`, method: 'GET' },
+            collection: { href: `${baseUrl}/buses`, method: 'GET' },
         },
     });
 });
 
-/**
- * Get buses by operator
- * 
- * @route GET /api/buses/operator/:operatorId
- * @access Public
- */
 exports.getBusesByOperator = asyncHandler(async (req, res) => {
     const buses = await Bus.find({
         operatorId: req.params.operatorId,
     }).sort('-createdAt');
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         results: buses.length,
-        data: {
-            buses,
+        data: buses,
+        _links: {
+            self: { href: `${baseUrl}/buses/operator/${req.params.operatorId}`, method: 'GET' },
+            operator: { href: `${baseUrl}/operators/${req.params.operatorId}`, method: 'GET' },
+            collection: { href: `${baseUrl}/buses`, method: 'GET' },
         },
     });
 });
 
-/**
- * Get bus statistics
- * 
- * @route GET /api/buses/stats
- * @access Public
- */
 exports.getBusStats = asyncHandler(async (req, res) => {
     const stats = await Bus.aggregate([
         {
@@ -219,23 +221,20 @@ exports.getBusStats = asyncHandler(async (req, res) => {
     });
 });
 
-/**
- * Check buses due for maintenance
- * 
- * @route GET /api/buses/maintenance/due
- * @access Private (Admin/Operator)
- */
 exports.getMaintenanceDue = asyncHandler(async (req, res) => {
     const buses = await Bus.find({
         nextMaintenance: { $lte: new Date() },
         status: { $ne: 'retired' },
     }).sort('nextMaintenance');
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         results: buses.length,
-        data: {
-            buses,
+        data: buses,
+        _links: {
+            self: { href: `${baseUrl}/buses/maintenance/due`, method: 'GET' },
+            collection: { href: `${baseUrl}/buses`, method: 'GET' },
         },
     });
 });

@@ -1,39 +1,12 @@
-/**
- * Route Controller
- * 
- * Handles all route-related operations for inter-provincial bus routes.
- * Implements full CRUD with filtering, sorting, and pagination.
- * 
- * @module controllers/routeController
- */
-
 const Route = require('../models/Route');
 const { ApiError } = require('../middleware/errorHandler');
 const { asyncHandler } = require('../middleware/auth');
 const APIFeatures = require('../utils/apiFeatures');
 const logger = require('../config/logger');
 
-/**
- * Get all routes with filtering, sorting, and pagination
- * 
- * @route GET /api/routes
- * @access Public
- * 
- * @query {string} origin - Filter by origin city
- * @query {string} destination - Filter by destination city
- * @query {string} status - Filter by status (active/inactive/suspended)
- * @query {number} distance[gte] - Filter by minimum distance
- * @query {number} distance[lte] - Filter by maximum distance
- * @query {string} sort - Sort fields (e.g., 'distance,-fare')
- * @query {number} page - Page number (default: 1)
- * @query {number} limit - Items per page (default: 10)
- * @query {string} fields - Select specific fields
- */
 exports.getAllRoutes = asyncHandler(async (req, res) => {
-    // Get total count for pagination
     const totalRoutes = await Route.countDocuments();
 
-    // Build query with filtering, sorting, pagination
     const features = new APIFeatures(Route.find(), req.query)
         .filter()
         .sort()
@@ -42,25 +15,44 @@ exports.getAllRoutes = asyncHandler(async (req, res) => {
 
     const routes = await features.query;
 
-    // Get pagination metadata
     const pagination = features.getPaginationMeta(totalRoutes);
 
-    res.status(200).json({
+    const lastModified = routes.length > 0
+        ? new Date(Math.max(...routes.map((r) => new Date(r.updatedAt || r.createdAt))))
+        : new Date();
+
+    res.set('Last-Modified', lastModified.toUTCString());
+
+    const ifModifiedSince = req.get('If-Modified-Since');
+    if (ifModifiedSince && new Date(ifModifiedSince) >= lastModified) {
+        return res.status(304).end();
+    }
+
+    const responseData = {
         status: 'success',
         results: routes.length,
         pagination,
-        data: {
-            routes,
-        },
-    });
+        data: routes,
+    };
+
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
+    responseData._links = {
+        self: { href: `${baseUrl}/routes`, method: 'GET' },
+        create: { href: `${baseUrl}/routes`, method: 'POST' },
+    };
+
+    if (pagination.page > 1) {
+        responseData._links.first = { href: `${baseUrl}/routes?page=1&limit=${pagination.limit}`, method: 'GET' };
+        responseData._links.prev = { href: `${baseUrl}/routes?page=${pagination.page - 1}&limit=${pagination.limit}`, method: 'GET' };
+    }
+    if (pagination.page < pagination.pages) {
+        responseData._links.next = { href: `${baseUrl}/routes?page=${pagination.page + 1}&limit=${pagination.limit}`, method: 'GET' };
+        responseData._links.last = { href: `${baseUrl}/routes?page=${pagination.pages}&limit=${pagination.limit}`, method: 'GET' };
+    }
+
+    res.status(200).json(responseData);
 });
 
-/**
- * Get single route by ID
- * 
- * @route GET /api/routes/:id
- * @access Public
- */
 exports.getRoute = asyncHandler(async (req, res) => {
     const route = await Route.findById(req.params.id);
 
@@ -68,40 +60,55 @@ exports.getRoute = asyncHandler(async (req, res) => {
         throw new ApiError('Route not found', 404);
     }
 
-    res.status(200).json({
+    const lastModified = new Date(route.updatedAt || route.createdAt);
+    res.set('Last-Modified', lastModified.toUTCString());
+
+    const ifModifiedSince = req.get('If-Modified-Since');
+    if (ifModifiedSince && new Date(ifModifiedSince) >= lastModified) {
+        return res.status(304).end();
+    }
+
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
+    const responseData = {
         status: 'success',
-        data: {
-            route,
+        data: route,
+        _links: {
+            self: { href: `${baseUrl}/routes/${route._id}`, method: 'GET' },
+            update: { href: `${baseUrl}/routes/${route._id}`, method: 'PUT' },
+            delete: { href: `${baseUrl}/routes/${route._id}`, method: 'DELETE' },
+            collection: { href: `${baseUrl}/routes`, method: 'GET' },
+            related: {
+                buses: { href: `${baseUrl}/buses?routeId=${route._id}`, method: 'GET' },
+                trips: { href: `${baseUrl}/trips/route/${route._id}`, method: 'GET' },
+            },
         },
-    });
+    };
+
+    res.status(200).json(responseData);
 });
 
-/**
- * Create new route
- * 
- * @route POST /api/routes
- * @access Private (Admin only)
- */
 exports.createRoute = asyncHandler(async (req, res) => {
     const route = await Route.create(req.body);
 
     logger.info(`New route created: ${route.routeNumber} by user ${req.user.email}`);
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
+    const resourceUrl = `${baseUrl}/routes/${route._id}`;
+    res.set('Content-Location', resourceUrl);
+
     res.status(201).json({
         status: 'success',
         message: 'Route created successfully',
-        data: {
-            route,
+        data: route,
+        _links: {
+            self: { href: resourceUrl, method: 'GET' },
+            update: { href: resourceUrl, method: 'PUT' },
+            delete: { href: resourceUrl, method: 'DELETE' },
+            collection: { href: `${baseUrl}/routes`, method: 'GET' },
         },
     });
 });
 
-/**
- * Update route
- * 
- * @route PUT /api/routes/:id
- * @access Private (Admin only)
- */
 exports.updateRoute = asyncHandler(async (req, res) => {
     const route = await Route.findByIdAndUpdate(
         req.params.id,
@@ -118,21 +125,20 @@ exports.updateRoute = asyncHandler(async (req, res) => {
 
     logger.info(`Route updated: ${route.routeNumber} by user ${req.user.email}`);
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         message: 'Route updated successfully',
-        data: {
-            route,
+        data: route,
+        _links: {
+            self: { href: `${baseUrl}/routes/${route._id}`, method: 'GET' },
+            update: { href: `${baseUrl}/routes/${route._id}`, method: 'PUT' },
+            delete: { href: `${baseUrl}/routes/${route._id}`, method: 'DELETE' },
+            collection: { href: `${baseUrl}/routes`, method: 'GET' },
         },
     });
 });
 
-/**
- * Delete route
- * 
- * @route DELETE /api/routes/:id
- * @access Private (Admin only)
- */
 exports.deleteRoute = asyncHandler(async (req, res) => {
     const route = await Route.findByIdAndDelete(req.params.id);
 
@@ -149,14 +155,6 @@ exports.deleteRoute = asyncHandler(async (req, res) => {
     });
 });
 
-/**
- * Get routes by origin and destination
- * 
- * @route GET /api/routes/search
- * @access Public
- * @query {string} origin - Origin city (required)
- * @query {string} destination - Destination city (required)
- */
 exports.searchRoutes = asyncHandler(async (req, res) => {
     const { origin, destination } = req.query;
 
@@ -170,21 +168,18 @@ exports.searchRoutes = asyncHandler(async (req, res) => {
         status: 'active',
     }).sort('distance');
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         results: routes.length,
-        data: {
-            routes,
+        data: routes,
+        _links: {
+            self: { href: `${baseUrl}/routes/search?origin=${origin}&destination=${destination}`, method: 'GET' },
+            collection: { href: `${baseUrl}/routes`, method: 'GET' },
         },
     });
 });
 
-/**
- * Get route statistics
- * 
- * @route GET /api/routes/stats
- * @access Public
- */
 exports.getRouteStats = asyncHandler(async (req, res) => {
     const stats = await Route.aggregate([
         {

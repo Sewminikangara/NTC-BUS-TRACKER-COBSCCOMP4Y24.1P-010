@@ -1,13 +1,4 @@
-/**
- * Bus Model
- * 
- * Represents individual buses operating on routes.
- * Contains bus details, capacity, and current status.
- * 
- * @module models/Bus
- */
-
-const mongoose = require('mongoose');
+﻿const mongoose = require('mongoose');
 
 const busSchema = new mongoose.Schema(
     {
@@ -79,19 +70,15 @@ const busSchema = new mongoose.Schema(
     },
 );
 
-// Compound indexes for performance
-busSchema.index({ registrationNumber: 1 });
 busSchema.index({ routeId: 1, status: 1 });
 busSchema.index({ operatorId: 1 });
 
-// Virtual for trips assigned to this bus
 busSchema.virtual('trips', {
     ref: 'Trip',
     localField: '_id',
     foreignField: 'busId',
 });
 
-// Virtual for location updates of this bus
 busSchema.virtual('locationUpdates', {
     ref: 'LocationUpdate',
     localField: '_id',
@@ -99,18 +86,12 @@ busSchema.virtual('locationUpdates', {
 });
 
 /**
- * Check if maintenance is due
- * 
- * @returns {boolean} True if maintenance is due
- */
 busSchema.methods.isMaintenanceDue = function () {
     if (!this.nextMaintenance) return false;
     return this.nextMaintenance <= new Date();
 };
 
 /**
- * Pre-save middleware to validate maintenance dates
- */
 busSchema.pre('save', function (next) {
     if (this.nextMaintenance && this.lastMaintenance) {
         if (this.nextMaintenance <= this.lastMaintenance) {
@@ -121,10 +102,7 @@ busSchema.pre('save', function (next) {
 });
 
 /**
- * Pre-find middleware to populate route and operator
- */
 busSchema.pre(/^find/, function (next) {
-    // Only populate if not already populating (to avoid circular references)
     if (!this.getOptions().skipPopulate) {
         this.populate({
             path: 'routeId',
@@ -140,3 +118,4 @@ busSchema.pre(/^find/, function (next) {
 const Bus = mongoose.model('Bus', busSchema);
 
 module.exports = Bus;
+

@@ -1,13 +1,4 @@
-/**
- * Trip Model
- * 
- * Represents scheduled trips for buses on specific routes.
- * Tracks trip timing, status, and assigned resources.
- * 
- * @module models/Trip
- */
-
-const mongoose = require('mongoose');
+﻿const mongoose = require('mongoose');
 
 const tripSchema = new mongoose.Schema(
     {
@@ -86,14 +77,11 @@ const tripSchema = new mongoose.Schema(
     },
 );
 
-// Compound indexes for performance
 tripSchema.index({ busId: 1, scheduledDepartureTime: 1 });
 tripSchema.index({ routeId: 1, scheduledDepartureTime: 1 });
 tripSchema.index({ status: 1 });
 tripSchema.index({ scheduledDepartureTime: 1 });
-tripSchema.index({ tripNumber: 1 });
 
-// Virtual for location updates during this trip
 tripSchema.virtual('locationUpdates', {
     ref: 'LocationUpdate',
     localField: 'busId',
@@ -101,10 +89,6 @@ tripSchema.virtual('locationUpdates', {
 });
 
 /**
- * Calculate delay in minutes
- * 
- * @returns {number|null} Delay in minutes, null if not departed
- */
 tripSchema.methods.getDelay = function () {
     if (!this.actualDepartureTime) return null;
 
@@ -115,40 +99,27 @@ tripSchema.methods.getDelay = function () {
 };
 
 /**
- * Check if trip is currently active
- * 
- * @returns {boolean} True if trip is in-transit or boarding
- */
 tripSchema.methods.isActive = function () {
     return ['boarding', 'in-transit'].includes(this.status);
 };
 
 /**
- * Check if trip is in the future
- * 
- * @returns {boolean} True if trip hasn't departed yet
- */
 tripSchema.methods.isFuture = function () {
     return this.scheduledDepartureTime > new Date();
 };
 
 /**
- * Pre-save middleware to validate dates
- */
 tripSchema.pre('save', function (next) {
-    // Validate scheduled times
     if (this.scheduledArrivalTime <= this.scheduledDepartureTime) {
         return next(new Error('Arrival time must be after departure time'));
     }
 
-    // Validate actual times if provided
     if (this.actualDepartureTime && this.actualArrivalTime) {
         if (this.actualArrivalTime <= this.actualDepartureTime) {
             return next(new Error('Actual arrival time must be after actual departure time'));
         }
     }
 
-    // Auto-set status based on times
     const now = new Date();
 
     if (this.actualArrivalTime && this.actualArrivalTime < now) {
@@ -163,8 +134,6 @@ tripSchema.pre('save', function (next) {
 });
 
 /**
- * Pre-find middleware to populate bus and route
- */
 tripSchema.pre(/^find/, function (next) {
     if (!this.getOptions().skipPopulate) {
         this.populate({
@@ -181,3 +150,4 @@ tripSchema.pre(/^find/, function (next) {
 const Trip = mongoose.model('Trip', tripSchema);
 
 module.exports = Trip;
+

@@ -1,0 +1,117 @@
+[
+  {
+    "name": "NTC Central",
+    "registrationNumber": "NTC-CENTRAL-001",
+    "contactPerson": {
+      "name": "Rajith Fernando",
+      "phone": "0112345678",
+      "email": "rajith@ntc.lk"
+    },
+    "address": {
+      "street": "No. 250, Olcott Mawatha",
+      "city": "Colombo",
+      "province": "Western",
+      "postalCode": "01100"
+    },
+    "status": "active",
+    "licenseNumber": "LIC-NTC-001",
+    "licenseExpiry": "2026-12-31T00:00:00.000Z",
+    "_id": "68e2018b0a047400d5606658",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.202Z",
+    "updatedAt": "2025-10-05T05:26:35.202Z",
+    "id": "68e2018b0a047400d5606658"
+  },
+  {
+    "name": "NTC Southern",
+    "registrationNumber": "NTC-SOUTHERN-001",
+    "contactPerson": {
+      "name": "Sunil Perera",
+      "phone": "0912234567",
+      "email": "sunil@ntcsouthern.lk"
+    },
+    "address": {
+      "street": "No. 15, Matara Road",
+      "city": "Galle",
+      "province": "Southern",
+      "postalCode": "80000"
+    },
+    "status": "active",
+    "licenseNumber": "LIC-NTC-002",
+    "licenseExpiry": "2027-03-15T00:00:00.000Z",
+    "_id": "68e2018b0a047400d5606659",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.202Z",
+    "updatedAt": "2025-10-05T05:26:35.202Z",
+    "id": "68e2018b0a047400d5606659"
+  },
+  {
+    "name": "SLTB Western",
+    "registrationNumber": "SLTB-WEST-001",
+    "contactPerson": {
+      "name": "Kamal Silva",
+      "phone": "0112876543",
+      "email": "kamal@sltb.gov.lk"
+    },
+    "address": {
+      "street": "No. 100, Baseline Road",
+      "city": "Colombo",
+      "province": "Western",
+      "postalCode": "00900"
+    },
+    "status": "active",
+    "licenseNumber": "LIC-SLTB-001",
+    "licenseExpiry": "2026-09-30T00:00:00.000Z",
+    "_id": "68e2018b0a047400d560665a",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.202Z",
+    "updatedAt": "2025-10-05T05:26:35.202Z",
+    "id": "68e2018b0a047400d560665a"
+  },
+  {
+    "name": "Express Pearl",
+    "registrationNumber": "EP-001",
+    "contactPerson": {
+      "name": "Nimal Jayasinghe",
+      "phone": "0777123456",
+      "email": "nimal@expresspearl.lk"
+    },
+    "address": {
+      "street": "No. 45, Kandy Road",
+      "city": "Kadawatha",
+      "province": "Western",
+      "postalCode": "11850"
+    },
+    "status": "active",
+    "licenseNumber": "LIC-EP-001",
+    "licenseExpiry": "2027-06-20T00:00:00.000Z",
+    "_id": "68e2018b0a047400d560665b",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.203Z",
+    "updatedAt": "2025-10-05T05:26:35.203Z",
+    "id": "68e2018b0a047400d560665b"
+  },
+  {
+    "name": "Comfort Line",
+    "registrationNumber": "CL-001",
+    "contactPerson": {
+      "name": "Anura Wickramasinghe",
+      "phone": "0771234567",
+      "email": "anura@comfortline.lk"
+    },
+    "address": {
+      "street": "No. 78, Galle Road",
+      "city": "Mount Lavinia",
+      "province": "Western",
+      "postalCode": "10370"
+    },
+    "status": "active",
+    "licenseNumber": "LIC-CL-001",
+    "licenseExpiry": "2026-11-10T00:00:00.000Z",
+    "_id": "68e2018b0a047400d560665c",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.203Z",
+    "updatedAt": "2025-10-05T05:26:35.203Z",
+    "id": "68e2018b0a047400d560665c"
+  }
+]

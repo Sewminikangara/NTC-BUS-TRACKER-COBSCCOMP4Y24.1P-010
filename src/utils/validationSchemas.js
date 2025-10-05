@@ -1,16 +1,8 @@
-/**
- * Validation Schemas
- * 
- * Joi validation schemas for request data validation.
- * 
- * @module utils/validationSchemas
- */
+﻿/**
 
 const Joi = require('joi');
 
 /**
- * Auth Validation Schemas
- */
 exports.registerSchema = {
     body: Joi.object({
         name: Joi.string().required().trim().max(50),
@@ -34,8 +26,6 @@ exports.loginSchema = {
 };
 
 /**
- * Route Validation Schemas
- */
 exports.createRouteSchema = {
     body: Joi.object({
         routeNumber: Joi.string().required().trim().uppercase(),
@@ -86,8 +76,6 @@ exports.updateRouteSchema = {
 };
 
 /**
- * Bus Validation Schemas
- */
 exports.createBusSchema = {
     body: Joi.object({
         registrationNumber: Joi.string()
@@ -138,8 +126,6 @@ exports.updateBusSchema = {
 };
 
 /**
- * Trip Validation Schemas
- */
 exports.createTripSchema = {
     body: Joi.object({
         tripNumber: Joi.string().required().trim().uppercase(),
@@ -178,8 +164,6 @@ exports.updateTripSchema = {
 };
 
 /**
- * Location Update Validation Schemas
- */
 exports.createLocationUpdateSchema = {
     body: Joi.object({
         busId: Joi.string().required().length(24).hex(),
@@ -196,8 +180,6 @@ exports.createLocationUpdateSchema = {
 };
 
 /**
- * Operator Validation Schemas
- */
 exports.createOperatorSchema = {
     body: Joi.object({
         name: Joi.string().required().trim(),
@@ -244,8 +226,6 @@ exports.updateOperatorSchema = {
 };
 
 /**
- * Common Parameter Validation
- */
 exports.idParamSchema = {
     params: Joi.object({
         id: Joi.string().required().length(24).hex(),
@@ -260,3 +240,4 @@ exports.querySchema = {
         fields: Joi.string(),
     }).unknown(true),
 };
+

@@ -6,13 +6,11 @@ const { createRouteSchema, updateRouteSchema, idParamSchema } = require('../util
 
 const router = express.Router();
 
-// Public routes
 router.get('/', routeController.getAllRoutes);
 router.get('/search', routeController.searchRoutes);
 router.get('/stats', routeController.getRouteStats);
 router.get('/:id', validate(idParamSchema), routeController.getRoute);
 
-// Protected routes (Admin only)
 router.use(protect);
 router.use(restrictTo('admin'));
 

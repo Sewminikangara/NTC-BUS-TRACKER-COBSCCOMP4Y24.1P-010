@@ -1,0 +1,4220 @@
+[
+  {
+    "tripNumber": "TRIP-0001",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-04T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T02:30:00.000Z",
+    "actualDepartureTime": "2025-10-04T23:30:00.000Z",
+    "status": "in-transit",
+    "driver": {
+      "name": "Driver 1",
+      "licenseNumber": "DL-1001",
+      "phone": "0771000001"
+    },
+    "fare": 350,
+    "estimatedPassengers": 21,
+    "_id": "68e2018b0a047400d560667c",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.786Z",
+    "updatedAt": "2025-10-05T05:26:35.786Z",
+    "id": "68e2018b0a047400d560667c"
+  },
+  {
+    "tripNumber": "TRIP-0002",
+    "busId": "68e2018b0a047400d560666a",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-05T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T06:00:00.000Z",
+    "actualDepartureTime": "2025-10-05T03:00:00.000Z",
+    "actualArrivalTime": "2025-10-05T06:00:00.000Z",
+    "status": "completed",
+    "driver": {
+      "name": "Driver 2",
+      "licenseNumber": "DL-1002",
+      "phone": "0771000002"
+    },
+    "fare": 350,
+    "estimatedPassengers": 22,
+    "_id": "68e2018b0a047400d560667d",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.786Z",
+    "updatedAt": "2025-10-05T05:26:35.786Z",
+    "id": "68e2018b0a047400d560667d"
+  },
+  {
+    "tripNumber": "TRIP-0003",
+    "busId": "68e2018b0a047400d5606670",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-05T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 3",
+      "licenseNumber": "DL-1003",
+      "phone": "0771000003"
+    },
+    "fare": 350,
+    "estimatedPassengers": 23,
+    "_id": "68e2018b0a047400d560667e",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.786Z",
+    "updatedAt": "2025-10-05T05:26:35.786Z",
+    "id": "68e2018b0a047400d560667e"
+  },
+  {
+    "tripNumber": "TRIP-0004",
+    "busId": "68e2018b0a047400d5606676",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-05T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 4",
+      "licenseNumber": "DL-1004",
+      "phone": "0771000004"
+    },
+    "fare": 350,
+    "estimatedPassengers": 24,
+    "_id": "68e2018b0a047400d560667f",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.786Z",
+    "updatedAt": "2025-10-05T05:26:35.786Z",
+    "id": "68e2018b0a047400d560667f"
+  },
+  {
+    "tripNumber": "TRIP-0005",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-05T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 5",
+      "licenseNumber": "DL-1005",
+      "phone": "0771000005"
+    },
+    "fare": 350,
+    "estimatedPassengers": 25,
+    "_id": "68e2018b0a047400d5606680",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.786Z",
+    "updatedAt": "2025-10-05T05:26:35.786Z",
+    "id": "68e2018b0a047400d5606680"
+  },
+  {
+    "tripNumber": "TRIP-0006",
+    "busId": "68e2018b0a047400d560665f",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-04T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T02:00:00.000Z",
+    "actualDepartureTime": "2025-10-04T23:30:00.000Z",
+    "status": "in-transit",
+    "driver": {
+      "name": "Driver 6",
+      "licenseNumber": "DL-1006",
+      "phone": "0771000006"
+    },
+    "fare": 320,
+    "estimatedPassengers": 26,
+    "_id": "68e2018b0a047400d5606681",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.786Z",
+    "updatedAt": "2025-10-05T05:26:35.786Z",
+    "id": "68e2018b0a047400d5606681"
+  },
+  {
+    "tripNumber": "TRIP-0007",
+    "busId": "68e2018b0a047400d5606665",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-05T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T05:30:00.000Z",
+    "actualDepartureTime": "2025-10-05T03:00:00.000Z",
+    "actualArrivalTime": "2025-10-05T05:30:00.000Z",
+    "status": "completed",
+    "driver": {
+      "name": "Driver 7",
+      "licenseNumber": "DL-1007",
+      "phone": "0771000007"
+    },
+    "fare": 320,
+    "estimatedPassengers": 27,
+    "_id": "68e2018b0a047400d5606682",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.786Z",
+    "updatedAt": "2025-10-05T05:26:35.786Z",
+    "id": "68e2018b0a047400d5606682"
+  },
+  {
+    "tripNumber": "TRIP-0008",
+    "busId": "68e2018b0a047400d560666b",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-05T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 8",
+      "licenseNumber": "DL-1008",
+      "phone": "0771000008"
+    },
+    "fare": 320,
+    "estimatedPassengers": 28,
+    "_id": "68e2018b0a047400d5606683",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.786Z",
+    "updatedAt": "2025-10-05T05:26:35.786Z",
+    "id": "68e2018b0a047400d5606683"
+  },
+  {
+    "tripNumber": "TRIP-0009",
+    "busId": "68e2018b0a047400d5606671",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-05T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 9",
+      "licenseNumber": "DL-1009",
+      "phone": "0771000009"
+    },
+    "fare": 320,
+    "estimatedPassengers": 29,
+    "_id": "68e2018b0a047400d5606684",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.786Z",
+    "updatedAt": "2025-10-05T05:26:35.786Z",
+    "id": "68e2018b0a047400d5606684"
+  },
+  {
+    "tripNumber": "TRIP-0010",
+    "busId": "68e2018b0a047400d5606677",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-05T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 10",
+      "licenseNumber": "DL-1010",
+      "phone": "0771000010"
+    },
+    "fare": 320,
+    "estimatedPassengers": 30,
+    "_id": "68e2018b0a047400d5606685",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.786Z",
+    "updatedAt": "2025-10-05T05:26:35.786Z",
+    "id": "68e2018b0a047400d5606685"
+  },
+  {
+    "tripNumber": "TRIP-0011",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-04T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T02:30:00.000Z",
+    "actualDepartureTime": "2025-10-04T23:30:00.000Z",
+    "status": "in-transit",
+    "driver": {
+      "name": "Driver 11",
+      "licenseNumber": "DL-1011",
+      "phone": "0771000011"
+    },
+    "fare": 420,
+    "estimatedPassengers": 31,
+    "_id": "68e2018b0a047400d5606686",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606686"
+  },
+  {
+    "tripNumber": "TRIP-0012",
+    "busId": "68e2018b0a047400d5606666",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-05T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T06:00:00.000Z",
+    "actualDepartureTime": "2025-10-05T03:00:00.000Z",
+    "actualArrivalTime": "2025-10-05T06:00:00.000Z",
+    "status": "completed",
+    "driver": {
+      "name": "Driver 12",
+      "licenseNumber": "DL-1012",
+      "phone": "0771000012"
+    },
+    "fare": 420,
+    "estimatedPassengers": 32,
+    "_id": "68e2018b0a047400d5606687",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606687"
+  },
+  {
+    "tripNumber": "TRIP-0013",
+    "busId": "68e2018b0a047400d560666c",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-05T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 13",
+      "licenseNumber": "DL-1013",
+      "phone": "0771000013"
+    },
+    "fare": 420,
+    "estimatedPassengers": 33,
+    "_id": "68e2018b0a047400d5606688",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606688"
+  },
+  {
+    "tripNumber": "TRIP-0014",
+    "busId": "68e2018b0a047400d5606678",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-05T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 14",
+      "licenseNumber": "DL-1014",
+      "phone": "0771000014"
+    },
+    "fare": 420,
+    "estimatedPassengers": 34,
+    "_id": "68e2018b0a047400d5606689",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606689"
+  },
+  {
+    "tripNumber": "TRIP-0015",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-05T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 15",
+      "licenseNumber": "DL-1015",
+      "phone": "0771000015"
+    },
+    "fare": 420,
+    "estimatedPassengers": 35,
+    "_id": "68e2018b0a047400d560668a",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d560668a"
+  },
+  {
+    "tripNumber": "TRIP-0016",
+    "busId": "68e2018b0a047400d5606661",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-04T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T07:30:00.000Z",
+    "actualDepartureTime": "2025-10-04T23:30:00.000Z",
+    "status": "in-transit",
+    "driver": {
+      "name": "Driver 16",
+      "licenseNumber": "DL-1016",
+      "phone": "0771000016"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 36,
+    "_id": "68e2018b0a047400d560668b",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d560668b"
+  },
+  {
+    "tripNumber": "TRIP-0017",
+    "busId": "68e2018b0a047400d5606667",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-05T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T11:00:00.000Z",
+    "actualDepartureTime": "2025-10-05T03:00:00.000Z",
+    "actualArrivalTime": "2025-10-05T11:00:00.000Z",
+    "status": "completed",
+    "driver": {
+      "name": "Driver 17",
+      "licenseNumber": "DL-1017",
+      "phone": "0771000017"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 37,
+    "_id": "68e2018b0a047400d560668c",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d560668c"
+  },
+  {
+    "tripNumber": "TRIP-0018",
+    "busId": "68e2018b0a047400d560666d",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-05T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T14:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 18",
+      "licenseNumber": "DL-1018",
+      "phone": "0771000018"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 38,
+    "_id": "68e2018b0a047400d560668d",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d560668d"
+  },
+  {
+    "tripNumber": "TRIP-0019",
+    "busId": "68e2018b0a047400d5606673",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-05T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T18:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 19",
+      "licenseNumber": "DL-1019",
+      "phone": "0771000019"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 39,
+    "_id": "68e2018b0a047400d560668e",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d560668e"
+  },
+  {
+    "tripNumber": "TRIP-0020",
+    "busId": "68e2018b0a047400d5606679",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-05T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T21:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 20",
+      "licenseNumber": "DL-1020",
+      "phone": "0771000020"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 40,
+    "_id": "68e2018b0a047400d560668f",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d560668f"
+  },
+  {
+    "tripNumber": "TRIP-0021",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-04T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T05:30:00.000Z",
+    "actualDepartureTime": "2025-10-04T23:30:00.000Z",
+    "status": "in-transit",
+    "driver": {
+      "name": "Driver 21",
+      "licenseNumber": "DL-1021",
+      "phone": "0771000021"
+    },
+    "fare": 950,
+    "estimatedPassengers": 41,
+    "_id": "68e2018b0a047400d5606690",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606690"
+  },
+  {
+    "tripNumber": "TRIP-0022",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-05T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T09:00:00.000Z",
+    "actualDepartureTime": "2025-10-05T03:00:00.000Z",
+    "actualArrivalTime": "2025-10-05T09:00:00.000Z",
+    "status": "completed",
+    "driver": {
+      "name": "Driver 22",
+      "licenseNumber": "DL-1022",
+      "phone": "0771000022"
+    },
+    "fare": 950,
+    "estimatedPassengers": 42,
+    "_id": "68e2018b0a047400d5606691",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606691"
+  },
+  {
+    "tripNumber": "TRIP-0023",
+    "busId": "68e2018b0a047400d5606674",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-05T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 23",
+      "licenseNumber": "DL-1023",
+      "phone": "0771000023"
+    },
+    "fare": 950,
+    "estimatedPassengers": 43,
+    "_id": "68e2018b0a047400d5606692",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606692"
+  },
+  {
+    "tripNumber": "TRIP-0024",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-05T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 24",
+      "licenseNumber": "DL-1024",
+      "phone": "0771000024"
+    },
+    "fare": 950,
+    "estimatedPassengers": 44,
+    "_id": "68e2018b0a047400d5606693",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606693"
+  },
+  {
+    "tripNumber": "TRIP-0025",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-05T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T19:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 25",
+      "licenseNumber": "DL-1025",
+      "phone": "0771000025"
+    },
+    "fare": 950,
+    "estimatedPassengers": 45,
+    "_id": "68e2018b0a047400d5606694",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606694"
+  },
+  {
+    "tripNumber": "TRIP-0026",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-04T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T04:30:00.000Z",
+    "actualDepartureTime": "2025-10-04T23:30:00.000Z",
+    "status": "in-transit",
+    "driver": {
+      "name": "Driver 26",
+      "licenseNumber": "DL-1026",
+      "phone": "0771000026"
+    },
+    "fare": 780,
+    "estimatedPassengers": 46,
+    "_id": "68e2018b0a047400d5606695",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606695"
+  },
+  {
+    "tripNumber": "TRIP-0027",
+    "busId": "68e2018b0a047400d5606669",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-05T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T08:00:00.000Z",
+    "actualDepartureTime": "2025-10-05T03:00:00.000Z",
+    "actualArrivalTime": "2025-10-05T08:00:00.000Z",
+    "status": "completed",
+    "driver": {
+      "name": "Driver 27",
+      "licenseNumber": "DL-1027",
+      "phone": "0771000027"
+    },
+    "fare": 780,
+    "estimatedPassengers": 47,
+    "_id": "68e2018b0a047400d5606696",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606696"
+  },
+  {
+    "tripNumber": "TRIP-0028",
+    "busId": "68e2018b0a047400d560666f",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-05T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T11:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 28",
+      "licenseNumber": "DL-1028",
+      "phone": "0771000028"
+    },
+    "fare": 780,
+    "estimatedPassengers": 48,
+    "_id": "68e2018b0a047400d5606697",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606697"
+  },
+  {
+    "tripNumber": "TRIP-0029",
+    "busId": "68e2018b0a047400d5606675",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-05T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T15:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 29",
+      "licenseNumber": "DL-1029",
+      "phone": "0771000029"
+    },
+    "fare": 780,
+    "estimatedPassengers": 49,
+    "_id": "68e2018b0a047400d5606698",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.787Z",
+    "updatedAt": "2025-10-05T05:26:35.787Z",
+    "id": "68e2018b0a047400d5606698"
+  },
+  {
+    "tripNumber": "TRIP-0030",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-05T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-05T18:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 30",
+      "licenseNumber": "DL-1030",
+      "phone": "0771000030"
+    },
+    "fare": 780,
+    "estimatedPassengers": 50,
+    "_id": "68e2018b0a047400d5606699",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d5606699"
+  },
+  {
+    "tripNumber": "TRIP-0031",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-05T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T02:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 31",
+      "licenseNumber": "DL-1031",
+      "phone": "0771000031"
+    },
+    "fare": 350,
+    "estimatedPassengers": 51,
+    "_id": "68e2018b0a047400d560669a",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d560669a"
+  },
+  {
+    "tripNumber": "TRIP-0032",
+    "busId": "68e2018b0a047400d560666a",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-06T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T06:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 32",
+      "licenseNumber": "DL-1032",
+      "phone": "0771000032"
+    },
+    "fare": 350,
+    "estimatedPassengers": 52,
+    "_id": "68e2018b0a047400d560669b",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d560669b"
+  },
+  {
+    "tripNumber": "TRIP-0033",
+    "busId": "68e2018b0a047400d5606670",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-06T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 33",
+      "licenseNumber": "DL-1033",
+      "phone": "0771000033"
+    },
+    "fare": 350,
+    "estimatedPassengers": 53,
+    "_id": "68e2018b0a047400d560669c",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d560669c"
+  },
+  {
+    "tripNumber": "TRIP-0034",
+    "busId": "68e2018b0a047400d5606676",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-06T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 34",
+      "licenseNumber": "DL-1034",
+      "phone": "0771000034"
+    },
+    "fare": 350,
+    "estimatedPassengers": 54,
+    "_id": "68e2018b0a047400d560669d",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d560669d"
+  },
+  {
+    "tripNumber": "TRIP-0035",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-06T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 35",
+      "licenseNumber": "DL-1035",
+      "phone": "0771000035"
+    },
+    "fare": 350,
+    "estimatedPassengers": 55,
+    "_id": "68e2018b0a047400d560669e",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d560669e"
+  },
+  {
+    "tripNumber": "TRIP-0036",
+    "busId": "68e2018b0a047400d560665f",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-05T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T02:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 36",
+      "licenseNumber": "DL-1036",
+      "phone": "0771000036"
+    },
+    "fare": 320,
+    "estimatedPassengers": 56,
+    "_id": "68e2018b0a047400d560669f",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d560669f"
+  },
+  {
+    "tripNumber": "TRIP-0037",
+    "busId": "68e2018b0a047400d5606665",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-06T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T05:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 37",
+      "licenseNumber": "DL-1037",
+      "phone": "0771000037"
+    },
+    "fare": 320,
+    "estimatedPassengers": 57,
+    "_id": "68e2018b0a047400d56066a0",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066a0"
+  },
+  {
+    "tripNumber": "TRIP-0038",
+    "busId": "68e2018b0a047400d560666b",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-06T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 38",
+      "licenseNumber": "DL-1038",
+      "phone": "0771000038"
+    },
+    "fare": 320,
+    "estimatedPassengers": 58,
+    "_id": "68e2018b0a047400d56066a1",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066a1"
+  },
+  {
+    "tripNumber": "TRIP-0039",
+    "busId": "68e2018b0a047400d5606671",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-06T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 39",
+      "licenseNumber": "DL-1039",
+      "phone": "0771000039"
+    },
+    "fare": 320,
+    "estimatedPassengers": 59,
+    "_id": "68e2018b0a047400d56066a2",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066a2"
+  },
+  {
+    "tripNumber": "TRIP-0040",
+    "busId": "68e2018b0a047400d5606677",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-06T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 40",
+      "licenseNumber": "DL-1040",
+      "phone": "0771000040"
+    },
+    "fare": 320,
+    "estimatedPassengers": 20,
+    "_id": "68e2018b0a047400d56066a3",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066a3"
+  },
+  {
+    "tripNumber": "TRIP-0041",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-05T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T02:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 41",
+      "licenseNumber": "DL-1041",
+      "phone": "0771000041"
+    },
+    "fare": 420,
+    "estimatedPassengers": 21,
+    "_id": "68e2018b0a047400d56066a4",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066a4"
+  },
+  {
+    "tripNumber": "TRIP-0042",
+    "busId": "68e2018b0a047400d5606666",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-06T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T06:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 42",
+      "licenseNumber": "DL-1042",
+      "phone": "0771000042"
+    },
+    "fare": 420,
+    "estimatedPassengers": 22,
+    "_id": "68e2018b0a047400d56066a5",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066a5"
+  },
+  {
+    "tripNumber": "TRIP-0043",
+    "busId": "68e2018b0a047400d560666c",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-06T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 43",
+      "licenseNumber": "DL-1043",
+      "phone": "0771000043"
+    },
+    "fare": 420,
+    "estimatedPassengers": 23,
+    "_id": "68e2018b0a047400d56066a6",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066a6"
+  },
+  {
+    "tripNumber": "TRIP-0044",
+    "busId": "68e2018b0a047400d5606678",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-06T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 44",
+      "licenseNumber": "DL-1044",
+      "phone": "0771000044"
+    },
+    "fare": 420,
+    "estimatedPassengers": 24,
+    "_id": "68e2018b0a047400d56066a7",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066a7"
+  },
+  {
+    "tripNumber": "TRIP-0045",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-06T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 45",
+      "licenseNumber": "DL-1045",
+      "phone": "0771000045"
+    },
+    "fare": 420,
+    "estimatedPassengers": 25,
+    "_id": "68e2018b0a047400d56066a8",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066a8"
+  },
+  {
+    "tripNumber": "TRIP-0046",
+    "busId": "68e2018b0a047400d5606661",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-05T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T07:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 46",
+      "licenseNumber": "DL-1046",
+      "phone": "0771000046"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 26,
+    "_id": "68e2018b0a047400d56066a9",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066a9"
+  },
+  {
+    "tripNumber": "TRIP-0047",
+    "busId": "68e2018b0a047400d5606667",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-06T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T11:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 47",
+      "licenseNumber": "DL-1047",
+      "phone": "0771000047"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 27,
+    "_id": "68e2018b0a047400d56066aa",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066aa"
+  },
+  {
+    "tripNumber": "TRIP-0048",
+    "busId": "68e2018b0a047400d560666d",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-06T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T14:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 48",
+      "licenseNumber": "DL-1048",
+      "phone": "0771000048"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 28,
+    "_id": "68e2018b0a047400d56066ab",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066ab"
+  },
+  {
+    "tripNumber": "TRIP-0049",
+    "busId": "68e2018b0a047400d5606673",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-06T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T18:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 49",
+      "licenseNumber": "DL-1049",
+      "phone": "0771000049"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 29,
+    "_id": "68e2018b0a047400d56066ac",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066ac"
+  },
+  {
+    "tripNumber": "TRIP-0050",
+    "busId": "68e2018b0a047400d5606679",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-06T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T21:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 50",
+      "licenseNumber": "DL-1050",
+      "phone": "0771000050"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 30,
+    "_id": "68e2018b0a047400d56066ad",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066ad"
+  },
+  {
+    "tripNumber": "TRIP-0051",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-05T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T05:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 51",
+      "licenseNumber": "DL-1051",
+      "phone": "0771000051"
+    },
+    "fare": 950,
+    "estimatedPassengers": 31,
+    "_id": "68e2018b0a047400d56066ae",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066ae"
+  },
+  {
+    "tripNumber": "TRIP-0052",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-06T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 52",
+      "licenseNumber": "DL-1052",
+      "phone": "0771000052"
+    },
+    "fare": 950,
+    "estimatedPassengers": 32,
+    "_id": "68e2018b0a047400d56066af",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066af"
+  },
+  {
+    "tripNumber": "TRIP-0053",
+    "busId": "68e2018b0a047400d5606674",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-06T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 53",
+      "licenseNumber": "DL-1053",
+      "phone": "0771000053"
+    },
+    "fare": 950,
+    "estimatedPassengers": 33,
+    "_id": "68e2018b0a047400d56066b0",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066b0"
+  },
+  {
+    "tripNumber": "TRIP-0054",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-06T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 54",
+      "licenseNumber": "DL-1054",
+      "phone": "0771000054"
+    },
+    "fare": 950,
+    "estimatedPassengers": 34,
+    "_id": "68e2018b0a047400d56066b1",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.788Z",
+    "updatedAt": "2025-10-05T05:26:35.788Z",
+    "id": "68e2018b0a047400d56066b1"
+  },
+  {
+    "tripNumber": "TRIP-0055",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-06T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T19:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 55",
+      "licenseNumber": "DL-1055",
+      "phone": "0771000055"
+    },
+    "fare": 950,
+    "estimatedPassengers": 35,
+    "_id": "68e2018b0a047400d56066b2",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.789Z",
+    "updatedAt": "2025-10-05T05:26:35.789Z",
+    "id": "68e2018b0a047400d56066b2"
+  },
+  {
+    "tripNumber": "TRIP-0056",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-05T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T04:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 56",
+      "licenseNumber": "DL-1056",
+      "phone": "0771000056"
+    },
+    "fare": 780,
+    "estimatedPassengers": 36,
+    "_id": "68e2018b0a047400d56066b3",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.789Z",
+    "updatedAt": "2025-10-05T05:26:35.789Z",
+    "id": "68e2018b0a047400d56066b3"
+  },
+  {
+    "tripNumber": "TRIP-0057",
+    "busId": "68e2018b0a047400d5606669",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-06T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T08:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 57",
+      "licenseNumber": "DL-1057",
+      "phone": "0771000057"
+    },
+    "fare": 780,
+    "estimatedPassengers": 37,
+    "_id": "68e2018b0a047400d56066b4",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.789Z",
+    "updatedAt": "2025-10-05T05:26:35.789Z",
+    "id": "68e2018b0a047400d56066b4"
+  },
+  {
+    "tripNumber": "TRIP-0058",
+    "busId": "68e2018b0a047400d560666f",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-06T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T11:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 58",
+      "licenseNumber": "DL-1058",
+      "phone": "0771000058"
+    },
+    "fare": 780,
+    "estimatedPassengers": 38,
+    "_id": "68e2018b0a047400d56066b5",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.789Z",
+    "updatedAt": "2025-10-05T05:26:35.789Z",
+    "id": "68e2018b0a047400d56066b5"
+  },
+  {
+    "tripNumber": "TRIP-0059",
+    "busId": "68e2018b0a047400d5606675",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-06T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T15:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 59",
+      "licenseNumber": "DL-1059",
+      "phone": "0771000059"
+    },
+    "fare": 780,
+    "estimatedPassengers": 39,
+    "_id": "68e2018b0a047400d56066b6",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.789Z",
+    "updatedAt": "2025-10-05T05:26:35.789Z",
+    "id": "68e2018b0a047400d56066b6"
+  },
+  {
+    "tripNumber": "TRIP-0060",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-06T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-06T18:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 60",
+      "licenseNumber": "DL-1060",
+      "phone": "0771000060"
+    },
+    "fare": 780,
+    "estimatedPassengers": 40,
+    "_id": "68e2018b0a047400d56066b7",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.789Z",
+    "updatedAt": "2025-10-05T05:26:35.789Z",
+    "id": "68e2018b0a047400d56066b7"
+  },
+  {
+    "tripNumber": "TRIP-0061",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-06T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T02:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 61",
+      "licenseNumber": "DL-1061",
+      "phone": "0771000061"
+    },
+    "fare": 350,
+    "estimatedPassengers": 41,
+    "_id": "68e2018b0a047400d56066b8",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.789Z",
+    "updatedAt": "2025-10-05T05:26:35.789Z",
+    "id": "68e2018b0a047400d56066b8"
+  },
+  {
+    "tripNumber": "TRIP-0062",
+    "busId": "68e2018b0a047400d560666a",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-07T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T06:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 62",
+      "licenseNumber": "DL-1062",
+      "phone": "0771000062"
+    },
+    "fare": 350,
+    "estimatedPassengers": 42,
+    "_id": "68e2018b0a047400d56066b9",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.789Z",
+    "updatedAt": "2025-10-05T05:26:35.789Z",
+    "id": "68e2018b0a047400d56066b9"
+  },
+  {
+    "tripNumber": "TRIP-0063",
+    "busId": "68e2018b0a047400d5606670",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-07T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 63",
+      "licenseNumber": "DL-1063",
+      "phone": "0771000063"
+    },
+    "fare": 350,
+    "estimatedPassengers": 43,
+    "_id": "68e2018b0a047400d56066ba",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.789Z",
+    "updatedAt": "2025-10-05T05:26:35.789Z",
+    "id": "68e2018b0a047400d56066ba"
+  },
+  {
+    "tripNumber": "TRIP-0064",
+    "busId": "68e2018b0a047400d5606676",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-07T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 64",
+      "licenseNumber": "DL-1064",
+      "phone": "0771000064"
+    },
+    "fare": 350,
+    "estimatedPassengers": 44,
+    "_id": "68e2018b0a047400d56066bb",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.789Z",
+    "updatedAt": "2025-10-05T05:26:35.789Z",
+    "id": "68e2018b0a047400d56066bb"
+  },
+  {
+    "tripNumber": "TRIP-0065",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-07T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 65",
+      "licenseNumber": "DL-1065",
+      "phone": "0771000065"
+    },
+    "fare": 350,
+    "estimatedPassengers": 45,
+    "_id": "68e2018b0a047400d56066bc",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.789Z",
+    "updatedAt": "2025-10-05T05:26:35.789Z",
+    "id": "68e2018b0a047400d56066bc"
+  },
+  {
+    "tripNumber": "TRIP-0066",
+    "busId": "68e2018b0a047400d560665f",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-06T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T02:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 66",
+      "licenseNumber": "DL-1066",
+      "phone": "0771000066"
+    },
+    "fare": 320,
+    "estimatedPassengers": 46,
+    "_id": "68e2018b0a047400d56066bd",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.789Z",
+    "updatedAt": "2025-10-05T05:26:35.789Z",
+    "id": "68e2018b0a047400d56066bd"
+  },
+  {
+    "tripNumber": "TRIP-0067",
+    "busId": "68e2018b0a047400d5606665",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-07T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T05:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 67",
+      "licenseNumber": "DL-1067",
+      "phone": "0771000067"
+    },
+    "fare": 320,
+    "estimatedPassengers": 47,
+    "_id": "68e2018b0a047400d56066be",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066be"
+  },
+  {
+    "tripNumber": "TRIP-0068",
+    "busId": "68e2018b0a047400d560666b",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-07T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 68",
+      "licenseNumber": "DL-1068",
+      "phone": "0771000068"
+    },
+    "fare": 320,
+    "estimatedPassengers": 48,
+    "_id": "68e2018b0a047400d56066bf",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066bf"
+  },
+  {
+    "tripNumber": "TRIP-0069",
+    "busId": "68e2018b0a047400d5606671",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-07T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 69",
+      "licenseNumber": "DL-1069",
+      "phone": "0771000069"
+    },
+    "fare": 320,
+    "estimatedPassengers": 49,
+    "_id": "68e2018b0a047400d56066c0",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066c0"
+  },
+  {
+    "tripNumber": "TRIP-0070",
+    "busId": "68e2018b0a047400d5606677",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-07T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 70",
+      "licenseNumber": "DL-1070",
+      "phone": "0771000070"
+    },
+    "fare": 320,
+    "estimatedPassengers": 50,
+    "_id": "68e2018b0a047400d56066c1",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066c1"
+  },
+  {
+    "tripNumber": "TRIP-0071",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-06T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T02:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 71",
+      "licenseNumber": "DL-1071",
+      "phone": "0771000071"
+    },
+    "fare": 420,
+    "estimatedPassengers": 51,
+    "_id": "68e2018b0a047400d56066c2",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066c2"
+  },
+  {
+    "tripNumber": "TRIP-0072",
+    "busId": "68e2018b0a047400d5606666",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-07T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T06:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 72",
+      "licenseNumber": "DL-1072",
+      "phone": "0771000072"
+    },
+    "fare": 420,
+    "estimatedPassengers": 52,
+    "_id": "68e2018b0a047400d56066c3",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066c3"
+  },
+  {
+    "tripNumber": "TRIP-0073",
+    "busId": "68e2018b0a047400d560666c",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-07T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 73",
+      "licenseNumber": "DL-1073",
+      "phone": "0771000073"
+    },
+    "fare": 420,
+    "estimatedPassengers": 53,
+    "_id": "68e2018b0a047400d56066c4",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066c4"
+  },
+  {
+    "tripNumber": "TRIP-0074",
+    "busId": "68e2018b0a047400d5606678",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-07T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 74",
+      "licenseNumber": "DL-1074",
+      "phone": "0771000074"
+    },
+    "fare": 420,
+    "estimatedPassengers": 54,
+    "_id": "68e2018b0a047400d56066c5",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066c5"
+  },
+  {
+    "tripNumber": "TRIP-0075",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-07T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 75",
+      "licenseNumber": "DL-1075",
+      "phone": "0771000075"
+    },
+    "fare": 420,
+    "estimatedPassengers": 55,
+    "_id": "68e2018b0a047400d56066c6",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066c6"
+  },
+  {
+    "tripNumber": "TRIP-0076",
+    "busId": "68e2018b0a047400d5606661",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-06T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T07:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 76",
+      "licenseNumber": "DL-1076",
+      "phone": "0771000076"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 56,
+    "_id": "68e2018b0a047400d56066c7",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066c7"
+  },
+  {
+    "tripNumber": "TRIP-0077",
+    "busId": "68e2018b0a047400d5606667",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-07T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T11:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 77",
+      "licenseNumber": "DL-1077",
+      "phone": "0771000077"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 57,
+    "_id": "68e2018b0a047400d56066c8",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066c8"
+  },
+  {
+    "tripNumber": "TRIP-0078",
+    "busId": "68e2018b0a047400d560666d",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-07T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T14:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 78",
+      "licenseNumber": "DL-1078",
+      "phone": "0771000078"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 58,
+    "_id": "68e2018b0a047400d56066c9",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066c9"
+  },
+  {
+    "tripNumber": "TRIP-0079",
+    "busId": "68e2018b0a047400d5606673",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-07T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T18:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 79",
+      "licenseNumber": "DL-1079",
+      "phone": "0771000079"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 59,
+    "_id": "68e2018b0a047400d56066ca",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066ca"
+  },
+  {
+    "tripNumber": "TRIP-0080",
+    "busId": "68e2018b0a047400d5606679",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-07T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T21:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 80",
+      "licenseNumber": "DL-1080",
+      "phone": "0771000080"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 20,
+    "_id": "68e2018b0a047400d56066cb",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066cb"
+  },
+  {
+    "tripNumber": "TRIP-0081",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-06T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T05:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 81",
+      "licenseNumber": "DL-1081",
+      "phone": "0771000081"
+    },
+    "fare": 950,
+    "estimatedPassengers": 21,
+    "_id": "68e2018b0a047400d56066cc",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066cc"
+  },
+  {
+    "tripNumber": "TRIP-0082",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-07T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 82",
+      "licenseNumber": "DL-1082",
+      "phone": "0771000082"
+    },
+    "fare": 950,
+    "estimatedPassengers": 22,
+    "_id": "68e2018b0a047400d56066cd",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066cd"
+  },
+  {
+    "tripNumber": "TRIP-0083",
+    "busId": "68e2018b0a047400d5606674",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-07T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 83",
+      "licenseNumber": "DL-1083",
+      "phone": "0771000083"
+    },
+    "fare": 950,
+    "estimatedPassengers": 23,
+    "_id": "68e2018b0a047400d56066ce",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066ce"
+  },
+  {
+    "tripNumber": "TRIP-0084",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-07T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 84",
+      "licenseNumber": "DL-1084",
+      "phone": "0771000084"
+    },
+    "fare": 950,
+    "estimatedPassengers": 24,
+    "_id": "68e2018b0a047400d56066cf",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066cf"
+  },
+  {
+    "tripNumber": "TRIP-0085",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-07T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T19:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 85",
+      "licenseNumber": "DL-1085",
+      "phone": "0771000085"
+    },
+    "fare": 950,
+    "estimatedPassengers": 25,
+    "_id": "68e2018b0a047400d56066d0",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066d0"
+  },
+  {
+    "tripNumber": "TRIP-0086",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-06T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T04:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 86",
+      "licenseNumber": "DL-1086",
+      "phone": "0771000086"
+    },
+    "fare": 780,
+    "estimatedPassengers": 26,
+    "_id": "68e2018b0a047400d56066d1",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066d1"
+  },
+  {
+    "tripNumber": "TRIP-0087",
+    "busId": "68e2018b0a047400d5606669",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-07T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T08:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 87",
+      "licenseNumber": "DL-1087",
+      "phone": "0771000087"
+    },
+    "fare": 780,
+    "estimatedPassengers": 27,
+    "_id": "68e2018b0a047400d56066d2",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066d2"
+  },
+  {
+    "tripNumber": "TRIP-0088",
+    "busId": "68e2018b0a047400d560666f",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-07T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T11:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 88",
+      "licenseNumber": "DL-1088",
+      "phone": "0771000088"
+    },
+    "fare": 780,
+    "estimatedPassengers": 28,
+    "_id": "68e2018b0a047400d56066d3",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066d3"
+  },
+  {
+    "tripNumber": "TRIP-0089",
+    "busId": "68e2018b0a047400d5606675",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-07T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T15:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 89",
+      "licenseNumber": "DL-1089",
+      "phone": "0771000089"
+    },
+    "fare": 780,
+    "estimatedPassengers": 29,
+    "_id": "68e2018b0a047400d56066d4",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066d4"
+  },
+  {
+    "tripNumber": "TRIP-0090",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-07T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-07T18:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 90",
+      "licenseNumber": "DL-1090",
+      "phone": "0771000090"
+    },
+    "fare": 780,
+    "estimatedPassengers": 30,
+    "_id": "68e2018b0a047400d56066d5",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066d5"
+  },
+  {
+    "tripNumber": "TRIP-0091",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-07T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T02:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 91",
+      "licenseNumber": "DL-1091",
+      "phone": "0771000091"
+    },
+    "fare": 350,
+    "estimatedPassengers": 31,
+    "_id": "68e2018b0a047400d56066d6",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066d6"
+  },
+  {
+    "tripNumber": "TRIP-0092",
+    "busId": "68e2018b0a047400d560666a",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-08T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T06:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 92",
+      "licenseNumber": "DL-1092",
+      "phone": "0771000092"
+    },
+    "fare": 350,
+    "estimatedPassengers": 32,
+    "_id": "68e2018b0a047400d56066d7",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.790Z",
+    "updatedAt": "2025-10-05T05:26:35.790Z",
+    "id": "68e2018b0a047400d56066d7"
+  },
+  {
+    "tripNumber": "TRIP-0093",
+    "busId": "68e2018b0a047400d5606670",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-08T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 93",
+      "licenseNumber": "DL-1093",
+      "phone": "0771000093"
+    },
+    "fare": 350,
+    "estimatedPassengers": 33,
+    "_id": "68e2018b0a047400d56066d8",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.791Z",
+    "updatedAt": "2025-10-05T05:26:35.791Z",
+    "id": "68e2018b0a047400d56066d8"
+  },
+  {
+    "tripNumber": "TRIP-0094",
+    "busId": "68e2018b0a047400d5606676",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-08T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 94",
+      "licenseNumber": "DL-1094",
+      "phone": "0771000094"
+    },
+    "fare": 350,
+    "estimatedPassengers": 34,
+    "_id": "68e2018b0a047400d56066d9",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.791Z",
+    "updatedAt": "2025-10-05T05:26:35.791Z",
+    "id": "68e2018b0a047400d56066d9"
+  },
+  {
+    "tripNumber": "TRIP-0095",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-08T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 95",
+      "licenseNumber": "DL-1095",
+      "phone": "0771000095"
+    },
+    "fare": 350,
+    "estimatedPassengers": 35,
+    "_id": "68e2018b0a047400d56066da",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.791Z",
+    "updatedAt": "2025-10-05T05:26:35.791Z",
+    "id": "68e2018b0a047400d56066da"
+  },
+  {
+    "tripNumber": "TRIP-0096",
+    "busId": "68e2018b0a047400d560665f",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-07T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T02:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 96",
+      "licenseNumber": "DL-1096",
+      "phone": "0771000096"
+    },
+    "fare": 320,
+    "estimatedPassengers": 36,
+    "_id": "68e2018b0a047400d56066db",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.791Z",
+    "updatedAt": "2025-10-05T05:26:35.791Z",
+    "id": "68e2018b0a047400d56066db"
+  },
+  {
+    "tripNumber": "TRIP-0097",
+    "busId": "68e2018b0a047400d5606665",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-08T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T05:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 97",
+      "licenseNumber": "DL-1097",
+      "phone": "0771000097"
+    },
+    "fare": 320,
+    "estimatedPassengers": 37,
+    "_id": "68e2018b0a047400d56066dc",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.791Z",
+    "updatedAt": "2025-10-05T05:26:35.791Z",
+    "id": "68e2018b0a047400d56066dc"
+  },
+  {
+    "tripNumber": "TRIP-0098",
+    "busId": "68e2018b0a047400d560666b",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-08T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 98",
+      "licenseNumber": "DL-1098",
+      "phone": "0771000098"
+    },
+    "fare": 320,
+    "estimatedPassengers": 38,
+    "_id": "68e2018b0a047400d56066dd",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.791Z",
+    "updatedAt": "2025-10-05T05:26:35.791Z",
+    "id": "68e2018b0a047400d56066dd"
+  },
+  {
+    "tripNumber": "TRIP-0099",
+    "busId": "68e2018b0a047400d5606671",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-08T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 99",
+      "licenseNumber": "DL-1099",
+      "phone": "0771000099"
+    },
+    "fare": 320,
+    "estimatedPassengers": 39,
+    "_id": "68e2018b0a047400d56066de",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.791Z",
+    "updatedAt": "2025-10-05T05:26:35.791Z",
+    "id": "68e2018b0a047400d56066de"
+  },
+  {
+    "tripNumber": "TRIP-0100",
+    "busId": "68e2018b0a047400d5606677",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-08T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 100",
+      "licenseNumber": "DL-1100",
+      "phone": "0771000100"
+    },
+    "fare": 320,
+    "estimatedPassengers": 40,
+    "_id": "68e2018b0a047400d56066df",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.791Z",
+    "updatedAt": "2025-10-05T05:26:35.791Z",
+    "id": "68e2018b0a047400d56066df"
+  },
+  {
+    "tripNumber": "TRIP-0101",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-07T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T02:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 101",
+      "licenseNumber": "DL-1101",
+      "phone": "0771000101"
+    },
+    "fare": 420,
+    "estimatedPassengers": 41,
+    "_id": "68e2018b0a047400d56066e0",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.791Z",
+    "updatedAt": "2025-10-05T05:26:35.791Z",
+    "id": "68e2018b0a047400d56066e0"
+  },
+  {
+    "tripNumber": "TRIP-0102",
+    "busId": "68e2018b0a047400d5606666",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-08T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T06:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 102",
+      "licenseNumber": "DL-1102",
+      "phone": "0771000102"
+    },
+    "fare": 420,
+    "estimatedPassengers": 42,
+    "_id": "68e2018b0a047400d56066e1",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.791Z",
+    "updatedAt": "2025-10-05T05:26:35.791Z",
+    "id": "68e2018b0a047400d56066e1"
+  },
+  {
+    "tripNumber": "TRIP-0103",
+    "busId": "68e2018b0a047400d560666c",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-08T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 103",
+      "licenseNumber": "DL-1103",
+      "phone": "0771000103"
+    },
+    "fare": 420,
+    "estimatedPassengers": 43,
+    "_id": "68e2018b0a047400d56066e2",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.791Z",
+    "updatedAt": "2025-10-05T05:26:35.791Z",
+    "id": "68e2018b0a047400d56066e2"
+  },
+  {
+    "tripNumber": "TRIP-0104",
+    "busId": "68e2018b0a047400d5606678",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-08T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 104",
+      "licenseNumber": "DL-1104",
+      "phone": "0771000104"
+    },
+    "fare": 420,
+    "estimatedPassengers": 44,
+    "_id": "68e2018b0a047400d56066e3",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.791Z",
+    "updatedAt": "2025-10-05T05:26:35.791Z",
+    "id": "68e2018b0a047400d56066e3"
+  },
+  {
+    "tripNumber": "TRIP-0105",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-08T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 105",
+      "licenseNumber": "DL-1105",
+      "phone": "0771000105"
+    },
+    "fare": 420,
+    "estimatedPassengers": 45,
+    "_id": "68e2018b0a047400d56066e4",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066e4"
+  },
+  {
+    "tripNumber": "TRIP-0106",
+    "busId": "68e2018b0a047400d5606661",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-07T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T07:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 106",
+      "licenseNumber": "DL-1106",
+      "phone": "0771000106"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 46,
+    "_id": "68e2018b0a047400d56066e5",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066e5"
+  },
+  {
+    "tripNumber": "TRIP-0107",
+    "busId": "68e2018b0a047400d5606667",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-08T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T11:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 107",
+      "licenseNumber": "DL-1107",
+      "phone": "0771000107"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 47,
+    "_id": "68e2018b0a047400d56066e6",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066e6"
+  },
+  {
+    "tripNumber": "TRIP-0108",
+    "busId": "68e2018b0a047400d560666d",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-08T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T14:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 108",
+      "licenseNumber": "DL-1108",
+      "phone": "0771000108"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 48,
+    "_id": "68e2018b0a047400d56066e7",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066e7"
+  },
+  {
+    "tripNumber": "TRIP-0109",
+    "busId": "68e2018b0a047400d5606673",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-08T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T18:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 109",
+      "licenseNumber": "DL-1109",
+      "phone": "0771000109"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 49,
+    "_id": "68e2018b0a047400d56066e8",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066e8"
+  },
+  {
+    "tripNumber": "TRIP-0110",
+    "busId": "68e2018b0a047400d5606679",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-08T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T21:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 110",
+      "licenseNumber": "DL-1110",
+      "phone": "0771000110"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 50,
+    "_id": "68e2018b0a047400d56066e9",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066e9"
+  },
+  {
+    "tripNumber": "TRIP-0111",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-07T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T05:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 111",
+      "licenseNumber": "DL-1111",
+      "phone": "0771000111"
+    },
+    "fare": 950,
+    "estimatedPassengers": 51,
+    "_id": "68e2018b0a047400d56066ea",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066ea"
+  },
+  {
+    "tripNumber": "TRIP-0112",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-08T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 112",
+      "licenseNumber": "DL-1112",
+      "phone": "0771000112"
+    },
+    "fare": 950,
+    "estimatedPassengers": 52,
+    "_id": "68e2018b0a047400d56066eb",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066eb"
+  },
+  {
+    "tripNumber": "TRIP-0113",
+    "busId": "68e2018b0a047400d5606674",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-08T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 113",
+      "licenseNumber": "DL-1113",
+      "phone": "0771000113"
+    },
+    "fare": 950,
+    "estimatedPassengers": 53,
+    "_id": "68e2018b0a047400d56066ec",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066ec"
+  },
+  {
+    "tripNumber": "TRIP-0114",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-08T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 114",
+      "licenseNumber": "DL-1114",
+      "phone": "0771000114"
+    },
+    "fare": 950,
+    "estimatedPassengers": 54,
+    "_id": "68e2018b0a047400d56066ed",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066ed"
+  },
+  {
+    "tripNumber": "TRIP-0115",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-08T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T19:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 115",
+      "licenseNumber": "DL-1115",
+      "phone": "0771000115"
+    },
+    "fare": 950,
+    "estimatedPassengers": 55,
+    "_id": "68e2018b0a047400d56066ee",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066ee"
+  },
+  {
+    "tripNumber": "TRIP-0116",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-07T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T04:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 116",
+      "licenseNumber": "DL-1116",
+      "phone": "0771000116"
+    },
+    "fare": 780,
+    "estimatedPassengers": 56,
+    "_id": "68e2018b0a047400d56066ef",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066ef"
+  },
+  {
+    "tripNumber": "TRIP-0117",
+    "busId": "68e2018b0a047400d5606669",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-08T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T08:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 117",
+      "licenseNumber": "DL-1117",
+      "phone": "0771000117"
+    },
+    "fare": 780,
+    "estimatedPassengers": 57,
+    "_id": "68e2018b0a047400d56066f0",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066f0"
+  },
+  {
+    "tripNumber": "TRIP-0118",
+    "busId": "68e2018b0a047400d560666f",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-08T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T11:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 118",
+      "licenseNumber": "DL-1118",
+      "phone": "0771000118"
+    },
+    "fare": 780,
+    "estimatedPassengers": 58,
+    "_id": "68e2018b0a047400d56066f1",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066f1"
+  },
+  {
+    "tripNumber": "TRIP-0119",
+    "busId": "68e2018b0a047400d5606675",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-08T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T15:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 119",
+      "licenseNumber": "DL-1119",
+      "phone": "0771000119"
+    },
+    "fare": 780,
+    "estimatedPassengers": 59,
+    "_id": "68e2018b0a047400d56066f2",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066f2"
+  },
+  {
+    "tripNumber": "TRIP-0120",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-08T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-08T18:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 120",
+      "licenseNumber": "DL-1120",
+      "phone": "0771000120"
+    },
+    "fare": 780,
+    "estimatedPassengers": 20,
+    "_id": "68e2018b0a047400d56066f3",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066f3"
+  },
+  {
+    "tripNumber": "TRIP-0121",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-08T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T02:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 121",
+      "licenseNumber": "DL-1121",
+      "phone": "0771000121"
+    },
+    "fare": 350,
+    "estimatedPassengers": 21,
+    "_id": "68e2018b0a047400d56066f4",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066f4"
+  },
+  {
+    "tripNumber": "TRIP-0122",
+    "busId": "68e2018b0a047400d560666a",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-09T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T06:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 122",
+      "licenseNumber": "DL-1122",
+      "phone": "0771000122"
+    },
+    "fare": 350,
+    "estimatedPassengers": 22,
+    "_id": "68e2018b0a047400d56066f5",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066f5"
+  },
+  {
+    "tripNumber": "TRIP-0123",
+    "busId": "68e2018b0a047400d5606670",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-09T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 123",
+      "licenseNumber": "DL-1123",
+      "phone": "0771000123"
+    },
+    "fare": 350,
+    "estimatedPassengers": 23,
+    "_id": "68e2018b0a047400d56066f6",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066f6"
+  },
+  {
+    "tripNumber": "TRIP-0124",
+    "busId": "68e2018b0a047400d5606676",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-09T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 124",
+      "licenseNumber": "DL-1124",
+      "phone": "0771000124"
+    },
+    "fare": 350,
+    "estimatedPassengers": 24,
+    "_id": "68e2018b0a047400d56066f7",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066f7"
+  },
+  {
+    "tripNumber": "TRIP-0125",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-09T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 125",
+      "licenseNumber": "DL-1125",
+      "phone": "0771000125"
+    },
+    "fare": 350,
+    "estimatedPassengers": 25,
+    "_id": "68e2018b0a047400d56066f8",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066f8"
+  },
+  {
+    "tripNumber": "TRIP-0126",
+    "busId": "68e2018b0a047400d560665f",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-08T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T02:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 126",
+      "licenseNumber": "DL-1126",
+      "phone": "0771000126"
+    },
+    "fare": 320,
+    "estimatedPassengers": 26,
+    "_id": "68e2018b0a047400d56066f9",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066f9"
+  },
+  {
+    "tripNumber": "TRIP-0127",
+    "busId": "68e2018b0a047400d5606665",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-09T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T05:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 127",
+      "licenseNumber": "DL-1127",
+      "phone": "0771000127"
+    },
+    "fare": 320,
+    "estimatedPassengers": 27,
+    "_id": "68e2018b0a047400d56066fa",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.792Z",
+    "updatedAt": "2025-10-05T05:26:35.792Z",
+    "id": "68e2018b0a047400d56066fa"
+  },
+  {
+    "tripNumber": "TRIP-0128",
+    "busId": "68e2018b0a047400d560666b",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-09T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 128",
+      "licenseNumber": "DL-1128",
+      "phone": "0771000128"
+    },
+    "fare": 320,
+    "estimatedPassengers": 28,
+    "_id": "68e2018b0a047400d56066fb",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d56066fb"
+  },
+  {
+    "tripNumber": "TRIP-0129",
+    "busId": "68e2018b0a047400d5606671",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-09T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 129",
+      "licenseNumber": "DL-1129",
+      "phone": "0771000129"
+    },
+    "fare": 320,
+    "estimatedPassengers": 29,
+    "_id": "68e2018b0a047400d56066fc",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d56066fc"
+  },
+  {
+    "tripNumber": "TRIP-0130",
+    "busId": "68e2018b0a047400d5606677",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-09T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 130",
+      "licenseNumber": "DL-1130",
+      "phone": "0771000130"
+    },
+    "fare": 320,
+    "estimatedPassengers": 30,
+    "_id": "68e2018b0a047400d56066fd",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d56066fd"
+  },
+  {
+    "tripNumber": "TRIP-0131",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-08T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T02:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 131",
+      "licenseNumber": "DL-1131",
+      "phone": "0771000131"
+    },
+    "fare": 420,
+    "estimatedPassengers": 31,
+    "_id": "68e2018b0a047400d56066fe",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d56066fe"
+  },
+  {
+    "tripNumber": "TRIP-0132",
+    "busId": "68e2018b0a047400d5606666",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-09T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T06:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 132",
+      "licenseNumber": "DL-1132",
+      "phone": "0771000132"
+    },
+    "fare": 420,
+    "estimatedPassengers": 32,
+    "_id": "68e2018b0a047400d56066ff",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d56066ff"
+  },
+  {
+    "tripNumber": "TRIP-0133",
+    "busId": "68e2018b0a047400d560666c",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-09T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 133",
+      "licenseNumber": "DL-1133",
+      "phone": "0771000133"
+    },
+    "fare": 420,
+    "estimatedPassengers": 33,
+    "_id": "68e2018b0a047400d5606700",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d5606700"
+  },
+  {
+    "tripNumber": "TRIP-0134",
+    "busId": "68e2018b0a047400d5606678",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-09T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 134",
+      "licenseNumber": "DL-1134",
+      "phone": "0771000134"
+    },
+    "fare": 420,
+    "estimatedPassengers": 34,
+    "_id": "68e2018b0a047400d5606701",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d5606701"
+  },
+  {
+    "tripNumber": "TRIP-0135",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-09T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 135",
+      "licenseNumber": "DL-1135",
+      "phone": "0771000135"
+    },
+    "fare": 420,
+    "estimatedPassengers": 35,
+    "_id": "68e2018b0a047400d5606702",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d5606702"
+  },
+  {
+    "tripNumber": "TRIP-0136",
+    "busId": "68e2018b0a047400d5606661",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-08T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T07:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 136",
+      "licenseNumber": "DL-1136",
+      "phone": "0771000136"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 36,
+    "_id": "68e2018b0a047400d5606703",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d5606703"
+  },
+  {
+    "tripNumber": "TRIP-0137",
+    "busId": "68e2018b0a047400d5606667",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-09T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T11:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 137",
+      "licenseNumber": "DL-1137",
+      "phone": "0771000137"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 37,
+    "_id": "68e2018b0a047400d5606704",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d5606704"
+  },
+  {
+    "tripNumber": "TRIP-0138",
+    "busId": "68e2018b0a047400d560666d",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-09T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T14:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 138",
+      "licenseNumber": "DL-1138",
+      "phone": "0771000138"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 38,
+    "_id": "68e2018b0a047400d5606705",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d5606705"
+  },
+  {
+    "tripNumber": "TRIP-0139",
+    "busId": "68e2018b0a047400d5606673",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-09T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T18:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 139",
+      "licenseNumber": "DL-1139",
+      "phone": "0771000139"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 39,
+    "_id": "68e2018b0a047400d5606706",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d5606706"
+  },
+  {
+    "tripNumber": "TRIP-0140",
+    "busId": "68e2018b0a047400d5606679",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-09T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T21:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 140",
+      "licenseNumber": "DL-1140",
+      "phone": "0771000140"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 40,
+    "_id": "68e2018b0a047400d5606707",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d5606707"
+  },
+  {
+    "tripNumber": "TRIP-0141",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-08T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T05:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 141",
+      "licenseNumber": "DL-1141",
+      "phone": "0771000141"
+    },
+    "fare": 950,
+    "estimatedPassengers": 41,
+    "_id": "68e2018b0a047400d5606708",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d5606708"
+  },
+  {
+    "tripNumber": "TRIP-0142",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-09T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 142",
+      "licenseNumber": "DL-1142",
+      "phone": "0771000142"
+    },
+    "fare": 950,
+    "estimatedPassengers": 42,
+    "_id": "68e2018b0a047400d5606709",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d5606709"
+  },
+  {
+    "tripNumber": "TRIP-0143",
+    "busId": "68e2018b0a047400d5606674",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-09T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 143",
+      "licenseNumber": "DL-1143",
+      "phone": "0771000143"
+    },
+    "fare": 950,
+    "estimatedPassengers": 43,
+    "_id": "68e2018b0a047400d560670a",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d560670a"
+  },
+  {
+    "tripNumber": "TRIP-0144",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-09T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 144",
+      "licenseNumber": "DL-1144",
+      "phone": "0771000144"
+    },
+    "fare": 950,
+    "estimatedPassengers": 44,
+    "_id": "68e2018b0a047400d560670b",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d560670b"
+  },
+  {
+    "tripNumber": "TRIP-0145",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-09T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T19:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 145",
+      "licenseNumber": "DL-1145",
+      "phone": "0771000145"
+    },
+    "fare": 950,
+    "estimatedPassengers": 45,
+    "_id": "68e2018b0a047400d560670c",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d560670c"
+  },
+  {
+    "tripNumber": "TRIP-0146",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-08T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T04:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 146",
+      "licenseNumber": "DL-1146",
+      "phone": "0771000146"
+    },
+    "fare": 780,
+    "estimatedPassengers": 46,
+    "_id": "68e2018b0a047400d560670d",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d560670d"
+  },
+  {
+    "tripNumber": "TRIP-0147",
+    "busId": "68e2018b0a047400d5606669",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-09T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T08:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 147",
+      "licenseNumber": "DL-1147",
+      "phone": "0771000147"
+    },
+    "fare": 780,
+    "estimatedPassengers": 47,
+    "_id": "68e2018b0a047400d560670e",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d560670e"
+  },
+  {
+    "tripNumber": "TRIP-0148",
+    "busId": "68e2018b0a047400d560666f",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-09T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T11:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 148",
+      "licenseNumber": "DL-1148",
+      "phone": "0771000148"
+    },
+    "fare": 780,
+    "estimatedPassengers": 48,
+    "_id": "68e2018b0a047400d560670f",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.793Z",
+    "updatedAt": "2025-10-05T05:26:35.793Z",
+    "id": "68e2018b0a047400d560670f"
+  },
+  {
+    "tripNumber": "TRIP-0149",
+    "busId": "68e2018b0a047400d5606675",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-09T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T15:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 149",
+      "licenseNumber": "DL-1149",
+      "phone": "0771000149"
+    },
+    "fare": 780,
+    "estimatedPassengers": 49,
+    "_id": "68e2018b0a047400d5606710",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d5606710"
+  },
+  {
+    "tripNumber": "TRIP-0150",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-09T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-09T18:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 150",
+      "licenseNumber": "DL-1150",
+      "phone": "0771000150"
+    },
+    "fare": 780,
+    "estimatedPassengers": 50,
+    "_id": "68e2018b0a047400d5606711",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d5606711"
+  },
+  {
+    "tripNumber": "TRIP-0151",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-09T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T02:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 151",
+      "licenseNumber": "DL-1151",
+      "phone": "0771000151"
+    },
+    "fare": 350,
+    "estimatedPassengers": 51,
+    "_id": "68e2018b0a047400d5606712",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d5606712"
+  },
+  {
+    "tripNumber": "TRIP-0152",
+    "busId": "68e2018b0a047400d560666a",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-10T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T06:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 152",
+      "licenseNumber": "DL-1152",
+      "phone": "0771000152"
+    },
+    "fare": 350,
+    "estimatedPassengers": 52,
+    "_id": "68e2018b0a047400d5606713",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d5606713"
+  },
+  {
+    "tripNumber": "TRIP-0153",
+    "busId": "68e2018b0a047400d5606670",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-10T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 153",
+      "licenseNumber": "DL-1153",
+      "phone": "0771000153"
+    },
+    "fare": 350,
+    "estimatedPassengers": 53,
+    "_id": "68e2018b0a047400d5606714",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d5606714"
+  },
+  {
+    "tripNumber": "TRIP-0154",
+    "busId": "68e2018b0a047400d5606676",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-10T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 154",
+      "licenseNumber": "DL-1154",
+      "phone": "0771000154"
+    },
+    "fare": 350,
+    "estimatedPassengers": 54,
+    "_id": "68e2018b0a047400d5606715",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d5606715"
+  },
+  {
+    "tripNumber": "TRIP-0155",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-10T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 155",
+      "licenseNumber": "DL-1155",
+      "phone": "0771000155"
+    },
+    "fare": 350,
+    "estimatedPassengers": 55,
+    "_id": "68e2018b0a047400d5606716",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d5606716"
+  },
+  {
+    "tripNumber": "TRIP-0156",
+    "busId": "68e2018b0a047400d560665f",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-09T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T02:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 156",
+      "licenseNumber": "DL-1156",
+      "phone": "0771000156"
+    },
+    "fare": 320,
+    "estimatedPassengers": 56,
+    "_id": "68e2018b0a047400d5606717",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d5606717"
+  },
+  {
+    "tripNumber": "TRIP-0157",
+    "busId": "68e2018b0a047400d5606665",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-10T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T05:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 157",
+      "licenseNumber": "DL-1157",
+      "phone": "0771000157"
+    },
+    "fare": 320,
+    "estimatedPassengers": 57,
+    "_id": "68e2018b0a047400d5606718",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d5606718"
+  },
+  {
+    "tripNumber": "TRIP-0158",
+    "busId": "68e2018b0a047400d560666b",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-10T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 158",
+      "licenseNumber": "DL-1158",
+      "phone": "0771000158"
+    },
+    "fare": 320,
+    "estimatedPassengers": 58,
+    "_id": "68e2018b0a047400d5606719",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d5606719"
+  },
+  {
+    "tripNumber": "TRIP-0159",
+    "busId": "68e2018b0a047400d5606671",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-10T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 159",
+      "licenseNumber": "DL-1159",
+      "phone": "0771000159"
+    },
+    "fare": 320,
+    "estimatedPassengers": 59,
+    "_id": "68e2018b0a047400d560671a",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d560671a"
+  },
+  {
+    "tripNumber": "TRIP-0160",
+    "busId": "68e2018b0a047400d5606677",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-10T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 160",
+      "licenseNumber": "DL-1160",
+      "phone": "0771000160"
+    },
+    "fare": 320,
+    "estimatedPassengers": 20,
+    "_id": "68e2018b0a047400d560671b",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d560671b"
+  },
+  {
+    "tripNumber": "TRIP-0161",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-09T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T02:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 161",
+      "licenseNumber": "DL-1161",
+      "phone": "0771000161"
+    },
+    "fare": 420,
+    "estimatedPassengers": 21,
+    "_id": "68e2018b0a047400d560671c",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d560671c"
+  },
+  {
+    "tripNumber": "TRIP-0162",
+    "busId": "68e2018b0a047400d5606666",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-10T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T06:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 162",
+      "licenseNumber": "DL-1162",
+      "phone": "0771000162"
+    },
+    "fare": 420,
+    "estimatedPassengers": 22,
+    "_id": "68e2018b0a047400d560671d",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d560671d"
+  },
+  {
+    "tripNumber": "TRIP-0163",
+    "busId": "68e2018b0a047400d560666c",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-10T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 163",
+      "licenseNumber": "DL-1163",
+      "phone": "0771000163"
+    },
+    "fare": 420,
+    "estimatedPassengers": 23,
+    "_id": "68e2018b0a047400d560671e",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d560671e"
+  },
+  {
+    "tripNumber": "TRIP-0164",
+    "busId": "68e2018b0a047400d5606678",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-10T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 164",
+      "licenseNumber": "DL-1164",
+      "phone": "0771000164"
+    },
+    "fare": 420,
+    "estimatedPassengers": 24,
+    "_id": "68e2018b0a047400d560671f",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d560671f"
+  },
+  {
+    "tripNumber": "TRIP-0165",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-10T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 165",
+      "licenseNumber": "DL-1165",
+      "phone": "0771000165"
+    },
+    "fare": 420,
+    "estimatedPassengers": 25,
+    "_id": "68e2018b0a047400d5606720",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d5606720"
+  },
+  {
+    "tripNumber": "TRIP-0166",
+    "busId": "68e2018b0a047400d5606661",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-09T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T07:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 166",
+      "licenseNumber": "DL-1166",
+      "phone": "0771000166"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 26,
+    "_id": "68e2018b0a047400d5606721",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.794Z",
+    "updatedAt": "2025-10-05T05:26:35.794Z",
+    "id": "68e2018b0a047400d5606721"
+  },
+  {
+    "tripNumber": "TRIP-0167",
+    "busId": "68e2018b0a047400d5606667",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-10T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T11:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 167",
+      "licenseNumber": "DL-1167",
+      "phone": "0771000167"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 27,
+    "_id": "68e2018b0a047400d5606722",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d5606722"
+  },
+  {
+    "tripNumber": "TRIP-0168",
+    "busId": "68e2018b0a047400d560666d",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-10T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T14:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 168",
+      "licenseNumber": "DL-1168",
+      "phone": "0771000168"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 28,
+    "_id": "68e2018b0a047400d5606723",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d5606723"
+  },
+  {
+    "tripNumber": "TRIP-0169",
+    "busId": "68e2018b0a047400d5606673",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-10T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T18:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 169",
+      "licenseNumber": "DL-1169",
+      "phone": "0771000169"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 29,
+    "_id": "68e2018b0a047400d5606724",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d5606724"
+  },
+  {
+    "tripNumber": "TRIP-0170",
+    "busId": "68e2018b0a047400d5606679",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-10T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T21:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 170",
+      "licenseNumber": "DL-1170",
+      "phone": "0771000170"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 30,
+    "_id": "68e2018b0a047400d5606725",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d5606725"
+  },
+  {
+    "tripNumber": "TRIP-0171",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-09T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T05:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 171",
+      "licenseNumber": "DL-1171",
+      "phone": "0771000171"
+    },
+    "fare": 950,
+    "estimatedPassengers": 31,
+    "_id": "68e2018b0a047400d5606726",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d5606726"
+  },
+  {
+    "tripNumber": "TRIP-0172",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-10T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 172",
+      "licenseNumber": "DL-1172",
+      "phone": "0771000172"
+    },
+    "fare": 950,
+    "estimatedPassengers": 32,
+    "_id": "68e2018b0a047400d5606727",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d5606727"
+  },
+  {
+    "tripNumber": "TRIP-0173",
+    "busId": "68e2018b0a047400d5606674",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-10T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 173",
+      "licenseNumber": "DL-1173",
+      "phone": "0771000173"
+    },
+    "fare": 950,
+    "estimatedPassengers": 33,
+    "_id": "68e2018b0a047400d5606728",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d5606728"
+  },
+  {
+    "tripNumber": "TRIP-0174",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-10T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 174",
+      "licenseNumber": "DL-1174",
+      "phone": "0771000174"
+    },
+    "fare": 950,
+    "estimatedPassengers": 34,
+    "_id": "68e2018b0a047400d5606729",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d5606729"
+  },
+  {
+    "tripNumber": "TRIP-0175",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-10T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T19:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 175",
+      "licenseNumber": "DL-1175",
+      "phone": "0771000175"
+    },
+    "fare": 950,
+    "estimatedPassengers": 35,
+    "_id": "68e2018b0a047400d560672a",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d560672a"
+  },
+  {
+    "tripNumber": "TRIP-0176",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-09T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T04:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 176",
+      "licenseNumber": "DL-1176",
+      "phone": "0771000176"
+    },
+    "fare": 780,
+    "estimatedPassengers": 36,
+    "_id": "68e2018b0a047400d560672b",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d560672b"
+  },
+  {
+    "tripNumber": "TRIP-0177",
+    "busId": "68e2018b0a047400d5606669",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-10T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T08:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 177",
+      "licenseNumber": "DL-1177",
+      "phone": "0771000177"
+    },
+    "fare": 780,
+    "estimatedPassengers": 37,
+    "_id": "68e2018b0a047400d560672c",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d560672c"
+  },
+  {
+    "tripNumber": "TRIP-0178",
+    "busId": "68e2018b0a047400d560666f",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-10T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T11:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 178",
+      "licenseNumber": "DL-1178",
+      "phone": "0771000178"
+    },
+    "fare": 780,
+    "estimatedPassengers": 38,
+    "_id": "68e2018b0a047400d560672d",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d560672d"
+  },
+  {
+    "tripNumber": "TRIP-0179",
+    "busId": "68e2018b0a047400d5606675",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-10T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T15:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 179",
+      "licenseNumber": "DL-1179",
+      "phone": "0771000179"
+    },
+    "fare": 780,
+    "estimatedPassengers": 39,
+    "_id": "68e2018b0a047400d560672e",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d560672e"
+  },
+  {
+    "tripNumber": "TRIP-0180",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-10T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-10T18:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 180",
+      "licenseNumber": "DL-1180",
+      "phone": "0771000180"
+    },
+    "fare": 780,
+    "estimatedPassengers": 40,
+    "_id": "68e2018b0a047400d560672f",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d560672f"
+  },
+  {
+    "tripNumber": "TRIP-0181",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-10T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T02:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 181",
+      "licenseNumber": "DL-1181",
+      "phone": "0771000181"
+    },
+    "fare": 350,
+    "estimatedPassengers": 41,
+    "_id": "68e2018b0a047400d5606730",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.795Z",
+    "updatedAt": "2025-10-05T05:26:35.795Z",
+    "id": "68e2018b0a047400d5606730"
+  },
+  {
+    "tripNumber": "TRIP-0182",
+    "busId": "68e2018b0a047400d560666a",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-11T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T06:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 182",
+      "licenseNumber": "DL-1182",
+      "phone": "0771000182"
+    },
+    "fare": 350,
+    "estimatedPassengers": 42,
+    "_id": "68e2018b0a047400d5606731",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606731"
+  },
+  {
+    "tripNumber": "TRIP-0183",
+    "busId": "68e2018b0a047400d5606670",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-11T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 183",
+      "licenseNumber": "DL-1183",
+      "phone": "0771000183"
+    },
+    "fare": 350,
+    "estimatedPassengers": 43,
+    "_id": "68e2018b0a047400d5606732",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606732"
+  },
+  {
+    "tripNumber": "TRIP-0184",
+    "busId": "68e2018b0a047400d5606676",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-11T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 184",
+      "licenseNumber": "DL-1184",
+      "phone": "0771000184"
+    },
+    "fare": 350,
+    "estimatedPassengers": 44,
+    "_id": "68e2018b0a047400d5606733",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606733"
+  },
+  {
+    "tripNumber": "TRIP-0185",
+    "busId": "68e2018b0a047400d5606664",
+    "routeId": "68e2018a0a047400d5606620",
+    "scheduledDepartureTime": "2025-10-11T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 185",
+      "licenseNumber": "DL-1185",
+      "phone": "0771000185"
+    },
+    "fare": 350,
+    "estimatedPassengers": 45,
+    "_id": "68e2018b0a047400d5606734",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606734"
+  },
+  {
+    "tripNumber": "TRIP-0186",
+    "busId": "68e2018b0a047400d560665f",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-10T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T02:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 186",
+      "licenseNumber": "DL-1186",
+      "phone": "0771000186"
+    },
+    "fare": 320,
+    "estimatedPassengers": 46,
+    "_id": "68e2018b0a047400d5606735",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606735"
+  },
+  {
+    "tripNumber": "TRIP-0187",
+    "busId": "68e2018b0a047400d5606665",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-11T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T05:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 187",
+      "licenseNumber": "DL-1187",
+      "phone": "0771000187"
+    },
+    "fare": 320,
+    "estimatedPassengers": 47,
+    "_id": "68e2018b0a047400d5606736",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606736"
+  },
+  {
+    "tripNumber": "TRIP-0188",
+    "busId": "68e2018b0a047400d560666b",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-11T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 188",
+      "licenseNumber": "DL-1188",
+      "phone": "0771000188"
+    },
+    "fare": 320,
+    "estimatedPassengers": 48,
+    "_id": "68e2018b0a047400d5606737",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606737"
+  },
+  {
+    "tripNumber": "TRIP-0189",
+    "busId": "68e2018b0a047400d5606671",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-11T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 189",
+      "licenseNumber": "DL-1189",
+      "phone": "0771000189"
+    },
+    "fare": 320,
+    "estimatedPassengers": 49,
+    "_id": "68e2018b0a047400d5606738",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606738"
+  },
+  {
+    "tripNumber": "TRIP-0190",
+    "busId": "68e2018b0a047400d5606677",
+    "routeId": "68e2018a0a047400d560662b",
+    "scheduledDepartureTime": "2025-10-11T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 190",
+      "licenseNumber": "DL-1190",
+      "phone": "0771000190"
+    },
+    "fare": 320,
+    "estimatedPassengers": 50,
+    "_id": "68e2018b0a047400d5606739",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606739"
+  },
+  {
+    "tripNumber": "TRIP-0191",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-10T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T02:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 191",
+      "licenseNumber": "DL-1191",
+      "phone": "0771000191"
+    },
+    "fare": 420,
+    "estimatedPassengers": 51,
+    "_id": "68e2018b0a047400d560673a",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d560673a"
+  },
+  {
+    "tripNumber": "TRIP-0192",
+    "busId": "68e2018b0a047400d5606666",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-11T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T06:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 192",
+      "licenseNumber": "DL-1192",
+      "phone": "0771000192"
+    },
+    "fare": 420,
+    "estimatedPassengers": 52,
+    "_id": "68e2018b0a047400d560673b",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d560673b"
+  },
+  {
+    "tripNumber": "TRIP-0193",
+    "busId": "68e2018b0a047400d560666c",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-11T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T09:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 193",
+      "licenseNumber": "DL-1193",
+      "phone": "0771000193"
+    },
+    "fare": 420,
+    "estimatedPassengers": 53,
+    "_id": "68e2018b0a047400d560673c",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d560673c"
+  },
+  {
+    "tripNumber": "TRIP-0194",
+    "busId": "68e2018b0a047400d5606678",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-11T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T13:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 194",
+      "licenseNumber": "DL-1194",
+      "phone": "0771000194"
+    },
+    "fare": 420,
+    "estimatedPassengers": 54,
+    "_id": "68e2018b0a047400d560673d",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d560673d"
+  },
+  {
+    "tripNumber": "TRIP-0195",
+    "busId": "68e2018b0a047400d5606660",
+    "routeId": "68e2018a0a047400d5606634",
+    "scheduledDepartureTime": "2025-10-11T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T16:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 195",
+      "licenseNumber": "DL-1195",
+      "phone": "0771000195"
+    },
+    "fare": 420,
+    "estimatedPassengers": 55,
+    "_id": "68e2018b0a047400d560673e",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d560673e"
+  },
+  {
+    "tripNumber": "TRIP-0196",
+    "busId": "68e2018b0a047400d5606661",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-10T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T07:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 196",
+      "licenseNumber": "DL-1196",
+      "phone": "0771000196"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 56,
+    "_id": "68e2018b0a047400d560673f",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d560673f"
+  },
+  {
+    "tripNumber": "TRIP-0197",
+    "busId": "68e2018b0a047400d5606667",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-11T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T11:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 197",
+      "licenseNumber": "DL-1197",
+      "phone": "0771000197"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 57,
+    "_id": "68e2018b0a047400d5606740",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606740"
+  },
+  {
+    "tripNumber": "TRIP-0198",
+    "busId": "68e2018b0a047400d560666d",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-11T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T14:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 198",
+      "licenseNumber": "DL-1198",
+      "phone": "0771000198"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 58,
+    "_id": "68e2018b0a047400d5606741",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606741"
+  },
+  {
+    "tripNumber": "TRIP-0199",
+    "busId": "68e2018b0a047400d5606673",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-11T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T18:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 199",
+      "licenseNumber": "DL-1199",
+      "phone": "0771000199"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 59,
+    "_id": "68e2018b0a047400d5606742",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606742"
+  },
+  {
+    "tripNumber": "TRIP-0200",
+    "busId": "68e2018b0a047400d5606679",
+    "routeId": "68e2018a0a047400d560663d",
+    "scheduledDepartureTime": "2025-10-11T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T21:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 200",
+      "licenseNumber": "DL-1200",
+      "phone": "0771000200"
+    },
+    "fare": 1200,
+    "estimatedPassengers": 20,
+    "_id": "68e2018b0a047400d5606743",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606743"
+  },
+  {
+    "tripNumber": "TRIP-0201",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-10T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T05:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 201",
+      "licenseNumber": "DL-1201",
+      "phone": "0771000201"
+    },
+    "fare": 950,
+    "estimatedPassengers": 21,
+    "_id": "68e2018b0a047400d5606744",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606744"
+  },
+  {
+    "tripNumber": "TRIP-0202",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-11T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T09:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 202",
+      "licenseNumber": "DL-1202",
+      "phone": "0771000202"
+    },
+    "fare": 950,
+    "estimatedPassengers": 22,
+    "_id": "68e2018b0a047400d5606745",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606745"
+  },
+  {
+    "tripNumber": "TRIP-0203",
+    "busId": "68e2018b0a047400d5606674",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-11T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T12:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 203",
+      "licenseNumber": "DL-1203",
+      "phone": "0771000203"
+    },
+    "fare": 950,
+    "estimatedPassengers": 23,
+    "_id": "68e2018b0a047400d5606746",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606746"
+  },
+  {
+    "tripNumber": "TRIP-0204",
+    "busId": "68e2018b0a047400d5606662",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-11T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T16:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 204",
+      "licenseNumber": "DL-1204",
+      "phone": "0771000204"
+    },
+    "fare": 950,
+    "estimatedPassengers": 24,
+    "_id": "68e2018b0a047400d5606747",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606747"
+  },
+  {
+    "tripNumber": "TRIP-0205",
+    "busId": "68e2018b0a047400d560666e",
+    "routeId": "68e2018a0a047400d5606644",
+    "scheduledDepartureTime": "2025-10-11T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T19:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 205",
+      "licenseNumber": "DL-1205",
+      "phone": "0771000205"
+    },
+    "fare": 950,
+    "estimatedPassengers": 25,
+    "_id": "68e2018b0a047400d5606748",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606748"
+  },
+  {
+    "tripNumber": "TRIP-0206",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-10T23:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T04:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 206",
+      "licenseNumber": "DL-1206",
+      "phone": "0771000206"
+    },
+    "fare": 780,
+    "estimatedPassengers": 26,
+    "_id": "68e2018b0a047400d5606749",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d5606749"
+  },
+  {
+    "tripNumber": "TRIP-0207",
+    "busId": "68e2018b0a047400d5606669",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-11T03:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T08:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 207",
+      "licenseNumber": "DL-1207",
+      "phone": "0771000207"
+    },
+    "fare": 780,
+    "estimatedPassengers": 27,
+    "_id": "68e2018b0a047400d560674a",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d560674a"
+  },
+  {
+    "tripNumber": "TRIP-0208",
+    "busId": "68e2018b0a047400d560666f",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-11T06:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T11:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 208",
+      "licenseNumber": "DL-1208",
+      "phone": "0771000208"
+    },
+    "fare": 780,
+    "estimatedPassengers": 28,
+    "_id": "68e2018b0a047400d560674b",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d560674b"
+  },
+  {
+    "tripNumber": "TRIP-0209",
+    "busId": "68e2018b0a047400d5606675",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-11T10:00:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T15:00:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 209",
+      "licenseNumber": "DL-1209",
+      "phone": "0771000209"
+    },
+    "fare": 780,
+    "estimatedPassengers": 29,
+    "_id": "68e2018b0a047400d560674c",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d560674c"
+  },
+  {
+    "tripNumber": "TRIP-0210",
+    "busId": "68e2018b0a047400d5606663",
+    "routeId": "68e2018a0a047400d560664c",
+    "scheduledDepartureTime": "2025-10-11T13:30:00.000Z",
+    "scheduledArrivalTime": "2025-10-11T18:30:00.000Z",
+    "status": "scheduled",
+    "driver": {
+      "name": "Driver 210",
+      "licenseNumber": "DL-1210",
+      "phone": "0771000210"
+    },
+    "fare": 780,
+    "estimatedPassengers": 30,
+    "_id": "68e2018b0a047400d560674d",
+    "__v": 0,
+    "createdAt": "2025-10-05T05:26:35.796Z",
+    "updatedAt": "2025-10-05T05:26:35.796Z",
+    "id": "68e2018b0a047400d560674d"
+  }
+]

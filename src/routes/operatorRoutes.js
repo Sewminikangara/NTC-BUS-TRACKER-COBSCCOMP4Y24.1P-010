@@ -6,12 +6,10 @@ const { createOperatorSchema, updateOperatorSchema, idParamSchema } = require('.
 
 const router = express.Router();
 
-// Public routes
 router.get('/stats', operatorController.getOperatorStats);
 router.get('/', operatorController.getAllOperators);
 router.get('/:id', validate(idParamSchema), operatorController.getOperator);
 
-// Protected routes (Admin only)
 router.use(protect);
 router.use(restrictTo('admin'));
 

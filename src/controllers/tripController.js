@@ -1,33 +1,9 @@
-/**
- * Trip Controller
- * 
- * Handles all trip-related operations including scheduling and real-time updates.
- * Implements filtering, sorting, and pagination.
- * 
- * @module controllers/tripController
- */
-
 const Trip = require('../models/Trip');
 const { ApiError } = require('../middleware/errorHandler');
 const { asyncHandler } = require('../middleware/auth');
 const APIFeatures = require('../utils/apiFeatures');
 const logger = require('../config/logger');
 
-/**
- * Get all trips with filtering, sorting, and pagination
- * 
- * @route GET /api/trips
- * @access Public
- * 
- * @query {string} routeId - Filter by route ID
- * @query {string} busId - Filter by bus ID
- * @query {string} status - Filter by status
- * @query {date} scheduledDepartureTime[gte] - From date
- * @query {date} scheduledDepartureTime[lte] - To date
- * @query {string} sort - Sort fields
- * @query {number} page - Page number
- * @query {number} limit - Items per page
- */
 exports.getAllTrips = asyncHandler(async (req, res) => {
     const totalTrips = await Trip.countDocuments();
 
@@ -41,22 +17,43 @@ exports.getAllTrips = asyncHandler(async (req, res) => {
 
     const pagination = features.getPaginationMeta(totalTrips);
 
-    res.status(200).json({
+    const lastModified = trips.length > 0
+        ? new Date(Math.max(...trips.map((t) => new Date(t.updatedAt || t.createdAt))))
+        : new Date();
+
+    res.set('Last-Modified', lastModified.toUTCString());
+
+    const ifModifiedSince = req.get('If-Modified-Since');
+    if (ifModifiedSince && new Date(ifModifiedSince) >= lastModified) {
+        return res.status(304).end();
+    }
+
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
+    const responseData = {
         status: 'success',
         results: trips.length,
         pagination,
-        data: {
-            trips,
+        data: trips,
+        _links: {
+            self: { href: `${baseUrl}/trips`, method: 'GET' },
+            create: { href: `${baseUrl}/trips`, method: 'POST' },
+            active: { href: `${baseUrl}/trips/active`, method: 'GET' },
+            upcoming: { href: `${baseUrl}/trips/upcoming`, method: 'GET' },
         },
-    });
+    };
+
+    if (pagination.page > 1) {
+        responseData._links.first = { href: `${baseUrl}/trips?page=1&limit=${pagination.limit}`, method: 'GET' };
+        responseData._links.prev = { href: `${baseUrl}/trips?page=${pagination.page - 1}&limit=${pagination.limit}`, method: 'GET' };
+    }
+    if (pagination.page < pagination.pages) {
+        responseData._links.next = { href: `${baseUrl}/trips?page=${pagination.page + 1}&limit=${pagination.limit}`, method: 'GET' };
+        responseData._links.last = { href: `${baseUrl}/trips?page=${pagination.pages}&limit=${pagination.limit}`, method: 'GET' };
+    }
+
+    res.status(200).json(responseData);
 });
 
-/**
- * Get single trip by ID
- * 
- * @route GET /api/trips/:id
- * @access Public
- */
 exports.getTrip = asyncHandler(async (req, res) => {
     const trip = await Trip.findById(req.params.id);
 
@@ -64,40 +61,58 @@ exports.getTrip = asyncHandler(async (req, res) => {
         throw new ApiError('Trip not found', 404);
     }
 
-    res.status(200).json({
+    const lastModified = new Date(trip.updatedAt || trip.createdAt);
+    res.set('Last-Modified', lastModified.toUTCString());
+
+    const ifModifiedSince = req.get('If-Modified-Since');
+    if (ifModifiedSince && new Date(ifModifiedSince) >= lastModified) {
+        return res.status(304).end();
+    }
+
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
+    const responseData = {
         status: 'success',
-        data: {
-            trip,
+        data: trip,
+        _links: {
+            self: { href: `${baseUrl}/trips/${trip._id}`, method: 'GET' },
+            update: { href: `${baseUrl}/trips/${trip._id}`, method: 'PUT' },
+            patch: { href: `${baseUrl}/trips/${trip._id}`, method: 'PATCH' },
+            delete: { href: `${baseUrl}/trips/${trip._id}`, method: 'DELETE' },
+            collection: { href: `${baseUrl}/trips`, method: 'GET' },
+            related: {
+                route: { href: `${baseUrl}/routes/${trip.routeId}`, method: 'GET' },
+                bus: { href: `${baseUrl}/buses/${trip.busId}`, method: 'GET' },
+                locations: { href: `${baseUrl}/locations/trip/${trip._id}`, method: 'GET' },
+            },
         },
-    });
+    };
+
+    res.status(200).json(responseData);
 });
 
-/**
- * Create new trip
- * 
- * @route POST /api/trips
- * @access Private (Admin only)
- */
 exports.createTrip = asyncHandler(async (req, res) => {
     const trip = await Trip.create(req.body);
 
     logger.info(`New trip created: ${trip.tripNumber} by user ${req.user.email}`);
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
+    const resourceUrl = `${baseUrl}/trips/${trip._id}`;
+    res.set('Content-Location', resourceUrl);
+
     res.status(201).json({
         status: 'success',
         message: 'Trip created successfully',
-        data: {
-            trip,
+        data: trip,
+        _links: {
+            self: { href: resourceUrl, method: 'GET' },
+            update: { href: resourceUrl, method: 'PUT' },
+            patch: { href: resourceUrl, method: 'PATCH' },
+            delete: { href: resourceUrl, method: 'DELETE' },
+            collection: { href: `${baseUrl}/trips`, method: 'GET' },
         },
     });
 });
 
-/**
- * Update trip
- * 
- * @route PUT /api/trips/:id
- * @access Private (Admin/Operator)
- */
 exports.updateTrip = asyncHandler(async (req, res) => {
     const trip = await Trip.findByIdAndUpdate(
         req.params.id,
@@ -114,21 +129,21 @@ exports.updateTrip = asyncHandler(async (req, res) => {
 
     logger.info(`Trip updated: ${trip.tripNumber} by user ${req.user.email}`);
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         message: 'Trip updated successfully',
-        data: {
-            trip,
+        data: trip,
+        _links: {
+            self: { href: `${baseUrl}/trips/${trip._id}`, method: 'GET' },
+            update: { href: `${baseUrl}/trips/${trip._id}`, method: 'PUT' },
+            patch: { href: `${baseUrl}/trips/${trip._id}`, method: 'PATCH' },
+            delete: { href: `${baseUrl}/trips/${trip._id}`, method: 'DELETE' },
+            collection: { href: `${baseUrl}/trips`, method: 'GET' },
         },
     });
 });
 
-/**
- * Partially update trip (PATCH)
- * 
- * @route PATCH /api/trips/:id
- * @access Private (Operator)
- */
 exports.patchTrip = asyncHandler(async (req, res) => {
     const allowedUpdates = ['status', 'actualDepartureTime', 'actualArrivalTime', 'delayReason', 'estimatedPassengers'];
     const updates = {};
@@ -158,21 +173,19 @@ exports.patchTrip = asyncHandler(async (req, res) => {
 
     logger.info(`Trip status updated: ${trip.tripNumber} - ${trip.status}`);
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         message: 'Trip updated successfully',
-        data: {
-            trip,
+        data: trip,
+        _links: {
+            self: { href: `${baseUrl}/trips/${trip._id}`, method: 'GET' },
+            update: { href: `${baseUrl}/trips/${trip._id}`, method: 'PUT' },
+            collection: { href: `${baseUrl}/trips`, method: 'GET' },
         },
     });
 });
 
-/**
- * Delete trip
- * 
- * @route DELETE /api/trips/:id
- * @access Private (Admin only)
- */
 exports.deleteTrip = asyncHandler(async (req, res) => {
     const trip = await Trip.findByIdAndDelete(req.params.id);
 
@@ -189,33 +202,24 @@ exports.deleteTrip = asyncHandler(async (req, res) => {
     });
 });
 
-/**
- * Get active trips (in-transit or boarding)
- * 
- * @route GET /api/trips/active
- * @access Public
- */
 exports.getActiveTrips = asyncHandler(async (req, res) => {
     const trips = await Trip.find({
         status: { $in: ['boarding', 'in-transit'] },
     }).sort('scheduledDepartureTime');
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         results: trips.length,
-        data: {
-            trips,
+        data: trips,
+        _links: {
+            self: { href: `${baseUrl}/trips/active`, method: 'GET' },
+            upcoming: { href: `${baseUrl}/trips/upcoming`, method: 'GET' },
+            collection: { href: `${baseUrl}/trips`, method: 'GET' },
         },
     });
 });
 
-/**
- * Get upcoming trips (scheduled for future)
- * 
- * @route GET /api/trips/upcoming
- * @access Public
- * @query {number} days - Number of days ahead (default: 7)
- */
 exports.getUpcomingTrips = asyncHandler(async (req, res) => {
     const days = parseInt(req.query.days, 10) || 7;
     const startDate = new Date();
@@ -230,62 +234,56 @@ exports.getUpcomingTrips = asyncHandler(async (req, res) => {
         status: 'scheduled',
     }).sort('scheduledDepartureTime');
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         results: trips.length,
-        data: {
-            trips,
+        data: trips,
+        _links: {
+            self: { href: `${baseUrl}/trips/upcoming?days=${days}`, method: 'GET' },
+            active: { href: `${baseUrl}/trips/active`, method: 'GET' },
+            collection: { href: `${baseUrl}/trips`, method: 'GET' },
         },
     });
 });
 
-/**
- * Get trips by route
- * 
- * @route GET /api/trips/route/:routeId
- * @access Public
- */
 exports.getTripsByRoute = asyncHandler(async (req, res) => {
     const trips = await Trip.find({
         routeId: req.params.routeId,
         scheduledDepartureTime: { $gte: new Date() },
     }).sort('scheduledDepartureTime').limit(20);
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         results: trips.length,
-        data: {
-            trips,
+        data: trips,
+        _links: {
+            self: { href: `${baseUrl}/trips/route/${req.params.routeId}`, method: 'GET' },
+            route: { href: `${baseUrl}/routes/${req.params.routeId}`, method: 'GET' },
+            collection: { href: `${baseUrl}/trips`, method: 'GET' },
         },
     });
 });
 
-/**
- * Get trips by bus
- * 
- * @route GET /api/trips/bus/:busId
- * @access Public
- */
 exports.getTripsByBus = asyncHandler(async (req, res) => {
     const trips = await Trip.find({
         busId: req.params.busId,
     }).sort('-scheduledDepartureTime').limit(10);
 
+    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
     res.status(200).json({
         status: 'success',
         results: trips.length,
-        data: {
-            trips,
+        data: trips,
+        _links: {
+            self: { href: `${baseUrl}/trips/bus/${req.params.busId}`, method: 'GET' },
+            bus: { href: `${baseUrl}/buses/${req.params.busId}`, method: 'GET' },
+            collection: { href: `${baseUrl}/trips`, method: 'GET' },
         },
     });
 });
 
-/**
- * Get trip statistics
- * 
- * @route GET /api/trips/stats
- * @access Public
- */
 exports.getTripStats = asyncHandler(async (req, res) => {
     const stats = await Trip.aggregate([
         {

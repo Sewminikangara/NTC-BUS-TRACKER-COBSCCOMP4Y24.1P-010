@@ -1,12 +1,3 @@
-/**
- * Route Model
- * 
- * Represents inter-provincial bus routes in Sri Lanka.
- * Contains information about origin, destination, and stops.
- * 
- * @module models/Route
- */
-
 const mongoose = require('mongoose');
 
 const routeSchema = new mongoose.Schema(
@@ -88,34 +79,25 @@ const routeSchema = new mongoose.Schema(
     },
 );
 
-// Indexes for performance
-routeSchema.index({ routeNumber: 1 });
 routeSchema.index({ origin: 1, destination: 1 });
 routeSchema.index({ status: 1 });
 
-// Virtual for buses on this route
 routeSchema.virtual('buses', {
     ref: 'Bus',
     localField: '_id',
     foreignField: 'routeId',
 });
 
-// Virtual for trips on this route
 routeSchema.virtual('trips', {
     ref: 'Trip',
     localField: '_id',
     foreignField: 'routeId',
 });
 
-/**
- * Pre-save middleware to validate stops order
- */
 routeSchema.pre('save', function (next) {
     if (this.stops && this.stops.length > 0) {
-        // Sort stops by order
         this.stops.sort((a, b) => a.order - b.order);
 
-        // Validate unique order numbers
         const orders = this.stops.map((stop) => stop.order);
         const uniqueOrders = new Set(orders);
 

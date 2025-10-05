@@ -6,19 +6,16 @@ const { createBusSchema, updateBusSchema, idParamSchema } = require('../utils/va
 
 const router = express.Router();
 
-// Public routes
 router.get('/', busController.getAllBuses);
 router.get('/stats', busController.getBusStats);
 router.get('/route/:routeId', validate(idParamSchema), busController.getBusesByRoute);
 router.get('/operator/:operatorId', validate(idParamSchema), busController.getBusesByOperator);
 router.get('/:id', validate(idParamSchema), busController.getBus);
 
-// Protected routes (Admin/Operator)
 router.use(protect);
 
 router.get('/maintenance/due', restrictTo('admin', 'operator'), busController.getMaintenanceDue);
 
-// Admin only routes
 router.use(restrictTo('admin'));
 
 router.post('/', validate(createBusSchema), busController.createBus);

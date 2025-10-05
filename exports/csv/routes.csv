@@ -1,0 +1,7 @@
+Route Number,Name,Origin,Destination,Distance,Duration,Fare,Status,Stops Count
+"001","Colombo - Kandy Express","Colombo","Kandy",115,180,350,"active",10
+"002","Colombo - Galle Coastal Route","Colombo","Galle",119,150,320,"active",8
+"003","Colombo - Matara Southern Highway","Colombo","Matara",160,180,420,"active",8
+"004","Colombo - Jaffna A9 Highway","Colombo","Jaffna",395,480,1200,"active",6
+"005","Kandy - Jaffna Central Route","Kandy","Jaffna",285,360,950,"active",7
+"006","Colombo - Trincomalee East Coast","Colombo","Trincomalee",257,300,780,"active",6
