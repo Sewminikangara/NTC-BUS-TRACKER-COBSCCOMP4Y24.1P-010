@@ -1,6 +1,3 @@
-﻿/**
-
-/**
 const generateLinks = (baseUrl, resourceType, resourceId, options = {}) => {
     const links = {
         self: {
@@ -18,10 +15,6 @@ const generateLinks = (baseUrl, resourceType, resourceId, options = {}) => {
             href: `${baseUrl}/${resourceType}/${resourceId}`,
             method: 'DELETE',
         };
-        links.collection = {
-            href: `${baseUrl}/${resourceType}`,
-            method: 'GET',
-        };
     } else {
         links.create = {
             href: `${baseUrl}/${resourceType}`,
@@ -29,35 +22,9 @@ const generateLinks = (baseUrl, resourceType, resourceId, options = {}) => {
         };
     }
 
-    if (options.page && options.totalPages) {
-        const { page, totalPages } = options;
-
-        if (page > 1) {
-            links.first = {
-                href: `${baseUrl}/${resourceType}?page=1`,
-                method: 'GET',
-            };
-            links.prev = {
-                href: `${baseUrl}/${resourceType}?page=${page - 1}`,
-                method: 'GET',
-            };
-        }
-
-        if (page < totalPages) {
-            links.next = {
-                href: `${baseUrl}/${resourceType}?page=${page + 1}`,
-                method: 'GET',
-            };
-            links.last = {
-                href: `${baseUrl}/${resourceType}?page=${totalPages}`,
-                method: 'GET',
-            };
-        }
-    }
-
-    if (options.parentResource && options.parentId) {
-        links.parent = {
-            href: `${baseUrl}/${options.parentResource}/${options.parentId}`,
+    if (options.collection) {
+        links.collection = {
+            href: `${baseUrl}/${resourceType}`,
             method: 'GET',
         };
     }
@@ -65,98 +32,136 @@ const generateLinks = (baseUrl, resourceType, resourceId, options = {}) => {
     return links;
 };
 
-/**
-const generateRelatedLinks = (baseUrl, resourceType, resource) => {
-    const related = {};
+const addHATEOASLinks = (data, baseUrl, resourceType, options = {}) => {
+    if (Array.isArray(data)) {
+        return data.map((item) => ({
+            ...item.toObject ? item.toObject() : item,
+            _links: generateLinks(baseUrl, resourceType, item._id, {
+                collection: true,
+                ...options,
+            }),
+        }));
+    }
 
-    if (resourceType === 'routes' && resource._id) {
-        related.buses = {
-            href: `${baseUrl}/buses?routeId=${resource._id}`,
-            method: 'GET',
-        };
-        related.trips = {
-            href: `${baseUrl}/trips/route/${resource._id}`,
-            method: 'GET',
+    if (data && typeof data === 'object') {
+        return {
+            ...data.toObject ? data.toObject() : data,
+            _links: generateLinks(baseUrl, resourceType, data._id, options),
         };
     }
 
-    if (resourceType === 'buses' && resource._id) {
-        if (resource.routeId) {
-            related.route = {
-                href: `${baseUrl}/routes/${resource.routeId}`,
-                method: 'GET',
-            };
-        }
-        if (resource.operatorId) {
-            related.operator = {
-                href: `${baseUrl}/operators/${resource.operatorId}`,
-                method: 'GET',
-            };
-        }
-        related.trips = {
-            href: `${baseUrl}/trips/bus/${resource._id}`,
-            method: 'GET',
-        };
-        related.location = {
-            href: `${baseUrl}/locations/bus/${resource._id}/latest`,
-            method: 'GET',
-        };
-    }
-
-    if (resourceType === 'trips' && resource._id) {
-        if (resource.routeId) {
-            related.route = {
-                href: `${baseUrl}/routes/${resource.routeId}`,
-                method: 'GET',
-            };
-        }
-        if (resource.busId) {
-            related.bus = {
-                href: `${baseUrl}/buses/${resource.busId}`,
-                method: 'GET',
-            };
-        }
-        related.locations = {
-            href: `${baseUrl}/locations/trip/${resource._id}`,
-            method: 'GET',
-        };
-    }
-
-    if (resourceType === 'operators' && resource._id) {
-        related.buses = {
-            href: `${baseUrl}/buses/operator/${resource._id}`,
-            method: 'GET',
-        };
-    }
-
-    return Object.keys(related).length > 0 ? related : undefined;
+    return data;
 };
 
-/**
-const addHATEOAS = (data, req, options = {}) => {
-    const baseUrl = `${req.protocol}://${req.get('host')}/api`;
-    const resourceType = req.baseUrl.split('/').pop();
-    const resourceId = req.params.id;
-
-    const links = generateLinks(baseUrl, resourceType, resourceId, options);
-
-    const related = generateRelatedLinks(baseUrl, resourceType, data.data || data);
-
-    const enhancedData = {
-        ...data,
+const addRouteLinks = (route, baseUrl) => {
+    const links = generateLinks(baseUrl, 'routes', route._id, {
+        collection: true,
+    });
+    return {
+        ...route.toObject ? route.toObject() : route,
         _links: links,
     };
+};
 
-    if (related) {
-        enhancedData._links.related = related;
+const addBusLinks = (bus, baseUrl) => {
+    const links = generateLinks(baseUrl, 'buses', bus._id, {
+        collection: true,
+    });
+    return {
+        ...bus.toObject ? bus.toObject() : bus,
+        _links: links,
+    };
+};
+
+const addTripLinks = (trip, baseUrl) => {
+    const links = generateLinks(baseUrl, 'trips', trip._id, {
+        collection: true,
+    });
+    return {
+        ...trip.toObject ? trip.toObject() : trip,
+        _links: links,
+    };
+};
+
+const addOperatorLinks = (operator, baseUrl) => {
+    const links = generateLinks(baseUrl, 'operators', operator._id, {
+        collection: true,
+    });
+    return {
+        ...operator.toObject ? operator.toObject() : operator,
+        _links: links,
+    };
+};
+
+const addLocationLinks = (location, baseUrl) => {
+    const links = generateLinks(baseUrl, 'locations', location._id, {
+        collection: true,
+    });
+    return {
+        ...location.toObject ? location.toObject() : location,
+        _links: links,
+    };
+};
+
+const addUserLinks = (user, baseUrl) => {
+    const links = generateLinks(baseUrl, 'users', user._id, {
+        collection: true,
+    });
+    return {
+        ...user.toObject ? user.toObject() : user,
+        _links: links,
+    };
+};
+
+const addPaginationLinks = (baseUrl, page, limit, totalPages, totalResults) => {
+    const links = {
+        self: {
+            href: `${baseUrl}?page=${page}&limit=${limit}`,
+            method: 'GET',
+        },
+        first: {
+            href: `${baseUrl}?page=1&limit=${limit}`,
+            method: 'GET',
+        },
+        last: {
+            href: `${baseUrl}?page=${totalPages}&limit=${limit}`,
+            method: 'GET',
+        },
+    };
+
+    if (page > 1) {
+        links.prev = {
+            href: `${baseUrl}?page=${page - 1}&limit=${limit}`,
+            method: 'GET',
+        };
     }
 
-    return enhancedData;
+    if (page < totalPages) {
+        links.next = {
+            href: `${baseUrl}?page=${page + 1}&limit=${limit}`,
+            method: 'GET',
+        };
+    }
+
+    return {
+        _links: links,
+        _meta: {
+            page,
+            limit,
+            totalPages,
+            totalResults,
+        },
+    };
 };
 
 module.exports = {
     generateLinks,
-    generateRelatedLinks,
-    addHATEOAS,
+    addHATEOASLinks,
+    addRouteLinks,
+    addBusLinks,
+    addTripLinks,
+    addOperatorLinks,
+    addLocationLinks,
+    addUserLinks,
+    addPaginationLinks,
 };
-

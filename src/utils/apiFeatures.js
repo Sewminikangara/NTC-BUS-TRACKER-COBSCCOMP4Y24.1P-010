@@ -1,28 +1,21 @@
-﻿/**
-
 class APIFeatures {
-    /**
     constructor(query, queryString) {
         this.query = query;
         this.queryString = queryString;
     }
 
-    /**
     filter() {
         const queryObj = { ...this.queryString };
-
         const excludedFields = ['page', 'sort', 'limit', 'fields'];
         excludedFields.forEach((el) => delete queryObj[el]);
 
         let queryStr = JSON.stringify(queryObj);
-        queryStr = queryStr.replace(/\b(gte|gt|lte|lt|ne)\b/g, (match) => `$${match}`);
+        queryStr = queryStr.replace(/\b(gte|gt|lte|lt)\b/g, (match) => `$${match}`);
 
         this.query = this.query.find(JSON.parse(queryStr));
-
         return this;
     }
 
-    /**
     sort() {
         if (this.queryString.sort) {
             const sortBy = this.queryString.sort.split(',').join(' ');
@@ -30,11 +23,9 @@ class APIFeatures {
         } else {
             this.query = this.query.sort('-createdAt');
         }
-
         return this;
     }
 
-    /**
     limitFields() {
         if (this.queryString.fields) {
             const fields = this.queryString.fields.split(',').join(' ');
@@ -42,37 +33,50 @@ class APIFeatures {
         } else {
             this.query = this.query.select('-__v');
         }
-
         return this;
     }
 
-    /**
     paginate() {
-        const page = parseInt(this.queryString.page, 10) || 1;
-        const limit = parseInt(this.queryString.limit, 10) || 10;
+        const page = this.queryString.page * 1 || 1;
+        const limit = this.queryString.limit * 1 || 100;
         const skip = (page - 1) * limit;
 
         this.query = this.query.skip(skip).limit(limit);
-
         return this;
     }
 
-    /**
-    getPaginationMeta(totalDocuments) {
-        const page = parseInt(this.queryString.page, 10) || 1;
-        const limit = parseInt(this.queryString.limit, 10) || 10;
-        const totalPages = Math.ceil(totalDocuments / limit);
+    search() {
+        if (this.queryString.search) {
+            const searchRegex = new RegExp(this.queryString.search, 'i');
+            this.query = this.query.find({
+                $or: [
+                    { name: searchRegex },
+                    { description: searchRegex },
+                    { email: searchRegex },
+                    { routeNumber: searchRegex },
+                    { registrationNumber: searchRegex },
+                    { tripNumber: searchRegex },
+                ],
+            });
+        }
+        return this;
+    }
 
-        return {
-            currentPage: page,
-            totalPages,
-            pageSize: limit,
-            totalRecords: totalDocuments,
-            hasNextPage: page < totalPages,
-            hasPrevPage: page > 1,
-        };
+    populate(populateOptions) {
+        if (populateOptions) {
+            this.query = this.query.populate(populateOptions);
+        }
+        return this;
+    }
+
+    async countDocuments() {
+        const totalDocs = await this.query.model.countDocuments(this.query.getFilter());
+        return totalDocs;
+    }
+
+    getQuery() {
+        return this.query;
     }
 }
 
 module.exports = APIFeatures;
-
