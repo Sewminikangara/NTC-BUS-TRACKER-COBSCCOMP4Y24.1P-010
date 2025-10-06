@@ -1,8 +1,6 @@
 ﻿const mongoose = require('mongoose');
 
 const locationUpdateSchema = new mongoose.Schema(
-
-const locationUpdateSchema = new mongoose.Schema(
     {
         busId: {
             type: mongoose.Schema.Types.ObjectId,
@@ -71,6 +69,13 @@ locationUpdateSchema.index(
 );
 
 /**
+ * Calculate distance between two coordinates using Haversine formula
+ * @param {Number} lat1 - Latitude of first point
+ * @param {Number} lng1 - Longitude of first point
+ * @param {Number} lat2 - Latitude of second point
+ * @param {Number} lng2 - Longitude of second point
+ * @returns {Number} Distance in kilometers
+ */
 locationUpdateSchema.statics.calculateDistance = function (lat1, lng1, lat2, lng2) {
     const R = 6371; // Radius of the Earth in km
     const dLat = (lat2 - lat1) * (Math.PI / 180);
@@ -78,6 +83,8 @@ locationUpdateSchema.statics.calculateDistance = function (lat1, lng1, lat2, lng
 
     const a = Math.sin(dLat / 2) * Math.sin(dLat / 2)
         + Math.cos(lat1 * (Math.PI / 180))
+        * Math.cos(lat2 * (Math.PI / 180))
+        * Math.sin(dLng / 2) * Math.sin(dLng / 2);
 
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distance = R * c;
@@ -86,6 +93,10 @@ locationUpdateSchema.statics.calculateDistance = function (lat1, lng1, lat2, lng
 };
 
 /**
+ * Get the latest location update for a specific bus
+ * @param {ObjectId} busId - Bus ID to get location for
+ * @returns {Object} Latest location update
+ */
 locationUpdateSchema.statics.getLatestLocation = async function (busId) {
     return this.findOne({ busId })
         .sort({ timestamp: -1 })
@@ -94,6 +105,13 @@ locationUpdateSchema.statics.getLatestLocation = async function (busId) {
 };
 
 /**
+ * Get location history for a bus within a time range
+ * @param {ObjectId} busId - Bus ID
+ * @param {Date} startTime - Start time for history
+ * @param {Date} endTime - End time for history
+ * @param {Number} limit - Maximum number of records
+ * @returns {Array} Location history
+ */
 locationUpdateSchema.statics.getLocationHistory = async function (
     busId,
     startTime,
@@ -108,6 +126,8 @@ locationUpdateSchema.statics.getLocationHistory = async function (
 };
 
 /**
+ * Pre-save middleware to automatically set status based on speed
+ */
 locationUpdateSchema.pre('save', function (next) {
     if (this.speed === 0) {
         this.status = 'stopped';
@@ -120,6 +140,8 @@ locationUpdateSchema.pre('save', function (next) {
 });
 
 /**
+ * Pre-find middleware to populate references
+ */
 locationUpdateSchema.pre(/^find/, function (next) {
     if (!this.getOptions().skipPopulate) {
         this.populate({

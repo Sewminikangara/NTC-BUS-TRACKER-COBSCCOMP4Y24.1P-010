@@ -75,11 +75,16 @@ operatorSchema.virtual('buses', {
 });
 
 /**
+ * Check if operator's license is expired
+ * @returns {Boolean} True if license is expired
+ */
 operatorSchema.methods.isLicenseExpired = function () {
     return this.licenseExpiry < new Date();
 };
 
 /**
+ * Pre-save middleware to update status based on license expiry
+ */
 operatorSchema.pre('save', function (next) {
     if (this.isLicenseExpired() && this.status === 'active') {
         this.status = 'suspended';

@@ -67,6 +67,8 @@ userSchema.index({ role: 1 });
 userSchema.index({ status: 1 });
 
 /**
+ * Pre-save middleware to hash password
+ */
 userSchema.pre('save', async function (next) {
     if (!this.isModified('password')) {
         return next();
@@ -82,11 +84,18 @@ userSchema.pre('save', async function (next) {
 });
 
 /**
+ * Compare entered password with hashed password
+ * @param {String} enteredPassword - Password to compare
+ * @returns {Boolean} Password match result
+ */
 userSchema.methods.comparePassword = async function (enteredPassword) {
     return bcrypt.compare(enteredPassword, this.password);
 };
 
 /**
+ * Generate JWT authentication token
+ * @returns {String} JWT token
+ */
 userSchema.methods.generateAuthToken = function () {
     return jwt.sign(
         { id: this._id, role: this.role },
@@ -98,6 +107,8 @@ userSchema.methods.generateAuthToken = function () {
 };
 
 /**
+ * Update user's last login timestamp
+ */
 userSchema.methods.updateLastLogin = async function () {
     this.lastLogin = Date.now();
     await this.save({ validateBeforeSave: false });
