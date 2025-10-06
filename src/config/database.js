@@ -3,7 +3,18 @@ const logger = require('./logger');
 
 const connectDB = async () => {
     try {
-        const conn = await mongoose.connect(process.env.MONGODB_URI);
+        // Add connection options for better reliability
+        const options = {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+            serverSelectionTimeoutMS: 30000, // 30 seconds
+            socketTimeoutMS: 45000, // 45 seconds
+            maxPoolSize: 10,
+            retryWrites: true,
+            w: 'majority',
+        };
+
+        const conn = await mongoose.connect(process.env.MONGODB_URI, options);
 
         logger.info(`MongoDB Connected: ${conn.connection.host}`);
         logger.info(`Database: ${conn.connection.name}`);
@@ -21,7 +32,9 @@ const connectDB = async () => {
         });
     } catch (error) {
         logger.error(`Error connecting to MongoDB: ${error.message}`);
-        process.exit(1);
+        logger.error('MongoDB URI:', process.env.MONGODB_URI ? 'Set' : 'Not set');
+        // Don't exit the process immediately, let the app handle it gracefully
+        throw error;
     }
 };
 

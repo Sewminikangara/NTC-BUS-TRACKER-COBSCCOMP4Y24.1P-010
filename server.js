@@ -21,8 +21,13 @@ const startServer = async () => {
             logger.info(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
         });
     } catch (error) {
-        logger.error('Failed to start server:', error);
-        process.exit(1);
+        logger.error('Failed to connect to database:', error.message);
+        logger.error('Starting server without database connection...');
+        
+        // Start server even if database fails (for debugging)
+        server = app.listen(PORT, () => {
+            logger.info(`Server running in ${process.env.NODE_ENV} mode on port ${PORT} (WITHOUT DATABASE)`);
+        });
     }
 };
 
