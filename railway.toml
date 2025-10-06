@@ -2,11 +2,11 @@
 builder = "nixpacks"
 
 [deploy]
-startCommand = "npm start"
-healthcheckPath = "/health"
-healthcheckTimeout = 600
+startCommand = "node server.js"
+healthcheckPath = "/ping"
+healthcheckTimeout = 60
 restartPolicyType = "ALWAYS"
-restartPolicyMaxRetries = 10
+restartPolicyMaxRetries = 5
 
 [nixpacks]
 staticDir = "public"
