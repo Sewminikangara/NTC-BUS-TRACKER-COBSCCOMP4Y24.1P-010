@@ -5,6 +5,7 @@ const mongoSanitize = require('express-mongo-sanitize');
 const compression = require('compression');
 const morgan = require('morgan');
 const rateLimit = require('express-rate-limit');
+const path = require('path');
 
 const logger = require('./config/logger');
 const errorHandler = require('./middleware/errorHandler');
@@ -58,6 +59,9 @@ const limiter = rateLimit({
 app.use('/api/', limiter);
 app.use(etagMiddleware);
 
+// Serve static files (Frontend Dashboard)
+app.use(express.static(path.join(__dirname, '../public')));
+
 app.get('/health', (req, res) => {
     res.status(200).json({
         status: 'success',
@@ -68,12 +72,17 @@ app.get('/health', (req, res) => {
 });
 
 app.get('/', (req, res) => {
+    res.redirect('/dashboard');
+});
+
+app.get('/api', (req, res) => {
     res.status(200).json({
         name: 'NTC Bus Tracker API',
         version: '1.0.0',
         description: 'Real-Time Bus Tracking System for Inter-Provincial Services',
         student: 'COBSCCOMP24.1P-010',
         documentation: '/api-docs',
+        dashboard: '/dashboard',
         endpoints: {
             health: '/health',
             auth: '/api/auth',
@@ -84,6 +93,11 @@ app.get('/', (req, res) => {
             operators: '/api/operators',
         },
     });
+});
+
+// Serve dashboard (frontend)
+app.get('/dashboard', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
 app.use('/api/auth', authRoutes);

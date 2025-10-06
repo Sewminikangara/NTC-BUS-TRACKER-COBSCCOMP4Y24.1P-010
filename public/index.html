@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NTC Bus Tracker - Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(45deg, #2c5aa0, #1e3c72);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            opacity: 0.9;
+            font-size: 1.1em;
+        }
+        
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 30px;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 5px solid #4CAF50;
+        }
+        
+        .card h2 {
+            color: #333;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .search-section {
+            border-left-color: #2196F3;
+        }
+        
+        .stats-section {
+            border-left-color: #FF9800;
+        }
+        
+        .routes-section {
+            border-left-color: #9C27B0;
+        }
+        
+        .input-group {
+            margin-bottom: 15px;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        .input-group input, .input-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .input-group input:focus, .input-group select:focus {
+            outline: none;
+            border-color: #4CAF50;
+        }
+        
+        .btn {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+            transition: transform 0.2s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+        
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .loading {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .stat-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #2c5aa0;
+        }
+        
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .route-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #9C27B0;
+        }
+        
+        .route-name {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .route-details {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🚌 NTC Bus Tracker</h1>
+            <p>Real-Time Bus Tracking System for Inter-Provincial Services</p>
+            <p><strong>Student ID:</strong> COBSCCOMP24.1P-010</p>
+        </div>
+        
+        <div class="dashboard">
+            <!-- Search Section -->
+            <div class="card search-section">
+                <h2>🔍 Search Routes</h2>
+                <div class="input-group">
+                    <label>From:</label>
+                    <input type="text" id="fromCity" placeholder="e.g., Colombo">
+                </div>
+                <div class="input-group">
+                    <label>To:</label>
+                    <input type="text" id="toCity" placeholder="e.g., Kandy">
+                </div>
+                <button class="btn" onclick="searchRoutes()">Search Routes</button>
+                <div id="searchResults" class="results" style="display: none;">
+                    <div class="loading">Searching...</div>
+                </div>
+            </div>
+            
+            <!-- Statistics Section -->
+            <div class="card stats-section">
+                <h2>📊 System Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalRoutes">-</div>
+                        <div class="stat-label">Routes</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalBuses">-</div>
+                        <div class="stat-label">Buses</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="activeTrips">-</div>
+                        <div class="stat-label">Active Trips</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number" id="totalOperators">-</div>
+                        <div class="stat-label">Operators</div>
+                    </div>
+                </div>
+                <button class="btn" onclick="loadStatistics()" style="margin-top: 15px;">Refresh Stats</button>
+            </div>
+            
+            <!-- Routes Section -->
+            <div class="card routes-section">
+                <h2>🗺️ Available Routes</h2>
+                <button class="btn" onclick="loadRoutes()">Load All Routes</button>
+                <div id="routesList" class="results" style="display: none;">
+                    <div class="loading">Loading routes...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Your API base URL
+        const API_BASE = 'https://web-production-5bd5.up.railway.app/api';
+        
+        // Load statistics when page loads
+        window.addEventListener('load', function() {
+            loadStatistics();
+            loadRoutes();
+        });
+        
+        async function searchRoutes() {
+            const from = document.getElementById('fromCity').value;
+            const to = document.getElementById('toCity').value;
+            const resultsDiv = document.getElementById('searchResults');
+            
+            if (!from || !to) {
+                alert('Please enter both origin and destination cities');
+                return;
+            }
+            
+            resultsDiv.style.display = 'block';
+            resultsDiv.innerHTML = '<div class="loading">Searching routes...</div>';
+            
+            try {
+                const response = await fetch(`${API_BASE}/routes?search=${from} ${to}`);
+                const data = await response.json();
+                
+                if (data.status === 'success' && data.data.length > 0) {
+                    let html = '<h3>Found Routes:</h3>';
+                    data.data.forEach(route => {
+                        html += `
+                            <div class="route-item">
+                                <div class="route-name">${route.routeNumber}: ${route.name}</div>
+                                <div class="route-details">
+                                    📍 ${route.origin} → ${route.destination}<br>
+                                    📏 Distance: ${route.distance} km | 💰 Fare: Rs. ${route.fare}
+                                </div>
+                            </div>
+                        `;
+                    });
+                    resultsDiv.innerHTML = html;
+                } else {
+                    resultsDiv.innerHTML = '<div>No routes found for this search.</div>';
+                }
+            } catch (error) {
+                resultsDiv.innerHTML = '<div>Error searching routes. Please try again.</div>';
+                console.error('Search error:', error);
+            }
+        }
+        
+        async function loadStatistics() {
+            try {
+                // Load routes count
+                const routesResponse = await fetch(`${API_BASE}/routes`);
+                const routesData = await routesResponse.json();
+                document.getElementById('totalRoutes').textContent = routesData.results || 0;
+                
+                // Load buses count
+                const busesResponse = await fetch(`${API_BASE}/buses`);
+                const busesData = await busesResponse.json();
+                document.getElementById('totalBuses').textContent = busesData.results || 0;
+                
+                // Load active trips count
+                const tripsResponse = await fetch(`${API_BASE}/trips/active`);
+                const tripsData = await tripsResponse.json();
+                document.getElementById('activeTrips').textContent = tripsData.results || 0;
+                
+                // Load operators count
+                const operatorsResponse = await fetch(`${API_BASE}/operators`);
+                const operatorsData = await operatorsResponse.json();
+                document.getElementById('totalOperators').textContent = operatorsData.results || 0;
+                
+            } catch (error) {
+                console.error('Statistics loading error:', error);
+                document.getElementById('totalRoutes').textContent = 'Error';
+                document.getElementById('totalBuses').textContent = 'Error';
+                document.getElementById('activeTrips').textContent = 'Error';
+                document.getElementById('totalOperators').textContent = 'Error';
+            }
+        }
+        
+        async function loadRoutes() {
+            const routesDiv = document.getElementById('routesList');
+            routesDiv.style.display = 'block';
+            routesDiv.innerHTML = '<div class="loading">Loading all routes...</div>';
+            
+            try {
+                const response = await fetch(`${API_BASE}/routes`);
+                const data = await response.json();
+                
+                if (data.status === 'success' && data.data.length > 0) {
+                    let html = '';
+                    data.data.forEach(route => {
+                        html += `
+                            <div class="route-item">
+                                <div class="route-name">${route.routeNumber}: ${route.name}</div>
+                                <div class="route-details">
+                                    📍 ${route.origin} → ${route.destination}<br>
+                                    📏 ${route.distance} km | ⏱️ ${route.estimatedDuration} hours | 💰 Rs. ${route.fare}
+                                </div>
+                            </div>
+                        `;
+                    });
+                    routesDiv.innerHTML = html;
+                } else {
+                    routesDiv.innerHTML = '<div>No routes available.</div>';
+                }
+            } catch (error) {
+                routesDiv.innerHTML = '<div>Error loading routes. Please check your API connection.</div>';
+                console.error('Routes loading error:', error);
+            }
+        }
+    </script>
+</body>
+</html>
