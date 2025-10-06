@@ -1,5 +1,4 @@
 ﻿require('dotenv').config();
-const app = require('./src/app');
 const connectDB = require('./src/config/database');
 const logger = require('./src/config/logger');
 
@@ -14,17 +13,30 @@ process.on('uncaughtException', (err) => {
 
 const startServer = async () => {
     try {
+        console.log('🔍 Starting server initialization...');
+        
+        console.log('🔍 Loading app module...');
+        const app = require('./src/app');
+        
+        console.log('🔍 Connecting to database...');
         await connectDB();
         logger.info('Database connection established');
+        console.log('✅ Database connected successfully!');
 
+        console.log('🔍 Starting HTTP server...');
         server = app.listen(PORT, () => {
             logger.info(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
+            console.log(`✅ Server running on port ${PORT}!`);
         });
+        
+        console.log('🔍 Server startup completed!');
     } catch (error) {
+        console.error('❌ Server startup error:', error.message);
         logger.error('Failed to connect to database:', error.message);
         logger.error('Starting server without database connection...');
 
         // Start server even if database fails (for debugging)
+        const app = require('./src/app');
         server = app.listen(PORT, () => {
             logger.info(`Server running in ${process.env.NODE_ENV} mode on port ${PORT} (WITHOUT DATABASE)`);
         });

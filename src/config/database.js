@@ -6,10 +6,10 @@ const connectDB = async () => {
         console.log('🔍 Starting MongoDB connection...');
         console.log('🔍 MONGODB_URL:', process.env.MONGODB_URL ? 'SET' : 'NOT SET');
         console.log('🔍 MONGODB_URI:', process.env.MONGODB_URI ? 'SET' : 'NOT SET');
-        
+
         const mongoUri = process.env.MONGODB_URL || process.env.MONGODB_URI;
         console.log('🔍 Using MongoDB URI:', mongoUri ? 'AVAILABLE' : 'MISSING');
-        
+
         if (!mongoUri) {
             throw new Error('MongoDB connection string is missing');
         }
