@@ -155,4 +155,3 @@ locationUpdateSchema.pre(/^find/, function (next) {
 const LocationUpdate = mongoose.model('LocationUpdate', locationUpdateSchema);
 
 module.exports = LocationUpdate;
-

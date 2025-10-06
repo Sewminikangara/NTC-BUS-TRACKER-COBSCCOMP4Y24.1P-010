@@ -1,8 +1,13 @@
 ﻿/**
+ * Validation Schemas for API Endpoints
+ * Uses Joi for request validation
+ */
 
 const Joi = require('joi');
 
 /**
+ * User registration validation schema
+ */
 exports.registerSchema = {
     body: Joi.object({
         name: Joi.string().required().trim().max(50),
@@ -26,6 +31,8 @@ exports.loginSchema = {
 };
 
 /**
+ * Route validation schemas
+ */
 exports.createRouteSchema = {
     body: Joi.object({
         routeNumber: Joi.string().required().trim().uppercase(),

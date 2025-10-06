@@ -95,4 +95,3 @@ operatorSchema.pre('save', function (next) {
 const Operator = mongoose.model('Operator', operatorSchema);
 
 module.exports = Operator;
-
