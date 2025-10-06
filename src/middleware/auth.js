@@ -1,6 +1,6 @@
 ﻿/**
  * Authentication Middleware
- * Handles JWT token verification and user authentication
+ * Handles JWT authentication and authorization
  */
 
 const jwt = require('jsonwebtoken');
@@ -17,7 +17,7 @@ const asyncHandler = (fn) => (req, res, next) => {
 };
 
 /**
- * Protect middleware - requires valid JWT token
+ * Protect middleware - requires authentication
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @param {Function} next - Express next function
@@ -63,7 +63,7 @@ exports.protect = asyncHandler(async (req, res, next) => {
 
 /**
  * Restrict access to specific roles
- * @param {...string} roles - Allowed roles
+ * @param {...String} roles - Allowed roles
  * @returns {Function} Express middleware function
  */
 exports.restrictTo = (...roles) => (req, res, next) => {
@@ -103,7 +103,7 @@ exports.optionalAuth = asyncHandler(async (req, res, next) => {
             req.user = currentUser;
         }
     } catch (error) {
-        // Silently ignore invalid tokens for optional auth
+        // Token is invalid, but this is optional auth, so continue without user
     }
 
     next();

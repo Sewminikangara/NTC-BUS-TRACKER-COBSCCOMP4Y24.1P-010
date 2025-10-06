@@ -7,7 +7,7 @@ const Joi = require('joi');
 const { ApiError } = require('./errorHandler');
 
 /**
- * Validate request data against Joi schema
+ * Validation middleware factory
  * @param {Object} schema - Joi validation schema
  * @returns {Function} Express middleware function
  */

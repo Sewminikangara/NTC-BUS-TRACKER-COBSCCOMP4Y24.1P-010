@@ -1,6 +1,6 @@
 ﻿/**
  * ETag Middleware
- * Generates and manages ETags for caching
+ * Generates and validates ETags for caching
  */
 
 const crypto = require('crypto');
@@ -8,7 +8,7 @@ const crypto = require('crypto');
 /**
  * Generate ETag hash from data
  * @param {Object} data - Data to generate ETag for
- * @returns {string} ETag hash
+ * @returns {String} ETag hash
  */
 const generateETag = (data) => {
     const hash = crypto
@@ -19,7 +19,7 @@ const generateETag = (data) => {
 };
 
 /**
- * ETag middleware for caching
+ * ETag middleware for conditional requests
  * @param {Object} req - Express request object
  * @param {Object} res - Express response object
  * @param {Function} next - Express next function
