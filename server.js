@@ -24,22 +24,32 @@ const startServer = async () => {
         console.log('✅ Database connected successfully!');
 
         console.log('🔍 Starting HTTP server...');
-        server = app.listen(PORT, () => {
+        server = app.listen(PORT, '0.0.0.0', () => {
             logger.info(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
             console.log(`✅ Server running on port ${PORT}!`);
+            console.log('🔥 SERVER IS READY FOR REQUESTS!');
+            
+            // Signal Railway that we're ready
+            if (process.env.RAILWAY_ENVIRONMENT) {
+                console.log('🚂 Railway deployment detected - server ready!');
+            }
         });
+
+        // Set server timeouts for Railway
+        server.keepAliveTimeout = 61000;
+        server.headersTimeout = 62000;
+        server.timeout = 120000;
 
         console.log('🔍 Server startup completed!');
     } catch (error) {
         console.error('❌ Server startup error:', error.message);
         logger.error('Failed to connect to database:', error.message);
-        logger.error('Starting server without database connection...');
-
-        // Start server even if database fails (for debugging)
-        const app = require('./src/app');
-        server = app.listen(PORT, () => {
-            logger.info(`Server running in ${process.env.NODE_ENV} mode on port ${PORT} (WITHOUT DATABASE)`);
-        });
+        
+        // Exit on critical errors in production
+        if (process.env.NODE_ENV === 'production') {
+            console.error('❌ Critical error in production, exiting...');
+            process.exit(1);
+        }
     }
 };
 
@@ -55,10 +65,24 @@ process.on('unhandledRejection', (err) => {
     }
 });
 
+// Graceful shutdown for Railway
 process.on('SIGTERM', () => {
+    console.log('🛑 SIGTERM received. Shutting down gracefully...');
     logger.info('SIGTERM received. Shutting down gracefully...');
     if (server) {
-        server.close(() => logger.info('Process terminated'));
+        server.close(() => {
+            console.log('✅ Server closed gracefully');
+            logger.info('Server closed gracefully');
+            process.exit(0);
+        });
+        
+        // Force close after 10 seconds
+        setTimeout(() => {
+            console.log('❌ Forced shutdown after 10s timeout');
+            process.exit(1);
+        }, 10000);
+    } else {
+        process.exit(0);
     }
 });
 

@@ -63,12 +63,20 @@ app.use(etagMiddleware);
 app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/health', (req, res) => {
+    // Fast health check for Railway
     res.status(200).json({
         status: 'success',
         message: 'Server is healthy',
         timestamp: new Date().toISOString(),
-        uptime: process.uptime(),
+        uptime: Math.floor(process.uptime()),
+        memory: `${Math.round(process.memoryUsage().heapUsed / 1024 / 1024)}MB`,
+        environment: process.env.NODE_ENV || 'development',
     });
+});
+
+// Alternative health check for Railway (just returns OK)
+app.get('/ping', (req, res) => {
+    res.status(200).send('OK');
 });
 
 app.get('/', (req, res) => {
