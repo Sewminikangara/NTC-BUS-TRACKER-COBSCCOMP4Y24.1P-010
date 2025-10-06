@@ -33,6 +33,12 @@ const startServer = async () => {
             if (process.env.RAILWAY_ENVIRONMENT) {
                 console.log('🚂 Railway deployment detected - server ready!');
             }
+            
+            // Log memory usage every 30 seconds for debugging
+            setInterval(() => {
+                const memUsage = process.memoryUsage();
+                console.log(`💾 Memory: ${Math.round(memUsage.heapUsed/1024/1024)}MB / ${Math.round(memUsage.rss/1024/1024)}MB RSS`);
+            }, 30000);
         });
 
         // Set server timeouts for Railway
