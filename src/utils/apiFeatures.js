@@ -77,6 +77,25 @@ class APIFeatures {
     getQuery() {
         return this.query;
     }
+
+    getPaginationMeta(totalDocuments) {
+        const page = this.queryString.page * 1 || 1;
+        const limit = this.queryString.limit * 1 || 100;
+        const totalPages = Math.ceil(totalDocuments / limit);
+        const hasNextPage = page < totalPages;
+        const hasPrevPage = page > 1;
+
+        return {
+            page,
+            limit,
+            totalDocuments,
+            totalPages,
+            hasNextPage,
+            hasPrevPage,
+            nextPage: hasNextPage ? page + 1 : null,
+            prevPage: hasPrevPage ? page - 1 : null,
+        };
+    }
 }
 
 module.exports = APIFeatures;
