@@ -14,10 +14,10 @@ process.on('uncaughtException', (err) => {
 const startServer = async () => {
     try {
         console.log('🔍 Starting server initialization...');
-        
+
         console.log('🔍 Loading app module...');
         const app = require('./src/app');
-        
+
         console.log('🔍 Connecting to database...');
         await connectDB();
         logger.info('Database connection established');
@@ -28,7 +28,7 @@ const startServer = async () => {
             logger.info(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
             console.log(`✅ Server running on port ${PORT}!`);
         });
-        
+
         console.log('🔍 Server startup completed!');
     } catch (error) {
         console.error('❌ Server startup error:', error.message);

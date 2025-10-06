@@ -1,7 +1,15 @@
 ﻿/**
  * Error Handler Middleware
- * NTC Bus Tracker API - COBSCCOMP24.1P-010
- */
+ * NTC Bus Tracker API - COBSCCOMP24.1P-10    } els        logger.error('ERROR 💥', err); {
+        logger.error('ERROR 💥', err);
+        console.error('💥 API Error:', err.message);
+        console.error('💥 Stack:', err.stack);
+        res.status(500).json({
+            status: 'error',
+            message: err.message || 'Something went wrong!',
+            error: process.env.NODE_ENV === 'production' ? err.message : err.stack,
+        });
+    }
 
 const logger = require('../config/logger');
 
