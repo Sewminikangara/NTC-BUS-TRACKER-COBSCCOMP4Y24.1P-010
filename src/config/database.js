@@ -12,7 +12,7 @@ const connectDB = async () => {
             w: 'majority',
         };
 
-        const conn = await mongoose.connect(process.env.MONGODB_URI, options);
+        const conn = await mongoose.connect(process.env.MONGODB_URL || process.env.MONGODB_URI, options);
 
         logger.info(`MongoDB Connected: ${conn.connection.host}`);
         logger.info(`Database: ${conn.connection.name}`);
@@ -30,7 +30,7 @@ const connectDB = async () => {
         });
     } catch (error) {
         logger.error(`Error connecting to MongoDB: ${error.message}`);
-        logger.error('MongoDB URI:', process.env.MONGODB_URI ? 'Set' : 'Not set');
+        logger.error('MongoDB URI:', process.env.MONGODB_URI || process.env.MONGODB_URL ? 'Set' : 'Not set');
         // Don't exit the process immediately, let the app handle it gracefully
         throw error;
     }
