@@ -1,4 +1,4 @@
-﻿const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 const busSchema = new mongoose.Schema(
     {
@@ -85,13 +85,13 @@ busSchema.virtual('locationUpdates', {
     foreignField: 'busId',
 });
 
-/**
+// Check if maintenance is due
 busSchema.methods.isMaintenanceDue = function () {
     if (!this.nextMaintenance) return false;
     return this.nextMaintenance <= new Date();
 };
 
-/**
+// Validate maintenance dates before saving
 busSchema.pre('save', function (next) {
     if (this.nextMaintenance && this.lastMaintenance) {
         if (this.nextMaintenance <= this.lastMaintenance) {
@@ -101,7 +101,7 @@ busSchema.pre('save', function (next) {
     next();
 });
 
-/**
+// Populate route and operator details
 busSchema.pre(/^find/, function (next) {
     if (!this.getOptions().skipPopulate) {
         this.populate({
@@ -118,4 +118,3 @@ busSchema.pre(/^find/, function (next) {
 const Bus = mongoose.model('Bus', busSchema);
 
 module.exports = Bus;
-

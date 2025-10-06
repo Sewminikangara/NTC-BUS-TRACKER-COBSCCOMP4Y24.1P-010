@@ -1,4 +1,4 @@
-﻿const mongoose = require('mongoose');
+const mongoose = require('mongoose');
 
 const tripSchema = new mongoose.Schema(
     {
@@ -88,7 +88,7 @@ tripSchema.virtual('locationUpdates', {
     foreignField: 'busId',
 });
 
-/**
+// Get delay in minutes
 tripSchema.methods.getDelay = function () {
     if (!this.actualDepartureTime) return null;
 
@@ -98,17 +98,17 @@ tripSchema.methods.getDelay = function () {
     return Math.round((actual - scheduled) / (1000 * 60)); // minutes
 };
 
-/**
+// Check if trip is currently active
 tripSchema.methods.isActive = function () {
     return ['boarding', 'in-transit'].includes(this.status);
 };
 
-/**
+// Check if trip is scheduled for the future
 tripSchema.methods.isFuture = function () {
     return this.scheduledDepartureTime > new Date();
 };
 
-/**
+// Validate times and update status before saving
 tripSchema.pre('save', function (next) {
     if (this.scheduledArrivalTime <= this.scheduledDepartureTime) {
         return next(new Error('Arrival time must be after departure time'));
@@ -133,7 +133,7 @@ tripSchema.pre('save', function (next) {
     next();
 });
 
-/**
+// Populate bus and route details
 tripSchema.pre(/^find/, function (next) {
     if (!this.getOptions().skipPopulate) {
         this.populate({
@@ -150,4 +150,3 @@ tripSchema.pre(/^find/, function (next) {
 const Trip = mongoose.model('Trip', tripSchema);
 
 module.exports = Trip;
-
