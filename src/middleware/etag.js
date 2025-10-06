@@ -1,8 +1,15 @@
 ﻿/**
+ * ETag Middleware
+ * Generates and manages ETags for caching
+ */
 
 const crypto = require('crypto');
 
 /**
+ * Generate ETag hash from data
+ * @param {Object} data - Data to generate ETag for
+ * @returns {string} ETag hash
+ */
 const generateETag = (data) => {
     const hash = crypto
         .createHash('md5')
@@ -12,6 +19,11 @@ const generateETag = (data) => {
 };
 
 /**
+ * ETag middleware for caching
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @param {Function} next - Express next function
+ */
 const etagMiddleware = (req, res, next) => {
     if (req.method !== 'GET' && req.method !== 'HEAD') {
         return next();

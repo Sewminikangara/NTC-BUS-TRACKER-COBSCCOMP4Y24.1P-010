@@ -1,15 +1,27 @@
 ﻿/**
+ * Authentication Middleware
+ * Handles JWT token verification and user authentication
+ */
 
 const jwt = require('jsonwebtoken');
 const { ApiError } = require('./errorHandler');
 const User = require('../models/User');
 
 /**
+ * Async handler wrapper
+ * @param {Function} fn - Async function to wrap
+ * @returns {Function} Express middleware function
+ */
 const asyncHandler = (fn) => (req, res, next) => {
     Promise.resolve(fn(req, res, next)).catch(next);
 };
 
 /**
+ * Protect middleware - requires valid JWT token
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @param {Function} next - Express next function
+ */
 exports.protect = asyncHandler(async (req, res, next) => {
     let token;
 
@@ -50,6 +62,10 @@ exports.protect = asyncHandler(async (req, res, next) => {
 });
 
 /**
+ * Restrict access to specific roles
+ * @param {...string} roles - Allowed roles
+ * @returns {Function} Express middleware function
+ */
 exports.restrictTo = (...roles) => (req, res, next) => {
     if (!roles.includes(req.user.role)) {
         return next(
@@ -60,6 +76,11 @@ exports.restrictTo = (...roles) => (req, res, next) => {
 };
 
 /**
+ * Optional authentication middleware
+ * @param {Object} req - Express request object
+ * @param {Object} res - Express response object
+ * @param {Function} next - Express next function
+ */
 exports.optionalAuth = asyncHandler(async (req, res, next) => {
     let token;
 
@@ -82,6 +103,7 @@ exports.optionalAuth = asyncHandler(async (req, res, next) => {
             req.user = currentUser;
         }
     } catch (error) {
+        // Silently ignore invalid tokens for optional auth
     }
 
     next();
