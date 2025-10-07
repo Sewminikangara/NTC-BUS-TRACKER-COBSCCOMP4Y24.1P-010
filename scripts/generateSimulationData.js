@@ -21,7 +21,11 @@ const User = require('../src/models/User');
 // Connect to MongoDB
 const connectDB = async () => {
     try {
-        await mongoose.connect(process.env.MONGODB_URI, {
+        const mongoUri = process.env.MONGODB_URI || process.env.MONGODB_URL;
+        if (!mongoUri) {
+            throw new Error('MongoDB connection string not found. Please set MONGODB_URI or MONGODB_URL environment variable.');
+        }
+        await mongoose.connect(mongoUri, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
         });
