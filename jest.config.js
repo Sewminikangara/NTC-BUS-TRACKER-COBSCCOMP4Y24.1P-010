@@ -5,11 +5,9 @@ module.exports = {
         'src/**/*.js',
         '!src/utils/seedData.js',
         '!src/utils/generateSimulationData.js',
-        '!src/config/logger.js',
     ],
     testMatch: ['**/tests/**/*.test.js'],
     setupFilesAfterEnv: ['<rootDir>/tests/setup.js'],
-    testTimeout: 30000,
     coverageThreshold: {
         global: {
             branches: 70,
@@ -18,5 +16,4 @@ module.exports = {
             statements: 70,
         },
     },
-    coverageReporters: ['text', 'lcov', 'html'],
 };

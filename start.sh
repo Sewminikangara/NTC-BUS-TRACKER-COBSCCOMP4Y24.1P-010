@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Simple startup script for Railway
-echo " Starting NTC Bus Tracker API..."
+echo "🚀 Starting NTC Bus Tracker API..."
 
 # Set environment variables
 export NODE_ENV=production
