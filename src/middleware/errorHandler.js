@@ -1,9 +1,12 @@
 ﻿/**
  * Error Handler Middleware
- * NTC Bus Tracker API - COBSCCOMP24.1P-10    } els        logger.error('ERROR 💥', err); {
-        logger.error('ERROR 💥', err);
-        console.error('💥 API Error:', err.message);
-        console.error('💥 Stack:', err.stack);
+ * NTC Bus Tracker API - COBSCCOMP24.1P-10
+ */
+const errorHandler = (err, req, res, next) => {
+    if (process.env.NODE_ENV === 'development') {
+        logger.error('ERROR ', err);
+        console.error(' API Error:', err.message);
+        console.error(' Stack:', err.stack);
         res.status(500).json({
             status: 'error',
             message: err.message || 'Something went wrong!',
@@ -116,4 +119,3 @@ const errorHandler = (err, req, res, next) => {
 
 module.exports = errorHandler;
 module.exports.ApiError = ApiError;
-

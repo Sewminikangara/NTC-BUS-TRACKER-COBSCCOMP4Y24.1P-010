@@ -13,31 +13,31 @@ process.on('uncaughtException', (err) => {
 
 const startServer = async () => {
     try {
-        console.log('🔍 Starting server initialization...');
+        console.log(' Starting server initialization...');
 
-        console.log('🔍 Loading app module...');
+        console.log(' Loading app module...');
         const app = require('./src/app');
 
-        console.log('🔍 Connecting to database...');
+        console.log(' Connecting to database...');
         await connectDB();
         logger.info('Database connection established');
-        console.log('✅ Database connected successfully!');
+        console.log(' Database connected successfully!');
 
-        console.log('🔍 Starting HTTP server...');
+        console.log(' Starting HTTP server...');
         server = app.listen(PORT, '0.0.0.0', () => {
             logger.info(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`);
-            console.log(`✅ Server running on port ${PORT}!`);
-            console.log('🔥 SERVER IS READY FOR REQUESTS!');
+            console.log(` Server running on port ${PORT}!`);
+            console.log(' SERVER IS READY FOR REQUESTS!');
 
             // Signal Railway that we're ready
             if (process.env.RAILWAY_ENVIRONMENT) {
-                console.log('🚂 Railway deployment detected - server ready!');
+                console.log(' Railway deployment detected - server ready!');
             }
-            
+
             // Log memory usage every 30 seconds for debugging
             setInterval(() => {
                 const memUsage = process.memoryUsage();
-                console.log(`💾 Memory: ${Math.round(memUsage.heapUsed/1024/1024)}MB / ${Math.round(memUsage.rss/1024/1024)}MB RSS`);
+                console.log(` Memory: ${Math.round(memUsage.heapUsed / 1024 / 1024)}MB / ${Math.round(memUsage.rss / 1024 / 1024)}MB RSS`);
             }, 30000);
         });
 
@@ -46,14 +46,14 @@ const startServer = async () => {
         server.headersTimeout = 62000;
         server.timeout = 120000;
 
-        console.log('🔍 Server startup completed!');
+        console.log(' Server startup completed!');
     } catch (error) {
-        console.error('❌ Server startup error:', error.message);
+        console.error(' Server startup error:', error.message);
         logger.error('Failed to connect to database:', error.message);
 
         // Exit on critical errors in production
         if (process.env.NODE_ENV === 'production') {
-            console.error('❌ Critical error in production, exiting...');
+            console.error(' Critical error in production, exiting...');
             process.exit(1);
         }
     }
@@ -73,28 +73,28 @@ process.on('unhandledRejection', (err) => {
 
 // Graceful shutdown for Railway
 process.on('SIGTERM', () => {
-    console.log('🛑 SIGTERM received. Railway is trying to stop the container...');
+    console.log(' SIGTERM received. Railway is trying to stop the container...');
     logger.info('SIGTERM received from Railway');
-    
+
     // In Railway, sometimes SIGTERM is sent prematurely
     // Let's try to stay alive for a bit longer
-    console.log('⏳ Attempting to stay alive for Railway health checks...');
-    
+    console.log(' Attempting to stay alive for Railway health checks...');
+
     setTimeout(() => {
-        console.log('🔄 Still alive after SIGTERM - continuing to serve requests');
-        
+        console.log(' Still alive after SIGTERM - continuing to serve requests');
+
         // Only actually shutdown if we receive another SIGTERM
         process.once('SIGTERM', () => {
-            console.log('🛑 Second SIGTERM received - now shutting down gracefully...');
+            console.log(' Second SIGTERM received - now shutting down gracefully...');
             if (server) {
                 server.close(() => {
-                    console.log('✅ Server closed gracefully');
+                    console.log(' Server closed gracefully');
                     logger.info('Server closed gracefully');
                     process.exit(0);
                 });
-                
+
                 setTimeout(() => {
-                    console.log('❌ Forced shutdown after timeout');
+                    console.log(' Forced shutdown after timeout');
                     process.exit(1);
                 }, 5000);
             } else {
@@ -106,7 +106,7 @@ process.on('SIGTERM', () => {
 
 // Additional signal handlers for Railway
 process.on('SIGINT', () => {
-    console.log('🛑 SIGINT received');
+    console.log(' SIGINT received');
     if (server) {
         server.close(() => process.exit(0));
     } else {
