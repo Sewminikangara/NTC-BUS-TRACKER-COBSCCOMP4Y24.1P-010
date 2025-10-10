@@ -1,0 +1,61 @@
+{
+  "metadata": {
+    "description": "NTC Service types with official fare structures"
+  },
+  "data": {
+    "normal": {
+      "name": "Normal Service",
+      "baseFarePerKm": 3.5,
+      "features": [],
+      "capacity": 60
+    },
+    "semiLuxury": {
+      "name": "Semi-Luxury Service",
+      "baseFarePerKm": 4.2,
+      "features": [
+        "USB Charging"
+      ],
+      "capacity": 52
+    },
+    "luxury": {
+      "name": "Luxury Service",
+      "baseFarePerKm": 5.8,
+      "features": [
+        "AC",
+        "Reclining Seats",
+        "USB Charging",
+        "WiFi"
+      ],
+      "capacity": 45
+    },
+    "superLuxury": {
+      "name": "Super Luxury Service",
+      "baseFarePerKm": 7.5,
+      "features": [
+        "AC",
+        "Reclining Seats",
+        "WiFi",
+        "USB Charging",
+        "Rest Room"
+      ],
+      "capacity": 35
+    },
+    "expresswayLuxury": {
+      "name": "Expressway Luxury",
+      "baseFarePerKm": 8.2,
+      "features": [
+        "AC",
+        "Reclining Seats",
+        "WiFi",
+        "USB Charging"
+      ],
+      "capacity": 40
+    },
+    "sisuSeriya": {
+      "name": "Sisu Seriya (Student Service)",
+      "baseFarePerKm": 2.8,
+      "features": [],
+      "capacity": 60
+    }
+  }
+}

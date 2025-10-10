@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "generatedAt": "2025-10-07T07:29:53.068Z",
+    "basedOn": "Official NTC data from ntc.gov.lk",
+    "fareRevision": "July 2025",
+    "dataSource": "National Transport Commission Sri Lanka"
+  },
+  "statistics": {
+    "routes": 8,
+    "operators": 6,
+    "buses": 42,
+    "trips": 0,
+    "locationUpdates": 0
+  },
+  "serviceTypes": [
+    "normal",
+    "semiLuxury",
+    "luxury",
+    "superLuxury",
+    "expresswayLuxury",
+    "sisuSeriya"
+  ],
+  "routeTypes": {
+    "normalHighway": 8,
+    "expressway": 0,
+    "studentService": 1
+  },
+  "coverage": {
+    "provinces": [
+      "Western",
+      "Central",
+      "Southern",
+      "Northern",
+      "Eastern"
+    ],
+    "majorCities": [
+      "Colombo",
+      "Kandy",
+      "Galle",
+      "Matara",
+      "Jaffna",
+      "Trincomalee"
+    ]
+  }
+}

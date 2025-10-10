@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "description": "Authentic NTC and SLTB operators"
+  },
+  "data": [
+    {
+      "name": "National Transport Commission Central",
+      "registrationNumber": "NTC-CENTRAL-001",
+      "contactPerson": {
+        "name": "W.M.S.B. Weerasinghe",
+        "phone": "0112587372",
+        "email": "central@ntc.gov.lk"
+      },
+      "address": {
+        "street": "No. 241, Park Road",
+        "city": "Colombo",
+        "province": "Western",
+        "postalCode": "00500"
+      },
+      "status": "active",
+      "licenseNumber": "LIC-NTC-001",
+      "licenseExpiry": "2026-12-31T00:00:00.000Z",
+      "_id": "68e4c17070c1cfe92ba0e692",
+      "__v": 0,
+      "createdAt": "2025-10-07T07:29:52.478Z",
+      "updatedAt": "2025-10-07T07:29:52.478Z",
+      "id": "68e4c17070c1cfe92ba0e692"
+    },
+    {
+      "name": "Sri Lanka Transport Board - Western",
+      "registrationNumber": "SLTB-WEST-001",
+      "contactPerson": {
+        "name": "K.A.N. Silva",
+        "phone": "0112876543",
+        "email": "western@sltb.gov.lk"
+      },
+      "address": {
+        "street": "No. 100, Baseline Road",
+        "city": "Colombo",
+        "province": "Western",
+        "postalCode": "00900"
+      },
+      "status": "active",
+      "licenseNumber": "LIC-SLTB-001",
+      "licenseExpiry": "2026-09-30T00:00:00.000Z",
+      "_id": "68e4c17070c1cfe92ba0e693",
+      "__v": 0,
+      "createdAt": "2025-10-07T07:29:52.478Z",
+      "updatedAt": "2025-10-07T07:29:52.478Z",
+      "id": "68e4c17070c1cfe92ba0e693"
+    },
+    {
+      "name": "Sri Lanka Transport Board - Southern",
+      "registrationNumber": "SLTB-SOUTH-001",
+      "contactPerson": {
+        "name": "R.P. Fernando",
+        "phone": "0912234567",
+        "email": "southern@sltb.gov.lk"
+      },
+      "address": {
+        "street": "No. 45, Matara Road",
+        "city": "Galle",
+        "province": "Southern",
+        "postalCode": "80000"
+      },
+      "status": "active",
+      "licenseNumber": "LIC-SLTB-002",
+      "licenseExpiry": "2027-03-15T00:00:00.000Z",
+      "_id": "68e4c17070c1cfe92ba0e694",
+      "__v": 0,
+      "createdAt": "2025-10-07T07:29:52.478Z",
+      "updatedAt": "2025-10-07T07:29:52.478Z",
+      "id": "68e4c17070c1cfe92ba0e694"
+    },
+    {
+      "name": "Express Pearl Private Limited",
+      "registrationNumber": "EP-PVT-001",
+      "contactPerson": {
+        "name": "Nimal Jayasinghe",
+        "phone": "0777123456",
+        "email": "operations@expresspearl.lk"
+      },
+      "address": {
+        "street": "No. 156, Kandy Road",
+        "city": "Kadawatha",
+        "province": "Western",
+        "postalCode": "11850"
+      },
+      "status": "active",
+      "licenseNumber": "LIC-EP-001",
+      "licenseExpiry": "2027-06-20T00:00:00.000Z",
+      "_id": "68e4c17070c1cfe92ba0e695",
+      "__v": 0,
+      "createdAt": "2025-10-07T07:29:52.478Z",
+      "updatedAt": "2025-10-07T07:29:52.478Z",
+      "id": "68e4c17070c1cfe92ba0e695"
+    },
+    {
+      "name": "Comfort Line (Pvt) Ltd",
+      "registrationNumber": "CL-PVT-001",
+      "contactPerson": {
+        "name": "Anura Wickramasinghe",
+        "phone": "0771234567",
+        "email": "info@comfortline.lk"
+      },
+      "address": {
+        "street": "No. 78, Galle Road",
+        "city": "Mount Lavinia",
+        "province": "Western",
+        "postalCode": "10370"
+      },
+      "status": "active",
+      "licenseNumber": "LIC-CL-001",
+      "licenseExpiry": "2026-11-10T00:00:00.000Z",
+      "_id": "68e4c17070c1cfe92ba0e696",
+      "__v": 0,
+      "createdAt": "2025-10-07T07:29:52.478Z",
+      "updatedAt": "2025-10-07T07:29:52.478Z",
+      "id": "68e4c17070c1cfe92ba0e696"
+    },
+    {
+      "name": "Highway Express (Pvt) Ltd",
+      "registrationNumber": "HE-PVT-001",
+      "contactPerson": {
+        "name": "Chaminda Perera",
+        "phone": "0765432109",
+        "email": "reservations@highwayexpress.lk"
+      },
+      "address": {
+        "street": "No. 234, High Level Road",
+        "city": "Nugegoda",
+        "province": "Western",
+        "postalCode": "10250"
+      },
+      "status": "active",
+      "licenseNumber": "LIC-HE-001",
+      "licenseExpiry": "2027-08-15T00:00:00.000Z",
+      "_id": "68e4c17070c1cfe92ba0e697",
+      "__v": 0,
+      "createdAt": "2025-10-07T07:29:52.478Z",
+      "updatedAt": "2025-10-07T07:29:52.478Z",
+      "id": "68e4c17070c1cfe92ba0e697"
+    }
+  ]
+}

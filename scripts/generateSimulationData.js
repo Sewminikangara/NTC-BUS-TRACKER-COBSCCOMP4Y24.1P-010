@@ -406,7 +406,7 @@ const generateLocationUpdates = (trips, routes) => {
  */
 const generateAllData = async () => {
     try {
-        console.log('\n🚀 Starting Simulation Data Generation...\n');
+        console.log('\n Starting Simulation Data Generation...\n');
 
         // Clear existing data
         console.log('  Clearing existing data...');

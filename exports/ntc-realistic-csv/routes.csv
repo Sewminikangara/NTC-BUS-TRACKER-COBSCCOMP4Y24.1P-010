@@ -1,0 +1,9 @@
+Route Number,Name,Origin,Destination,Distance(km),Duration(min),Service Types,Expressway,Status,Stops Count
+"NTC-001","Colombo - Kandy (A1 Highway)","Colombo","Kandy",115,180,"normal; semiLuxury; luxury",undefined,"active",12
+"NTC-002","Colombo - Galle (A2 Coastal Road)","Colombo","Galle",119,150,"normal; semiLuxury; luxury",undefined,"active",11
+"EXP-001","Colombo - Galle (Southern Expressway)","Colombo","Galle",95,90,"luxury; superLuxury; expresswayLuxury",undefined,"active",7
+"NTC-003","Colombo - Matara","Colombo","Matara",160,210,"normal; semiLuxury; luxury",undefined,"active",10
+"NTC-004","Colombo - Jaffna (A9 Highway)","Colombo","Jaffna",395,480,"luxury; superLuxury",undefined,"active",9
+"NTC-005","Kandy - Jaffna","Kandy","Jaffna",285,360,"normal; semiLuxury; luxury",undefined,"active",7
+"NTC-006","Colombo - Trincomalee","Colombo","Trincomalee",257,300,"normal; semiLuxury; luxury",undefined,"active",6
+"STU-001","Colombo - Kandy (Sisu Seriya)","Colombo","Kandy",115,200,"sisuSeriya",undefined,"active",5
