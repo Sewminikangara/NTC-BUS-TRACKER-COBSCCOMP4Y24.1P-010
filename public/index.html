@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NTC Bus Tracker</title>
+    <title>NTC Bus Tracker - API Demonstration Dashboard</title>
     <style>
         * {
             margin: 0;
@@ -20,7 +20,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             background: white;
             border-radius: 15px;
@@ -45,18 +45,62 @@
             font-size: 1.1em;
         }
 
+        .header .api-url {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        .tabs {
+            display: flex;
+            background: #f8f9fa;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .tab {
+            padding: 15px 30px;
+            cursor: pointer;
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            font-weight: 500;
+            color: #666;
+            transition: all 0.3s;
+        }
+
+        .tab:hover {
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .tab.active {
+            background: white;
+            color: #2c5aa0;
+            border-bottom: 3px solid #2c5aa0;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
         .dashboard {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 30px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
         .card {
             background: white;
             border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             border-left: 5px solid #4CAF50;
         }
 
@@ -66,6 +110,45 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            font-size: 1.5em;
+        }
+
+        .card h3 {
+            color: #555;
+            margin: 20px 0 10px 0;
+            font-size: 1.2em;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .badge {
+            background: #4CAF50;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .badge.blue {
+            background: #2196F3;
+        }
+
+        .badge.orange {
+            background: #FF9800;
+        }
+
+        .badge.purple {
+            background: #9C27B0;
+        }
+
+        .badge.red {
+            background: #f44336;
         }
 
         .search-section {
@@ -78,6 +161,13 @@
 
         .routes-section {
             border-left-color: #9C27B0;
+        }
+
+        .filter-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
         }
 
         .input-group {
@@ -117,10 +207,26 @@
             font-size: 16px;
             font-weight: 500;
             transition: transform 0.2s;
+            margin-right: 10px;
+            margin-bottom: 10px;
         }
 
         .btn:hover {
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn.secondary {
+            background: linear-gradient(45deg, #2196F3, #1976D2);
+        }
+
+        .btn.danger {
+            background: linear-gradient(45deg, #f44336, #d32f2f);
+        }
+
+        .btn.small {
+            padding: 8px 16px;
+            font-size: 14px;
         }
 
         .results {
@@ -129,18 +235,67 @@
             background: #f8f9fa;
             border-radius: 8px;
             border: 1px solid #e9ecef;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .json-viewer {
+            background: #263238;
+            color: #aed581;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+
+        .json-key {
+            color: #80cbc4;
+        }
+
+        .json-string {
+            color: #ffeb3b;
+        }
+
+        .json-number {
+            color: #ff9800;
+        }
+
+        .json-boolean {
+            color: #f48fb1;
         }
 
         .loading {
             text-align: center;
             color: #666;
             font-style: italic;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #2c5aa0;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 15px;
+            margin-bottom: 20px;
         }
 
         .stat-item {
@@ -177,6 +332,184 @@
         .route-details {
             color: #666;
             margin-top: 5px;
+            font-size: 0.95em;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .pagination button {
+            padding: 8px 16px;
+            border: 1px solid #dee2e6;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background: #2c5aa0;
+            color: white;
+            border-color: #2c5aa0;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pagination .page-info {
+            padding: 8px 16px;
+            background: white;
+            border-radius: 5px;
+            border: 1px solid #dee2e6;
+            font-weight: 500;
+        }
+
+        .hateoas-links {
+            background: #e3f2fd;
+            border: 1px solid #2196F3;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 15px;
+        }
+
+        .hateoas-links h4 {
+            color: #1976D2;
+            margin-bottom: 10px;
+        }
+
+        .link-item {
+            background: white;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border-left: 3px solid #2196F3;
+            font-family: monospace;
+            font-size: 0.9em;
+        }
+
+        .link-method {
+            background: #4CAF50;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-weight: bold;
+            margin-right: 10px;
+            font-size: 0.85em;
+        }
+
+        .link-method.post {
+            background: #FF9800;
+        }
+
+        .link-method.put {
+            background: #2196F3;
+        }
+
+        .link-method.delete {
+            background: #f44336;
+        }
+
+        .api-request {
+            background: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+
+        .success-message {
+            background: #c8e6c9;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #4CAF50;
+            margin: 10px 0;
+        }
+
+        .error-message {
+            background: #ffcdd2;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f44336;
+            margin: 10px 0;
+        }
+
+        .info-box {
+            background: #fff3e0;
+            border-left: 4px solid #FF9800;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .info-box h4 {
+            color: #e65100;
+            margin-bottom: 10px;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .feature-list li:before {
+            content: "✓ ";
+            color: #4CAF50;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+        }
+
+        table th {
+            background: #f8f9fa;
+            padding: 12px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        table td {
+            padding: 12px;
+            border-bottom: 1px solid #dee2e6;
+        }
+
+        table tr:hover {
+            background: #f8f9fa;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 40px;
+            color: #999;
+            font-style: italic;
         }
     </style>
 </head>
@@ -184,55 +517,283 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>NTC Bus Tracker</h1>
-            <p>Real-Time Bus Tracking System for Inter-Provincial Services</p>
+            <h1>NTC Bus Tracker - API Demonstration Dashboard</h1>
+            <p>RESTful Web API for Real-Time Inter-Provincial Bus Tracking System</p>
+            <div class="api-url">Base URL: https://web-production-5bd5.up.railway.app/api</div>
         </div>
 
-        <div class="dashboard">
-            <div class="card search-section">
-                <h2>Search Routes</h2>
-                <div class="input-group">
-                    <label>From:</label>
-                    <input type="text" id="fromCity" placeholder="e.g., Colombo">
+        <div class="tabs">
+            <button class="tab active" data-tab="overview">Overview</button>
+            <button class="tab" data-tab="routes">Routes API</button>
+            <button class="tab" data-tab="buses">Buses API</button>
+            <button class="tab" data-tab="operators">Operators API</button>
+            <button class="tab" data-tab="advanced">Advanced Features</button>
+            <button class="tab" data-tab="hateoas">HATEOAS Demo</button>
+        </div>
+
+        <div id="overview" class="tab-content active">
+            <div class="dashboard">
+                <div class="card">
+                    <div class="section-header">
+                        <h2>System Statistics</h2>
+                        <span class="badge orange">Live Data</span>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalRoutes">-</div>
+                            <div class="stat-label">Total Routes</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalBuses">-</div>
+                            <div class="stat-label">Total Buses</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="activeTrips">-</div>
+                            <div class="stat-label">Active Trips</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" id="totalOperators">-</div>
+                            <div class="stat-label">Operators</div>
+                        </div>
+                    </div>
+                    <button class="btn" id="refreshStatsBtn">Refresh Statistics</button>
                 </div>
-                <div class="input-group">
-                    <label>To:</label>
-                    <input type="text" id="toCity" placeholder="e.g., Kandy">
+
+                <div class="card">
+                    <h2>API Features Demonstrated</h2>
+                    <ul class="feature-list">
+                        <li>RESTful API Design with proper HTTP methods (GET, POST, PUT, DELETE)</li>
+                        <li>HATEOAS Hypermedia Links for API discoverability</li>
+                        <li>Advanced Filtering, Sorting, and Pagination</li>
+                        <li>Conditional GET Requests with Last-Modified headers</li>
+                        <li>JWT-based Authentication and Authorization</li>
+                        <li>Input Validation using Joi schemas</li>
+                        <li>Comprehensive Error Handling with proper status codes</li>
+                        <li>MongoDB with Mongoose ODM for data persistence</li>
+                        <li>Rate Limiting and Security Headers (Helmet)</li>
+                        <li>Deployed on Railway with MongoDB Atlas</li>
+                    </ul>
                 </div>
-                <button class="btn" id="searchBtn">Search Routes</button>
-                <div id="searchResults" class="results" style="display: none;">
-                    <div class="loading">Searching...</div>
+
+                <div class="card">
+                    <h2>Quick Route Search</h2>
+                    <div class="filter-grid">
+                        <div class="input-group">
+                            <label>Origin City:</label>
+                            <input type="text" id="fromCity" placeholder="e.g., Colombo">
+                        </div>
+                        <div class="input-group">
+                            <label>Destination City:</label>
+                            <input type="text" id="toCity" placeholder="e.g., Kandy">
+                        </div>
+                    </div>
+                    <button class="btn" id="searchBtn">Search Routes</button>
+                    <div id="searchResults"></div>
                 </div>
             </div>
+        </div>
 
-            <div class="card stats-section">
-                <h2>System Statistics</h2>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number" id="totalRoutes">-</div>
-                        <div class="stat-label">Routes</div>
+        <div id="routes" class="tab-content">
+            <div class="dashboard">
+                <div class="card routes-section">
+                    <div class="section-header">
+                        <h2>Routes API - GET /api/routes</h2>
+                        <span class="badge purple">RESTful Endpoint</span>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="totalBuses">-</div>
-                        <div class="stat-label">Buses</div>
+                    
+                    <div class="info-box">
+                        <h4>Features Demonstrated:</h4>
+                        <ul>
+                            <li>Pagination with page and limit parameters</li>
+                            <li>Filtering by status, origin, destination</li>
+                            <li>Sorting by multiple fields</li>
+                            <li>Field selection to optimize response size</li>
+                            <li>HATEOAS links for navigation</li>
+                        </ul>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="activeTrips">-</div>
-                        <div class="stat-label">Active Trips</div>
+
+                    <h3>Filter & Sort Options</h3>
+                    <div class="filter-grid">
+                        <div class="input-group">
+                            <label>Status:</label>
+                            <select id="routeStatus">
+                                <option value="">All</option>
+                                <option value="active">Active</option>
+                                <option value="inactive">Inactive</option>
+                                <option value="suspended">Suspended</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Sort By:</label>
+                            <select id="routeSort">
+                                <option value="">Default</option>
+                                <option value="name">Name (A-Z)</option>
+                                <option value="-name">Name (Z-A)</option>
+                                <option value="distance">Distance (Low-High)</option>
+                                <option value="-distance">Distance (High-Low)</option>
+                                <option value="fare">Fare (Low-High)</option>
+                                <option value="-fare">Fare (High-Low)</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Results per page:</label>
+                            <select id="routeLimit">
+                                <option value="5">5</option>
+                                <option value="10" selected>10</option>
+                                <option value="20">20</option>
+                                <option value="50">50</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="totalOperators">-</div>
-                        <div class="stat-label">Operators</div>
-                    </div>
+
+                    <button class="btn" id="loadRoutesBtn">Load Routes</button>
+                    <button class="btn secondary" id="showRouteApiBtn">Show API Request</button>
+                    
+                    <div id="routeApiRequest" style="display: none;"></div>
+                    <div id="routesPagination"></div>
+                    <div id="routesList"></div>
+                    <div id="routesHateoas"></div>
                 </div>
-                <button class="btn" id="refreshStatsBtn" style="margin-top: 15px;">Refresh Stats</button>
             </div>
+        </div>
 
-            <div class="card routes-section">
-                <h2>Available Routes</h2>
-                <button class="btn" id="loadRoutesBtn">Load All Routes</button>
-                <div id="routesList" class="results" style="display: none;">
-                    <div class="loading">Loading routes...</div>
+        <div id="buses" class="tab-content">
+            <div class="dashboard">
+                <div class="card">
+                    <div class="section-header">
+                        <h2>Buses API - GET /api/buses</h2>
+                        <span class="badge blue">RESTful Endpoint</span>
+                    </div>
+
+                    <h3>Advanced Filtering</h3>
+                    <div class="filter-grid">
+                        <div class="input-group">
+                            <label>Service Type:</label>
+                            <select id="busServiceType">
+                                <option value="">All</option>
+                                <option value="normal">Normal</option>
+                                <option value="semi-luxury">Semi-Luxury</option>
+                                <option value="luxury">Luxury</option>
+                                <option value="super-luxury">Super Luxury</option>
+                                <option value="expressway">Expressway</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Status:</label>
+                            <select id="busStatus">
+                                <option value="">All</option>
+                                <option value="active">Active</option>
+                                <option value="maintenance">Maintenance</option>
+                                <option value="retired">Retired</option>
+                            </select>
+                        </div>
+                        <div class="input-group">
+                            <label>Min Capacity:</label>
+                            <input type="number" id="busMinCapacity" placeholder="e.g., 40">
+                        </div>
+                        <div class="input-group">
+                            <label>Sort By:</label>
+                            <select id="busSort">
+                                <option value="">Default</option>
+                                <option value="registrationNumber">Reg Number</option>
+                                <option value="capacity">Capacity (Low-High)</option>
+                                <option value="-capacity">Capacity (High-Low)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button class="btn" id="loadBusesBtn">Load Buses</button>
+                    <button class="btn secondary" id="showBusApiBtn">Show API Request</button>
+                    
+                    <div id="busApiRequest" style="display: none;"></div>
+                    <div id="busesPagination"></div>
+                    <div id="busesList"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="operators" class="tab-content">
+            <div class="dashboard">
+                <div class="card">
+                    <div class="section-header">
+                        <h2>Operators API - GET /api/operators</h2>
+                        <span class="badge orange">RESTful Endpoint</span>
+                    </div>
+
+                    <button class="btn" id="loadOperatorsBtn">Load All Operators</button>
+                    <button class="btn secondary" id="showOperatorApiBtn">Show API Request</button>
+                    
+                    <div id="operatorApiRequest" style="display: none;"></div>
+                    <div id="operatorsList"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="advanced" class="tab-content">
+            <div class="dashboard">
+                <div class="card">
+                    <h2>Advanced API Features</h2>
+                    
+                    <h3>1. Pagination Example</h3>
+                    <p>Navigate through large datasets efficiently using page and limit parameters.</p>
+                    <div class="api-request">GET /api/routes?page=2&limit=10</div>
+                    
+                    <h3>2. Filtering by Multiple Fields</h3>
+                    <p>Filter results using query parameters for precise data retrieval.</p>
+                    <div class="api-request">GET /api/buses?status=active&serviceType=luxury</div>
+                    
+                    <h3>3. Range Queries</h3>
+                    <p>Use operators like gte, gt, lte, lt for numeric comparisons.</p>
+                    <div class="api-request">GET /api/routes?distance[gte]=100&distance[lte]=200</div>
+                    
+                    <h3>4. Multi-field Sorting</h3>
+                    <p>Sort by multiple fields using comma separation. Use minus (-) for descending order.</p>
+                    <div class="api-request">GET /api/routes?sort=distance,-fare</div>
+                    
+                    <h3>5. Field Selection</h3>
+                    <p>Request only specific fields to reduce response payload size.</p>
+                    <div class="api-request">GET /api/routes?fields=routeNumber,name,origin,destination</div>
+                    
+                    <h3>6. Search Functionality</h3>
+                    <p>Search across multiple fields using regex pattern matching.</p>
+                    <div class="api-request">GET /api/routes?search=Colombo</div>
+
+                    <button class="btn" id="testAdvancedBtn">Test Advanced Query</button>
+                    <div id="advancedResults"></div>
+                </div>
+            </div>
+        </div>
+
+        <div id="hateoas" class="tab-content">
+            <div class="dashboard">
+                <div class="card">
+                    <div class="section-header">
+                        <h2>HATEOAS Demonstration</h2>
+                        <span class="badge purple">Hypermedia Links</span>
+                    </div>
+                    
+                    <div class="info-box">
+                        <h4>What is HATEOAS?</h4>
+                        <p>HATEOAS (Hypermedia as the Engine of Application State) is a REST constraint where the API provides hypermedia links in responses, allowing clients to dynamically discover available actions without hardcoding URLs.</p>
+                    </div>
+
+                    <h3>Example: Get Single Route with Links</h3>
+                    <button class="btn" id="hateoasDemo">Load Route with HATEOAS Links</button>
+                    
+                    <div id="hateoasResponse"></div>
+                    <div id="hateoasLinks"></div>
+                </div>
+
+                <div class="card">
+                    <h2>Response Structure with HATEOAS</h2>
+                    <p>Every API response includes:</p>
+                    <ul class="feature-list">
+                        <li><strong>self</strong> - Link to the current resource</li>
+                        <li><strong>collection</strong> - Link to the parent collection</li>
+                        <li><strong>related</strong> - Links to related resources</li>
+                        <li><strong>actions</strong> - Available CRUD operations (create, update, delete)</li>
+                        <li><strong>pagination</strong> - Next/previous page links (for collections)</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -240,15 +801,66 @@
 
     <script>
         const API_BASE = 'https://web-production-5bd5.up.railway.app/api';
+        let currentPage = 1;
 
         window.addEventListener('load', function () {
             loadStatistics();
-            loadRoutes();
+            setupTabs();
+            setupEventListeners();
+        });
 
+        function setupTabs() {
+            const tabs = document.querySelectorAll('.tab');
+            const contents = document.querySelectorAll('.tab-content');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    tabs.forEach(t => t.classList.remove('active'));
+                    contents.forEach(c => c.classList.remove('active'));
+                    
+                    tab.classList.add('active');
+                    const tabId = tab.getAttribute('data-tab');
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        }
+
+        function setupEventListeners() {
             document.getElementById('searchBtn').addEventListener('click', searchRoutes);
             document.getElementById('refreshStatsBtn').addEventListener('click', loadStatistics);
             document.getElementById('loadRoutesBtn').addEventListener('click', loadRoutes);
-        });
+            document.getElementById('showRouteApiBtn').addEventListener('click', showRouteApiRequest);
+            document.getElementById('loadBusesBtn').addEventListener('click', loadBuses);
+            document.getElementById('showBusApiBtn').addEventListener('click', showBusApiRequest);
+            document.getElementById('loadOperatorsBtn').addEventListener('click', loadOperators);
+            document.getElementById('showOperatorApiBtn').addEventListener('click', showOperatorApiRequest);
+            document.getElementById('testAdvancedBtn').addEventListener('click', testAdvancedQuery);
+            document.getElementById('hateoasDemo').addEventListener('click', demonstrateHATEOAS);
+        }
+
+        async function loadStatistics() {
+            try {
+                const [routesRes, busesRes, tripsRes, operatorsRes] = await Promise.all([
+                    fetch(`${API_BASE}/routes`),
+                    fetch(`${API_BASE}/buses`),
+                    fetch(`${API_BASE}/trips`),
+                    fetch(`${API_BASE}/operators`)
+                ]);
+
+                const routesData = await routesRes.json();
+                const busesData = await busesRes.json();
+                const tripsData = await tripsRes.json();
+                const operatorsData = await operatorsRes.json();
+
+                document.getElementById('totalRoutes').textContent = routesData.results || 0;
+                document.getElementById('totalBuses').textContent = busesData.results || 0;
+                document.getElementById('activeTrips').textContent = tripsData.results || 0;
+                document.getElementById('totalOperators').textContent = operatorsData.results || 0;
+            } catch (error) {
+                console.error('Error loading statistics:', error);
+                showError('Failed to load statistics');
+            }
+        }
 
         async function searchRoutes() {
             const from = document.getElementById('fromCity').value;
@@ -256,131 +868,364 @@
             const resultsDiv = document.getElementById('searchResults');
 
             if (!from || !to) {
-                alert('Please enter both origin and destination cities');
+                showError('Please enter both origin and destination cities', resultsDiv);
                 return;
             }
 
-            resultsDiv.style.display = 'block';
-            resultsDiv.innerHTML = '<div class="loading">Searching routes...</div>';
-
-            try {
-                const searchQuery = encodeURIComponent(`${from} ${to}`);
-                const response = await fetch(`${API_BASE}/routes?search=${searchQuery}`);
-                const data = await response.json();
-
-                if (data.status === 'success' && data.data && data.data.length > 0) {
-                    let html = '<h3>Found Routes:</h3>';
-                    data.data.forEach(route => {
-                        html += `
-                            <div class="route-item">
-                                <div class="route-name">${route.routeNumber}: ${route.name}</div>
-                                <div class="route-details">
-                                    ${route.origin} → ${route.destination}<br>
-                                    Distance: ${route.distance} km | Fare: Rs. ${route.fare}
-                                </div>
-                            </div>
-                        `;
-                    });
-                    resultsDiv.innerHTML = html;
-                } else {
-                    const allRoutesResponse = await fetch(`${API_BASE}/routes`);
-                    const allRoutesData = await allRoutesResponse.json();
-
-                    if (allRoutesData.status === 'success' && allRoutesData.data) {
-                        const matchingRoutes = allRoutesData.data.filter(route => {
-                            const fromMatch = route.origin.toLowerCase().includes(from.toLowerCase()) ||
-                                route.name.toLowerCase().includes(from.toLowerCase());
-                            const toMatch = route.destination.toLowerCase().includes(to.toLowerCase()) ||
-                                route.name.toLowerCase().includes(to.toLowerCase());
-                            return fromMatch && toMatch;
-                        });
-
-                        if (matchingRoutes.length > 0) {
-                            let html = '<h3>Found Routes:</h3>';
-                            matchingRoutes.forEach(route => {
-                                html += `
-                                    <div class="route-item">
-                                        <div class="route-name">${route.routeNumber}: ${route.name}</div>
-                                        <div class="route-details">
-                                            ${route.origin} → ${route.destination}<br>
-                                            Distance: ${route.distance} km | Fare: Rs. ${route.fare}
-                                        </div>
-                                    </div>
-                                `;
-                            });
-                            resultsDiv.innerHTML = html;
-                        } else {
-                            resultsDiv.innerHTML = '<div>No routes found for this search. Available routes connect: Colombo-Kandy, Colombo-Galle, Colombo-Matara, Colombo-Jaffna, Kandy-Jaffna, Colombo-Trincomalee</div>';
-                        }
-                    } else {
-                        resultsDiv.innerHTML = '<div>No routes found for this search.</div>';
-                    }
-                }
-            } catch (error) {
-                resultsDiv.innerHTML = '<div>Error searching routes. Please try again.</div>';
-                console.error('Search error:', error);
-            }
-        }
-
-        async function loadStatistics() {
-            try {
-                const routesResponse = await fetch(`${API_BASE}/routes`);
-                const routesData = await routesResponse.json();
-                document.getElementById('totalRoutes').textContent = routesData.results || 0;
-
-                const busesResponse = await fetch(`${API_BASE}/buses`);
-                const busesData = await busesResponse.json();
-                document.getElementById('totalBuses').textContent = busesData.results || 0;
-
-                const tripsResponse = await fetch(`${API_BASE}/trips`);
-                const tripsData = await tripsResponse.json();
-                document.getElementById('activeTrips').textContent = tripsData.results || 0;
-
-                const operatorsResponse = await fetch(`${API_BASE}/operators`);
-                const operatorsData = await operatorsResponse.json();
-                document.getElementById('totalOperators').textContent = operatorsData.results || 0;
-            } catch (error) {
-                console.error('Statistics loading error:', error);
-                document.getElementById('totalRoutes').textContent = 'Error';
-                document.getElementById('totalBuses').textContent = 'Error';
-                document.getElementById('activeTrips').textContent = 'Error';
-                document.getElementById('totalOperators').textContent = 'Error';
-            }
-        }
-
-        async function loadRoutes() {
-            const routesDiv = document.getElementById('routesList');
-            routesDiv.style.display = 'block';
-            routesDiv.innerHTML = '<div class="loading">Loading all routes...</div>';
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Searching routes...</div>';
 
             try {
                 const response = await fetch(`${API_BASE}/routes`);
                 const data = await response.json();
 
-                if (data.status === 'success' && data.data && data.data.length > 0) {
-                    let html = `<h3>All Available Routes (${data.results}):</h3>`;
-                    data.data.forEach(route => {
-                        html += `
-                            <div class="route-item">
-                                <div class="route-name">${route.routeNumber}: ${route.name}</div>
-                                <div class="route-details">
-                                    ${route.origin} → ${route.destination}<br>
-                                    ${route.distance} km | ${Math.floor(route.estimatedDuration / 60)} hours | Rs. ${route.fare}<br>
-                                    ${route.stops ? route.stops.length : 0} stops
-                                </div>
-                            </div>
-                        `;
+                if (data.status === 'success' && data.data) {
+                    const matchingRoutes = data.data.filter(route => {
+                        const fromMatch = route.origin.toLowerCase().includes(from.toLowerCase());
+                        const toMatch = route.destination.toLowerCase().includes(to.toLowerCase());
+                        return fromMatch && toMatch;
                     });
-                    routesDiv.innerHTML = html;
-                } else {
-                    routesDiv.innerHTML = '<div>No routes available in the system.</div>';
+
+                    if (matchingRoutes.length > 0) {
+                        let html = `<div class="success-message">Found ${matchingRoutes.length} matching route(s)</div>`;
+                        html += '<div class="table-responsive"><table><thead><tr><th>Route Number</th><th>Name</th><th>Distance</th><th>Fare</th><th>Status</th></tr></thead><tbody>';
+                        
+                        matchingRoutes.forEach(route => {
+                            html += `
+                                <tr>
+                                    <td><strong>${route.routeNumber}</strong></td>
+                                    <td>${route.name}</td>
+                                    <td>${route.distance} km</td>
+                                    <td>Rs. ${route.fare}</td>
+                                    <td><span class="badge">${route.status}</span></td>
+                                </tr>
+                            `;
+                        });
+                        html += '</tbody></table></div>';
+                        resultsDiv.innerHTML = html;
+                    } else {
+                        resultsDiv.innerHTML = '<div class="no-data">No routes found matching your search criteria.</div>';
+                    }
                 }
             } catch (error) {
-                routesDiv.innerHTML = '<div>Error loading routes. Please check your API connection.</div>';
-                console.error('Routes loading error:', error);
+                showError('Error searching routes', resultsDiv);
+            }
+        }
+
+        async function loadRoutes(page = 1) {
+            const status = document.getElementById('routeStatus').value;
+            const sort = document.getElementById('routeSort').value;
+            const limit = document.getElementById('routeLimit').value;
+            
+            const params = new URLSearchParams();
+            if (status) params.append('status', status);
+            if (sort) params.append('sort', sort);
+            params.append('page', page);
+            params.append('limit', limit);
+
+            const url = `${API_BASE}/routes?${params.toString()}`;
+            
+            const resultsDiv = document.getElementById('routesList');
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Loading routes...</div>';
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.status === 'success' && data.data) {
+                    let html = '<div class="table-responsive"><table><thead><tr><th>Route Number</th><th>Name</th><th>Origin → Destination</th><th>Distance</th><th>Duration</th><th>Fare</th><th>Stops</th><th>Status</th></tr></thead><tbody>';
+                    
+                    data.data.forEach(route => {
+                        html += `
+                            <tr>
+                                <td><strong>${route.routeNumber}</strong></td>
+                                <td>${route.name}</td>
+                                <td>${route.origin} → ${route.destination}</td>
+                                <td>${route.distance} km</td>
+                                <td>${Math.floor(route.estimatedDuration / 60)} hrs</td>
+                                <td>Rs. ${route.fare}</td>
+                                <td>${route.stops ? route.stops.length : 0}</td>
+                                <td><span class="badge">${route.status}</span></td>
+                            </tr>
+                        `;
+                    });
+                    html += '</tbody></table></div>';
+                    resultsDiv.innerHTML = html;
+
+                    if (data.pagination) {
+                        showPagination('routesPagination', data.pagination, loadRoutes);
+                    }
+
+                    if (data._links) {
+                        showHATEOASLinks('routesHateoas', data._links);
+                    }
+                }
+            } catch (error) {
+                showError('Error loading routes', resultsDiv);
+            }
+        }
+
+        async function loadBuses() {
+            const serviceType = document.getElementById('busServiceType').value;
+            const status = document.getElementById('busStatus').value;
+            const minCapacity = document.getElementById('busMinCapacity').value;
+            const sort = document.getElementById('busSort').value;
+            
+            const params = new URLSearchParams();
+            if (serviceType) params.append('serviceType', serviceType);
+            if (status) params.append('status', status);
+            if (minCapacity) params.append('capacity[gte]', minCapacity);
+            if (sort) params.append('sort', sort);
+            params.append('limit', 20);
+
+            const url = `${API_BASE}/buses?${params.toString()}`;
+            
+            const resultsDiv = document.getElementById('busesList');
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Loading buses...</div>';
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.status === 'success' && data.data) {
+                    let html = `<div class="success-message">Found ${data.results} bus(es)</div>`;
+                    html += '<div class="table-responsive"><table><thead><tr><th>Registration</th><th>Make & Model</th><th>Capacity</th><th>Service Type</th><th>Status</th><th>Features</th></tr></thead><tbody>';
+                    
+                    data.data.forEach(bus => {
+                        html += `
+                            <tr>
+                                <td><strong>${bus.registrationNumber}</strong></td>
+                                <td>${bus.make} ${bus.model}</td>
+                                <td>${bus.capacity} passengers</td>
+                                <td><span class="badge blue">${bus.serviceType}</span></td>
+                                <td><span class="badge">${bus.status}</span></td>
+                                <td>${bus.features ? bus.features.join(', ') : '-'}</td>
+                            </tr>
+                        `;
+                    });
+                    html += '</tbody></table></div>';
+                    resultsDiv.innerHTML = html;
+
+                    if (data.pagination) {
+                        showPagination('busesPagination', data.pagination, loadBuses);
+                    }
+                }
+            } catch (error) {
+                showError('Error loading buses', resultsDiv);
+            }
+        }
+
+        async function loadOperators() {
+            const resultsDiv = document.getElementById('operatorsList');
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Loading operators...</div>';
+
+            try {
+                const response = await fetch(`${API_BASE}/operators`);
+                const data = await response.json();
+
+                if (data.status === 'success' && data.data) {
+                    let html = `<div class="success-message">Found ${data.results} operator(s)</div>`;
+                    html += '<div class="table-responsive"><table><thead><tr><th>Name</th><th>Registration</th><th>Contact Person</th><th>Phone</th><th>Email</th><th>Status</th></tr></thead><tbody>';
+                    
+                    data.data.forEach(operator => {
+                        html += `
+                            <tr>
+                                <td><strong>${operator.name}</strong></td>
+                                <td>${operator.registrationNumber}</td>
+                                <td>${operator.contactPerson?.name || '-'}</td>
+                                <td>${operator.contactPerson?.phone || '-'}</td>
+                                <td>${operator.contactPerson?.email || '-'}</td>
+                                <td><span class="badge">${operator.status}</span></td>
+                            </tr>
+                        `;
+                    });
+                    html += '</tbody></table></div>';
+                    resultsDiv.innerHTML = html;
+                }
+            } catch (error) {
+                showError('Error loading operators', resultsDiv);
+            }
+        }
+
+        async function testAdvancedQuery() {
+            const resultsDiv = document.getElementById('advancedResults');
+            const query = `${API_BASE}/routes?distance[gte]=150&distance[lte]=250&sort=distance&fields=routeNumber,name,distance,fare`;
+            
+            resultsDiv.innerHTML = `
+                <div class="api-request">GET ${query}</div>
+                <div class="loading"><div class="spinner"></div>Executing query...</div>
+            `;
+
+            try {
+                const response = await fetch(query);
+                const data = await response.json();
+                
+                resultsDiv.innerHTML = `
+                    <div class="api-request">GET ${query}</div>
+                    <div class="success-message">Query executed successfully! Found ${data.results} route(s) with distance between 150-250 km</div>
+                    <div class="json-viewer">${JSON.stringify(data, null, 2)}</div>
+                `;
+            } catch (error) {
+                showError('Error executing advanced query', resultsDiv);
+            }
+        }
+
+        async function demonstrateHATEOAS() {
+            const resultsDiv = document.getElementById('hateoasResponse');
+            const linksDiv = document.getElementById('hateoasLinks');
+            
+            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Loading route with HATEOAS links...</div>';
+
+            try {
+                const routesResponse = await fetch(`${API_BASE}/routes`);
+                const routesData = await routesResponse.json();
+                
+                if (routesData.data && routesData.data.length > 0) {
+                    const firstRouteId = routesData.data[0]._id;
+                    const response = await fetch(`${API_BASE}/routes/${firstRouteId}`);
+                    const data = await response.json();
+                    
+                    resultsDiv.innerHTML = `
+                        <h3>API Response</h3>
+                        <div class="json-viewer">${JSON.stringify(data, null, 2)}</div>
+                    `;
+
+                    if (data._links) {
+                        let linksHtml = '<div class="hateoas-links"><h4>HATEOAS Hypermedia Links</h4>';
+                        linksHtml += '<p>The API provides these hypermedia links for resource navigation:</p>';
+                        
+                        Object.entries(data._links).forEach(([rel, link]) => {
+                            if (typeof link === 'object' && link.href) {
+                                linksHtml += `
+                                    <div class="link-item">
+                                        <span class="link-method ${link.method.toLowerCase()}">${link.method}</span>
+                                        <strong>${rel}:</strong> ${link.href}
+                                    </div>
+                                `;
+                            } else if (typeof link === 'object') {
+                                Object.entries(link).forEach(([subRel, subLink]) => {
+                                    if (subLink.href) {
+                                        linksHtml += `
+                                            <div class="link-item">
+                                                <span class="link-method ${subLink.method.toLowerCase()}">${subLink.method}</span>
+                                                <strong>${rel}.${subRel}:</strong> ${subLink.href}
+                                            </div>
+                                        `;
+                                    }
+                                });
+                            }
+                        });
+                        linksHtml += '</div>';
+                        linksDiv.innerHTML = linksHtml;
+                    }
+                }
+            } catch (error) {
+                showError('Error demonstrating HATEOAS', resultsDiv);
+            }
+        }
+
+        function showPagination(containerId, pagination, loadFunction) {
+            const container = document.getElementById(containerId);
+            if (!pagination) return;
+
+            let html = '<div class="pagination">';
+            html += `<button onclick="loadFunction(1)" ${pagination.page === 1 ? 'disabled' : ''}>First</button>`;
+            html += `<button onclick="loadFunction(${pagination.page - 1})" ${!pagination.hasPrevPage ? 'disabled' : ''}>Previous</button>`;
+            html += `<div class="page-info">Page ${pagination.page} of ${pagination.totalPages} (${pagination.totalDocuments} total)</div>`;
+            html += `<button onclick="loadFunction(${pagination.page + 1})" ${!pagination.hasNextPage ? 'disabled' : ''}>Next</button>`;
+            html += `<button onclick="loadFunction(${pagination.totalPages})" ${pagination.page === pagination.totalPages ? 'disabled' : ''}>Last</button>`;
+            html += '</div>';
+            
+            container.innerHTML = html;
+        }
+
+        function showHATEOASLinks(containerId, links) {
+            const container = document.getElementById(containerId);
+            let html = '<div class="hateoas-links"><h4>HATEOAS Hypermedia Links</h4>';
+            
+            Object.entries(links).forEach(([rel, link]) => {
+                if (link.href) {
+                    html += `
+                        <div class="link-item">
+                            <span class="link-method ${link.method.toLowerCase()}">${link.method}</span>
+                            <strong>${rel}:</strong> ${link.href}
+                        </div>
+                    `;
+                }
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        function showRouteApiRequest() {
+            const status = document.getElementById('routeStatus').value;
+            const sort = document.getElementById('routeSort').value;
+            const limit = document.getElementById('routeLimit').value;
+            
+            const params = new URLSearchParams();
+            if (status) params.append('status', status);
+            if (sort) params.append('sort', sort);
+            params.append('limit', limit);
+
+            const url = `${API_BASE}/routes?${params.toString()}`;
+            const container = document.getElementById('routeApiRequest');
+            
+            container.style.display = 'block';
+            container.innerHTML = `
+                <h3>API Request</h3>
+                <div class="api-request">GET ${url}</div>
+                <h4>Query Parameters:</h4>
+                <ul>
+                    ${status ? `<li><strong>status:</strong> ${status}</li>` : ''}
+                    ${sort ? `<li><strong>sort:</strong> ${sort}</li>` : ''}
+                    <li><strong>limit:</strong> ${limit}</li>
+                </ul>
+            `;
+        }
+
+        function showBusApiRequest() {
+            const serviceType = document.getElementById('busServiceType').value;
+            const status = document.getElementById('busStatus').value;
+            const minCapacity = document.getElementById('busMinCapacity').value;
+            
+            const params = new URLSearchParams();
+            if (serviceType) params.append('serviceType', serviceType);
+            if (status) params.append('status', status);
+            if (minCapacity) params.append('capacity[gte]', minCapacity);
+
+            const url = `${API_BASE}/buses?${params.toString()}`;
+            const container = document.getElementById('busApiRequest');
+            
+            container.style.display = 'block';
+            container.innerHTML = `
+                <h3>API Request</h3>
+                <div class="api-request">GET ${url}</div>
+                <h4>Applied Filters:</h4>
+                <ul>
+                    ${serviceType ? `<li><strong>serviceType:</strong> ${serviceType}</li>` : ''}
+                    ${status ? `<li><strong>status:</strong> ${status}</li>` : ''}
+                    ${minCapacity ? `<li><strong>capacity[gte]:</strong> ${minCapacity} (Range Query)</li>` : ''}
+                </ul>
+            `;
+        }
+
+        function showOperatorApiRequest() {
+            const container = document.getElementById('operatorApiRequest');
+            container.style.display = 'block';
+            container.innerHTML = `
+                <h3>API Request</h3>
+                <div class="api-request">GET ${API_BASE}/operators</div>
+            `;
+        }
+
+        function showError(message, container) {
+            const html = `<div class="error-message">${message}</div>`;
+            if (container) {
+                container.innerHTML = html;
+            } else {
+                alert(message);
             }
         }
     </script>
 </body>
 
-</html>
+</html>  
