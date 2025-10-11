@@ -1,6 +1,4 @@
-########################################
-# Data Migration Script - Local MongoDB to Atlas
-########################################
+
 
 Write-Host "`n========================================" -ForegroundColor Cyan
 Write-Host "Data Migration to MongoDB Atlas" -ForegroundColor Cyan

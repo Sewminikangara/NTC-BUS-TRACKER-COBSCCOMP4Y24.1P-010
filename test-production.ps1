@@ -1,7 +1,4 @@
-########################################
-# NTC Bus Tracker - Production Test Script
-# Tests API deployed on cloud hosting
-########################################
+
 
 param(
     [string]$BaseUrl = "https://your-app.onrender.com"

@@ -24,7 +24,6 @@ const app = express();
 app.set('trust proxy', 1);
 app.set('etag', false);
 
-// Configure Helmet with relaxed CSP for dashboard
 app.use(helmet({
     contentSecurityPolicy: {
         directives: {

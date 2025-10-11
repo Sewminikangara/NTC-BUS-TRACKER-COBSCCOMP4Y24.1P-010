@@ -1,7 +1,4 @@
-########################################
-# NTC Bus Tracker - Advanced REST Features Test
-# Tests conditional GET, HATEOAS, and HTTP headers
-########################################
+
 
 $baseUrl = "http://localhost:3000/api"
 $testsPassed = 0
@@ -18,33 +15,33 @@ try {
     $etag = $response1.Headers['ETag']
     
     if ($etag) {
-        Write-Host "   ✅ ETag header present: $etag" -ForegroundColor Green
+        Write-Host "    ETag header present: $etag" -ForegroundColor Green
         
         # Test 304 Not Modified with If-None-Match
         try {
             $headers = @{"If-None-Match" = $etag }
             $response2 = Invoke-WebRequest -Uri "$baseUrl/routes" -Method GET -Headers $headers -UseBasicParsing
-            Write-Host "   ❌ Should have returned 304, got: $($response2.StatusCode)" -ForegroundColor Red
+            Write-Host "    Should have returned 304, got: $($response2.StatusCode)" -ForegroundColor Red
             $testsFailed++
         }
         catch {
             if ($_.Exception.Response.StatusCode -eq 304) {
-                Write-Host "   ✅ 304 Not Modified returned correctly" -ForegroundColor Green
+                Write-Host "    304 Not Modified returned correctly" -ForegroundColor Green
                 $testsPassed++
             }
             else {
-                Write-Host "   ❌ Unexpected status code: $($_.Exception.Response.StatusCode)" -ForegroundColor Red
+                Write-Host "    Unexpected status code: $($_.Exception.Response.StatusCode)" -ForegroundColor Red
                 $testsFailed++
             }
         }
     }
     else {
-        Write-Host "   ❌ ETag header missing" -ForegroundColor Red
+        Write-Host "    ETag header missing" -ForegroundColor Red
         $testsFailed++
     }
 }
 catch {
-    Write-Host "   ❌ Error: $($_.Exception.Message)" -ForegroundColor Red
+    Write-Host "    Error: $($_.Exception.Message)" -ForegroundColor Red
     $testsFailed++
 }
 
@@ -55,34 +52,34 @@ try {
     $lastModified = $response1.Headers['Last-Modified']
     
     if ($lastModified) {
-        Write-Host "   ✅ Last-Modified header present: $lastModified" -ForegroundColor Green
+        Write-Host "    Last-Modified header present: $lastModified" -ForegroundColor Green
         
         # Test 304 Not Modified with If-Modified-Since (use future date)
         try {
             $futureDate = (Get-Date).AddDays(1).ToUniversalTime().ToString("R")
             $headers = @{"If-Modified-Since" = $futureDate }
             $response2 = Invoke-WebRequest -Uri "$baseUrl/routes" -Method GET -Headers $headers -UseBasicParsing
-            Write-Host "   ❌ Should have returned 304, got: $($response2.StatusCode)" -ForegroundColor Red
+            Write-Host "    Should have returned 304, got: $($response2.StatusCode)" -ForegroundColor Red
             $testsFailed++
         }
         catch {
             if ($_.Exception.Response.StatusCode -eq 304) {
-                Write-Host "   ✅ 304 Not Modified returned correctly" -ForegroundColor Green
+                Write-Host "    304 Not Modified returned correctly" -ForegroundColor Green
                 $testsPassed++
             }
             else {
-                Write-Host "   ❌ Unexpected status code: $($_.Exception.Response.StatusCode)" -ForegroundColor Red
+                Write-Host "    Unexpected status code: $($_.Exception.Response.StatusCode)" -ForegroundColor Red
                 $testsFailed++
             }
         }
     }
     else {
-        Write-Host "   ❌ Last-Modified header missing" -ForegroundColor Red
+        Write-Host "    Last-Modified header missing" -ForegroundColor Red
         $testsFailed++
     }
 }
 catch {
-    Write-Host "   ❌ Error: $($_.Exception.Message)" -ForegroundColor Red
+    Write-Host "    Error: $($_.Exception.Message)" -ForegroundColor Red
     $testsFailed++
 }
 
@@ -93,7 +90,7 @@ try {
     $json = $response.Content | ConvertFrom-Json
     
     if ($json._links) {
-        Write-Host "   ✅ _links property present" -ForegroundColor Green
+        Write-Host "    _links property present" -ForegroundColor Green
         
         $requiredLinks = @('self', 'create')
         $missingLinks = @()
@@ -105,22 +102,22 @@ try {
         }
         
         if ($missingLinks.Count -eq 0) {
-            Write-Host "   ✅ All required links present (self, create)" -ForegroundColor Green
+            Write-Host "    All required links present (self, create)" -ForegroundColor Green
             Write-Host "   Self link: $($json._links.self.href)" -ForegroundColor Gray
             $testsPassed++
         }
         else {
-            Write-Host "   ❌ Missing links: $($missingLinks -join ', ')" -ForegroundColor Red
+            Write-Host "    Missing links: $($missingLinks -join ', ')" -ForegroundColor Red
             $testsFailed++
         }
     }
     else {
-        Write-Host "   ❌ _links property missing" -ForegroundColor Red
+        Write-Host "    _links property missing" -ForegroundColor Red
         $testsFailed++
     }
 }
 catch {
-    Write-Host "   ❌ Error: $($_.Exception.Message)" -ForegroundColor Red
+    Write-Host "   Error: $($_.Exception.Message)" -ForegroundColor Red
     $testsFailed++
 }
 

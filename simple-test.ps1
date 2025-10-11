@@ -1,4 +1,4 @@
-# Simple API Test Script
+
 
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "NTC Bus Tracker API Tests" -ForegroundColor Cyan

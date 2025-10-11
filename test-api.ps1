@@ -1,5 +1,4 @@
-# Test API Endpoints Script
-# This script tests all the core API endpoints
+
 
 Write-Host "=====================================" -ForegroundColor Cyan
 Write-Host "NTC Bus Tracker API Test" -ForegroundColor Cyan

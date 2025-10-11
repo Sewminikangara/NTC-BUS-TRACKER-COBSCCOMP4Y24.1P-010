@@ -1,4 +1,3 @@
-# Populate MongoDB Atlas with Simulation Data
 Write-Host "`n========================================" -ForegroundColor Cyan
 Write-Host "MongoDB Atlas Data Population" -ForegroundColor Cyan
 Write-Host "========================================`n" -ForegroundColor Cyan
@@ -9,7 +8,6 @@ $ATLAS_URI = "mongodb+srv://ntc-admin:rB169XhIAcDQj1Jf@ntc-bus-tracker-cluster.k
 Write-Host "Connection configured for Atlas cluster" -ForegroundColor Green
 Write-Host "Database: ntc-bus-tracker`n" -ForegroundColor Gray
 
-# Create .env content
 $envContent = @"
 NODE_ENV=production
 PORT=3000
@@ -24,7 +22,7 @@ LOG_LEVEL=info
 API_VERSION=v1
 "@
 
-# Write .env file
+#  .env file
 $envContent | Out-File -FilePath ".env" -Encoding ASCII -Force
 Write-Host ".env file updated with Atlas connection`n" -ForegroundColor Green
 

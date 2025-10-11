@@ -1,7 +1,4 @@
-########################################
-# NTC Bus Tracker - Simulation Data Test
-# Tests API with generated simulation data
-########################################
+
 
 $baseUrl = "http://localhost:3000/api"
 $testsPassed = 0
@@ -41,13 +38,13 @@ function Test-Endpoint {
         $response = Invoke-WebRequest @params
         $json = $response.Content | ConvertFrom-Json
         
-        Write-Host "✅ PASSED: $Name" -ForegroundColor Green
+        Write-Host " PASSED: $Name" -ForegroundColor Green
         Write-Host "   Status: $($response.StatusCode)" -ForegroundColor Gray
         $script:testsPassed++
         return $json
     }
     catch {
-        Write-Host "❌ FAILED: $Name" -ForegroundColor Red
+        Write-Host " FAILED: $Name" -ForegroundColor Red
         Write-Host "   Error: $($_.Exception.Message)" -ForegroundColor Red
         $script:testsFailed++
         return $null
@@ -154,8 +151,8 @@ Write-Host "`n========================================" -ForegroundColor Cyan
 Write-Host "Test Summary" -ForegroundColor Cyan
 Write-Host "========================================" -ForegroundColor Cyan
 Write-Host "Total Tests: $($testsPassed + $testsFailed)" -ForegroundColor White
-Write-Host "✅ Passed: $testsPassed" -ForegroundColor Green
-Write-Host "❌ Failed: $testsFailed" -ForegroundColor Red
+Write-Host " Passed: $testsPassed" -ForegroundColor Green
+Write-Host " Failed: $testsFailed" -ForegroundColor Red
 
 # Simulation Data Summary
 Write-Host "`n========================================" -ForegroundColor Cyan
@@ -167,7 +164,7 @@ if ($buses) { Write-Host "Buses: $($buses.results)" -ForegroundColor White }
 if ($trips) { Write-Host "Trips: $($trips.results)" -ForegroundColor White }
 if ($locations) { Write-Host "Location Updates: $($locations.results)" -ForegroundColor White }
 
-Write-Host "`n✅ All simulation data endpoints are working!" -ForegroundColor Green
+Write-Host "`n All simulation data endpoints are working!" -ForegroundColor Green
 Write-Host ""
 
 if ($testsFailed -eq 0) {
