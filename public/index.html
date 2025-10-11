@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NTC Bus Tracker - API Demonstration Dashboard</title>
+    <title>NTC Bus Tracker </title>
     <style>
         * {
             margin: 0;
@@ -287,8 +287,13 @@
         }
 
         @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .stats-grid {
@@ -517,7 +522,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>NTC Bus Tracker - API Demonstration Dashboard</h1>
+            <h1>NTC Bus Tracker </h1>
             <p>RESTful Web API for Real-Time Inter-Provincial Bus Tracking System</p>
             <div class="api-url">Base URL: https://web-production-5bd5.up.railway.app/api</div>
         </div>
@@ -528,7 +533,6 @@
             <button class="tab" data-tab="buses">Buses API</button>
             <button class="tab" data-tab="operators">Operators API</button>
             <button class="tab" data-tab="advanced">Advanced Features</button>
-            <button class="tab" data-tab="hateoas">HATEOAS Demo</button>
         </div>
 
         <div id="overview" class="tab-content active">
@@ -559,21 +563,7 @@
                     <button class="btn" id="refreshStatsBtn">Refresh Statistics</button>
                 </div>
 
-                <div class="card">
-                    <h2>API Features Demonstrated</h2>
-                    <ul class="feature-list">
-                        <li>RESTful API Design with proper HTTP methods (GET, POST, PUT, DELETE)</li>
-                        <li>HATEOAS Hypermedia Links for API discoverability</li>
-                        <li>Advanced Filtering, Sorting, and Pagination</li>
-                        <li>Conditional GET Requests with Last-Modified headers</li>
-                        <li>JWT-based Authentication and Authorization</li>
-                        <li>Input Validation using Joi schemas</li>
-                        <li>Comprehensive Error Handling with proper status codes</li>
-                        <li>MongoDB with Mongoose ODM for data persistence</li>
-                        <li>Rate Limiting and Security Headers (Helmet)</li>
-                        <li>Deployed on Railway with MongoDB Atlas</li>
-                    </ul>
-                </div>
+               
 
                 <div class="card">
                     <h2>Quick Route Search</h2>
@@ -600,17 +590,8 @@
                         <h2>Routes API - GET /api/routes</h2>
                         <span class="badge purple">RESTful Endpoint</span>
                     </div>
-                    
-                    <div class="info-box">
-                        <h4>Features Demonstrated:</h4>
-                        <ul>
-                            <li>Pagination with page and limit parameters</li>
-                            <li>Filtering by status, origin, destination</li>
-                            <li>Sorting by multiple fields</li>
-                            <li>Field selection to optimize response size</li>
-                            <li>HATEOAS links for navigation</li>
-                        </ul>
-                    </div>
+
+                   
 
                     <h3>Filter & Sort Options</h3>
                     <div class="filter-grid">
@@ -648,11 +629,10 @@
 
                     <button class="btn" id="loadRoutesBtn">Load Routes</button>
                     <button class="btn secondary" id="showRouteApiBtn">Show API Request</button>
-                    
+
                     <div id="routeApiRequest" style="display: none;"></div>
                     <div id="routesPagination"></div>
                     <div id="routesList"></div>
-                    <div id="routesHateoas"></div>
                 </div>
             </div>
         </div>
@@ -704,7 +684,7 @@
 
                     <button class="btn" id="loadBusesBtn">Load Buses</button>
                     <button class="btn secondary" id="showBusApiBtn">Show API Request</button>
-                    
+
                     <div id="busApiRequest" style="display: none;"></div>
                     <div id="busesPagination"></div>
                     <div id="busesList"></div>
@@ -722,7 +702,7 @@
 
                     <button class="btn" id="loadOperatorsBtn">Load All Operators</button>
                     <button class="btn secondary" id="showOperatorApiBtn">Show API Request</button>
-                    
+
                     <div id="operatorApiRequest" style="display: none;"></div>
                     <div id="operatorsList"></div>
                 </div>
@@ -731,70 +711,7 @@
 
         <div id="advanced" class="tab-content">
             <div class="dashboard">
-                <div class="card">
-                    <h2>Advanced API Features</h2>
-                    
-                    <h3>1. Pagination Example</h3>
-                    <p>Navigate through large datasets efficiently using page and limit parameters.</p>
-                    <div class="api-request">GET /api/routes?page=2&limit=10</div>
-                    
-                    <h3>2. Filtering by Multiple Fields</h3>
-                    <p>Filter results using query parameters for precise data retrieval.</p>
-                    <div class="api-request">GET /api/buses?status=active&serviceType=luxury</div>
-                    
-                    <h3>3. Range Queries</h3>
-                    <p>Use operators like gte, gt, lte, lt for numeric comparisons.</p>
-                    <div class="api-request">GET /api/routes?distance[gte]=100&distance[lte]=200</div>
-                    
-                    <h3>4. Multi-field Sorting</h3>
-                    <p>Sort by multiple fields using comma separation. Use minus (-) for descending order.</p>
-                    <div class="api-request">GET /api/routes?sort=distance,-fare</div>
-                    
-                    <h3>5. Field Selection</h3>
-                    <p>Request only specific fields to reduce response payload size.</p>
-                    <div class="api-request">GET /api/routes?fields=routeNumber,name,origin,destination</div>
-                    
-                    <h3>6. Search Functionality</h3>
-                    <p>Search across multiple fields using regex pattern matching.</p>
-                    <div class="api-request">GET /api/routes?search=Colombo</div>
-
-                    <button class="btn" id="testAdvancedBtn">Test Advanced Query</button>
-                    <div id="advancedResults"></div>
-                </div>
-            </div>
-        </div>
-
-        <div id="hateoas" class="tab-content">
-            <div class="dashboard">
-                <div class="card">
-                    <div class="section-header">
-                        <h2>HATEOAS Demonstration</h2>
-                        <span class="badge purple">Hypermedia Links</span>
-                    </div>
-                    
-                    <div class="info-box">
-                        <h4>What is HATEOAS?</h4>
-                        <p>HATEOAS (Hypermedia as the Engine of Application State) is a REST constraint where the API provides hypermedia links in responses, allowing clients to dynamically discover available actions without hardcoding URLs.</p>
-                    </div>
-
-                    <h3>Example: Get Single Route with Links</h3>
-                    <button class="btn" id="hateoasDemo">Load Route with HATEOAS Links</button>
-                    
-                    <div id="hateoasResponse"></div>
-                    <div id="hateoasLinks"></div>
-                </div>
-
-                <div class="card">
-                    <h2>Response Structure with HATEOAS</h2>
-                    <p>Every API response includes:</p>
-                    <ul class="feature-list">
-                        <li><strong>self</strong> - Link to the current resource</li>
-                        <li><strong>collection</strong> - Link to the parent collection</li>
-                        <li><strong>related</strong> - Links to related resources</li>
-                        <li><strong>actions</strong> - Available CRUD operations (create, update, delete)</li>
-                        <li><strong>pagination</strong> - Next/previous page links (for collections)</li>
-                    </ul>
-                </div>
+               
             </div>
         </div>
     </div>
@@ -817,7 +734,7 @@
                 tab.addEventListener('click', () => {
                     tabs.forEach(t => t.classList.remove('active'));
                     contents.forEach(c => c.classList.remove('active'));
-                    
+
                     tab.classList.add('active');
                     const tabId = tab.getAttribute('data-tab');
                     document.getElementById(tabId).classList.add('active');
@@ -835,7 +752,6 @@
             document.getElementById('loadOperatorsBtn').addEventListener('click', loadOperators);
             document.getElementById('showOperatorApiBtn').addEventListener('click', showOperatorApiRequest);
             document.getElementById('testAdvancedBtn').addEventListener('click', testAdvancedQuery);
-            document.getElementById('hateoasDemo').addEventListener('click', demonstrateHATEOAS);
         }
 
         async function loadStatistics() {
@@ -888,7 +804,7 @@
                     if (matchingRoutes.length > 0) {
                         let html = `<div class="success-message">Found ${matchingRoutes.length} matching route(s)</div>`;
                         html += '<div class="table-responsive"><table><thead><tr><th>Route Number</th><th>Name</th><th>Distance</th><th>Fare</th><th>Status</th></tr></thead><tbody>';
-                        
+
                         matchingRoutes.forEach(route => {
                             html += `
                                 <tr>
@@ -915,7 +831,7 @@
             const status = document.getElementById('routeStatus').value;
             const sort = document.getElementById('routeSort').value;
             const limit = document.getElementById('routeLimit').value;
-            
+
             const params = new URLSearchParams();
             if (status) params.append('status', status);
             if (sort) params.append('sort', sort);
@@ -923,7 +839,7 @@
             params.append('limit', limit);
 
             const url = `${API_BASE}/routes?${params.toString()}`;
-            
+
             const resultsDiv = document.getElementById('routesList');
             resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Loading routes...</div>';
 
@@ -933,7 +849,7 @@
 
                 if (data.status === 'success' && data.data) {
                     let html = '<div class="table-responsive"><table><thead><tr><th>Route Number</th><th>Name</th><th>Origin → Destination</th><th>Distance</th><th>Duration</th><th>Fare</th><th>Stops</th><th>Status</th></tr></thead><tbody>';
-                    
+
                     data.data.forEach(route => {
                         html += `
                             <tr>
@@ -954,10 +870,6 @@
                     if (data.pagination) {
                         showPagination('routesPagination', data.pagination, loadRoutes);
                     }
-
-                    if (data._links) {
-                        showHATEOASLinks('routesHateoas', data._links);
-                    }
                 }
             } catch (error) {
                 showError('Error loading routes', resultsDiv);
@@ -969,7 +881,7 @@
             const status = document.getElementById('busStatus').value;
             const minCapacity = document.getElementById('busMinCapacity').value;
             const sort = document.getElementById('busSort').value;
-            
+
             const params = new URLSearchParams();
             if (serviceType) params.append('serviceType', serviceType);
             if (status) params.append('status', status);
@@ -978,7 +890,7 @@
             params.append('limit', 20);
 
             const url = `${API_BASE}/buses?${params.toString()}`;
-            
+
             const resultsDiv = document.getElementById('busesList');
             resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Loading buses...</div>';
 
@@ -989,7 +901,7 @@
                 if (data.status === 'success' && data.data) {
                     let html = `<div class="success-message">Found ${data.results} bus(es)</div>`;
                     html += '<div class="table-responsive"><table><thead><tr><th>Registration</th><th>Make & Model</th><th>Capacity</th><th>Service Type</th><th>Status</th><th>Features</th></tr></thead><tbody>';
-                    
+
                     data.data.forEach(bus => {
                         html += `
                             <tr>
@@ -1025,7 +937,7 @@
                 if (data.status === 'success' && data.data) {
                     let html = `<div class="success-message">Found ${data.results} operator(s)</div>`;
                     html += '<div class="table-responsive"><table><thead><tr><th>Name</th><th>Registration</th><th>Contact Person</th><th>Phone</th><th>Email</th><th>Status</th></tr></thead><tbody>';
-                    
+
                     data.data.forEach(operator => {
                         html += `
                             <tr>
@@ -1049,7 +961,7 @@
         async function testAdvancedQuery() {
             const resultsDiv = document.getElementById('advancedResults');
             const query = `${API_BASE}/routes?distance[gte]=150&distance[lte]=250&sort=distance&fields=routeNumber,name,distance,fare`;
-            
+
             resultsDiv.innerHTML = `
                 <div class="api-request">GET ${query}</div>
                 <div class="loading"><div class="spinner"></div>Executing query...</div>
@@ -1058,7 +970,7 @@
             try {
                 const response = await fetch(query);
                 const data = await response.json();
-                
+
                 resultsDiv.innerHTML = `
                     <div class="api-request">GET ${query}</div>
                     <div class="success-message">Query executed successfully! Found ${data.results} route(s) with distance between 150-250 km</div>
@@ -1066,60 +978,6 @@
                 `;
             } catch (error) {
                 showError('Error executing advanced query', resultsDiv);
-            }
-        }
-
-        async function demonstrateHATEOAS() {
-            const resultsDiv = document.getElementById('hateoasResponse');
-            const linksDiv = document.getElementById('hateoasLinks');
-            
-            resultsDiv.innerHTML = '<div class="loading"><div class="spinner"></div>Loading route with HATEOAS links...</div>';
-
-            try {
-                const routesResponse = await fetch(`${API_BASE}/routes`);
-                const routesData = await routesResponse.json();
-                
-                if (routesData.data && routesData.data.length > 0) {
-                    const firstRouteId = routesData.data[0]._id;
-                    const response = await fetch(`${API_BASE}/routes/${firstRouteId}`);
-                    const data = await response.json();
-                    
-                    resultsDiv.innerHTML = `
-                        <h3>API Response</h3>
-                        <div class="json-viewer">${JSON.stringify(data, null, 2)}</div>
-                    `;
-
-                    if (data._links) {
-                        let linksHtml = '<div class="hateoas-links"><h4>HATEOAS Hypermedia Links</h4>';
-                        linksHtml += '<p>The API provides these hypermedia links for resource navigation:</p>';
-                        
-                        Object.entries(data._links).forEach(([rel, link]) => {
-                            if (typeof link === 'object' && link.href) {
-                                linksHtml += `
-                                    <div class="link-item">
-                                        <span class="link-method ${link.method.toLowerCase()}">${link.method}</span>
-                                        <strong>${rel}:</strong> ${link.href}
-                                    </div>
-                                `;
-                            } else if (typeof link === 'object') {
-                                Object.entries(link).forEach(([subRel, subLink]) => {
-                                    if (subLink.href) {
-                                        linksHtml += `
-                                            <div class="link-item">
-                                                <span class="link-method ${subLink.method.toLowerCase()}">${subLink.method}</span>
-                                                <strong>${rel}.${subRel}:</strong> ${subLink.href}
-                                            </div>
-                                        `;
-                                    }
-                                });
-                            }
-                        });
-                        linksHtml += '</div>';
-                        linksDiv.innerHTML = linksHtml;
-                    }
-                }
-            } catch (error) {
-                showError('Error demonstrating HATEOAS', resultsDiv);
             }
         }
 
@@ -1134,25 +992,7 @@
             html += `<button onclick="loadFunction(${pagination.page + 1})" ${!pagination.hasNextPage ? 'disabled' : ''}>Next</button>`;
             html += `<button onclick="loadFunction(${pagination.totalPages})" ${pagination.page === pagination.totalPages ? 'disabled' : ''}>Last</button>`;
             html += '</div>';
-            
-            container.innerHTML = html;
-        }
 
-        function showHATEOASLinks(containerId, links) {
-            const container = document.getElementById(containerId);
-            let html = '<div class="hateoas-links"><h4>HATEOAS Hypermedia Links</h4>';
-            
-            Object.entries(links).forEach(([rel, link]) => {
-                if (link.href) {
-                    html += `
-                        <div class="link-item">
-                            <span class="link-method ${link.method.toLowerCase()}">${link.method}</span>
-                            <strong>${rel}:</strong> ${link.href}
-                        </div>
-                    `;
-                }
-            });
-            html += '</div>';
             container.innerHTML = html;
         }
 
@@ -1160,7 +1000,7 @@
             const status = document.getElementById('routeStatus').value;
             const sort = document.getElementById('routeSort').value;
             const limit = document.getElementById('routeLimit').value;
-            
+
             const params = new URLSearchParams();
             if (status) params.append('status', status);
             if (sort) params.append('sort', sort);
@@ -1168,7 +1008,7 @@
 
             const url = `${API_BASE}/routes?${params.toString()}`;
             const container = document.getElementById('routeApiRequest');
-            
+
             container.style.display = 'block';
             container.innerHTML = `
                 <h3>API Request</h3>
@@ -1186,7 +1026,7 @@
             const serviceType = document.getElementById('busServiceType').value;
             const status = document.getElementById('busStatus').value;
             const minCapacity = document.getElementById('busMinCapacity').value;
-            
+
             const params = new URLSearchParams();
             if (serviceType) params.append('serviceType', serviceType);
             if (status) params.append('status', status);
@@ -1194,7 +1034,7 @@
 
             const url = `${API_BASE}/buses?${params.toString()}`;
             const container = document.getElementById('busApiRequest');
-            
+
             container.style.display = 'block';
             container.innerHTML = `
                 <h3>API Request</h3>
@@ -1228,4 +1068,4 @@
     </script>
 </body>
 
-</html>  
+</html>
