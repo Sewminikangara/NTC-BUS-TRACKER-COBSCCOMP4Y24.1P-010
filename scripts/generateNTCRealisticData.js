@@ -368,7 +368,7 @@ const ntcOperatorsData = [
 const calculateNTCFare = (distance, serviceType) => {
     const serviceConfig = ntcServiceTypes[serviceType];
     const baseFare = Math.ceil(distance * serviceConfig.baseFarePerKm);
-    
+
     // Add minimum fare based on service type
     const minimumFares = {
         sisuSeriya: 25,
@@ -378,9 +378,9 @@ const calculateNTCFare = (distance, serviceType) => {
         superLuxury: 100,
         expresswayLuxury: 120,
     };
-    
+
     const minimumFare = minimumFares[serviceType] || 35;
-    
+
     return Math.max(baseFare, minimumFare);
 };/**
  * Generate realistic buses with NTC specifications
@@ -471,14 +471,12 @@ const generateNTCTrips = (buses, routes) => {
     };
 
     // Generate for next 7 days
+    // eslint-disable-next-line no-loop-func
     for (let day = 0; day < 7; day += 1) {
+        // eslint-disable-next-line no-loop-func
         routes.forEach((route) => {
             route.serviceTypes.forEach((serviceType) => {
-                const routeBuses = buses.filter((bus) =>
-                    bus.routeId.toString() === route._id.toString()
-                    && bus.serviceType === serviceType
-                    && bus.status === 'active',
-                );
+                const routeBuses = buses.filter((bus) => bus.routeId.toString() === route._id.toString() && bus.serviceType === serviceType && bus.status === 'active');
 
                 if (routeBuses.length === 0) return;
 
@@ -687,6 +685,7 @@ const generateNTCRealisticData = async () => {
         console.log('═══════════════════════════════════════════════════\n');
 
         // Export enhanced data
+        // eslint-disable-next-line no-use-before-define
         await exportNTCDataAsJSON({
             routes,
             operators,
@@ -697,6 +696,7 @@ const generateNTCRealisticData = async () => {
             ntcServiceTypes,
         });
 
+        // eslint-disable-next-line no-use-before-define
         await exportNTCDataAsCSV({
             routes,
             operators,
