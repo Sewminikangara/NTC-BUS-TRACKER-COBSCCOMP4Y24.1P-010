@@ -24,15 +24,16 @@ const app = express();
 app.set('trust proxy', 1);
 app.set('etag', false);
 
-// Configure Helmet with CSP to allow inline scripts for dashboard
+// Configure Helmet with relaxed CSP for dashboard
 app.use(helmet({
     contentSecurityPolicy: {
         directives: {
             defaultSrc: ["'self'"],
-            scriptSrc: ["'self'", "'unsafe-inline'"], // Allow inline scripts for dashboard
-            styleSrc: ["'self'", "'unsafe-inline'"], // Allow inline styles
+            scriptSrc: ["'self'", "'unsafe-inline'"],
+            scriptSrcAttr: ["'unsafe-inline'"], // Allow inline event handlers
+            styleSrc: ["'self'", "'unsafe-inline'"],
             imgSrc: ["'self'", 'data:', 'https:'],
-            connectSrc: ["'self'", 'https://web-production-5bd5.up.railway.app'], // Allow API calls
+            connectSrc: ["'self'", 'https://web-production-5bd5.up.railway.app'],
         },
     },
 }));

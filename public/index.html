@@ -184,7 +184,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>🚌 NTC Bus Tracker</h1>
+            <h1> NTC Bus Tracker</h1>
             <p>Real-Time Bus Tracking System for Inter-Provincial Services</p>
         </div>
 
@@ -200,7 +200,7 @@
                     <label>To:</label>
                     <input type="text" id="toCity" placeholder="e.g., Kandy">
                 </div>
-                <button class="btn" onclick="searchRoutes()">Search Routes</button>
+                <button class="btn" id="searchBtn">Search Routes</button>
                 <div id="searchResults" class="results" style="display: none;">
                     <div class="loading">Searching...</div>
                 </div>
@@ -227,13 +227,13 @@
                         <div class="stat-label">Operators</div>
                     </div>
                 </div>
-                <button class="btn" onclick="loadStatistics()" style="margin-top: 15px;">Refresh Stats</button>
+                <button class="btn" id="refreshStatsBtn" style="margin-top: 15px;">Refresh Stats</button>
             </div>
 
             <!-- Routes Section -->
             <div class="card routes-section">
                 <h2>Available Routes</h2>
-                <button class="btn" onclick="loadRoutes()">Load All Routes</button>
+                <button class="btn" id="loadRoutesBtn">Load All Routes</button>
                 <div id="routesList" class="results" style="display: none;">
                     <div class="loading">Loading routes...</div>
                 </div>
@@ -247,6 +247,11 @@
         window.addEventListener('load', function () {
             loadStatistics();
             loadRoutes();
+
+            // Attach event listeners to buttons
+            document.getElementById('searchBtn').addEventListener('click', searchRoutes);
+            document.getElementById('refreshStatsBtn').addEventListener('click', loadStatistics);
+            document.getElementById('loadRoutesBtn').addEventListener('click', loadRoutes);
         });
 
         async function searchRoutes() {
@@ -279,8 +284,8 @@
                             <div class="route-item">
                                 <div class="route-name">${route.routeNumber}: ${route.name}</div>
                                 <div class="route-details">
-                                    📍 ${route.origin} → ${route.destination}<br>
-                                    📏 Distance: ${route.distance} km | 💰 Fare: Rs. ${route.fare}
+                                     ${route.origin} → ${route.destination}<br>
+                                     Distance: ${route.distance} km |  Fare: Rs. ${route.fare}
                                 </div>
                             </div>
                         `;
@@ -307,8 +312,8 @@
                                     <div class="route-item">
                                         <div class="route-name">${route.routeNumber}: ${route.name}</div>
                                         <div class="route-details">
-                                            📍 ${route.origin} → ${route.destination}<br>
-                                            📏 Distance: ${route.distance} km | 💰 Fare: Rs. ${route.fare}
+                                             ${route.origin} → ${route.destination}<br>
+                                            Distance: ${route.distance} km |  Fare: Rs. ${route.fare}
                                         </div>
                                     </div>
                                 `;
@@ -383,9 +388,9 @@
                             <div class="route-item">
                                 <div class="route-name">${route.routeNumber}: ${route.name}</div>
                                 <div class="route-details">
-                                    📍 ${route.origin} → ${route.destination}<br>
-                                    📏 ${route.distance} km | ⏱️ ${Math.floor(route.estimatedDuration / 60)} hours | 💰 Rs. ${route.fare}<br>
-                                    🚏 ${route.stops ? route.stops.length : 0} stops
+                                     ${route.origin} → ${route.destination}<br>
+                                     ${route.distance} km |  ${Math.floor(route.estimatedDuration / 60)} hours | 💰 Rs. ${route.fare}<br>
+                                     ${route.stops ? route.stops.length : 0} stops
                                 </div>
                             </div>
                         `;
