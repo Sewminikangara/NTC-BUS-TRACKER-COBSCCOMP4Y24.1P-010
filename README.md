@@ -1,4 +1,4 @@
-#NTC Bus Tracker — Real-Time Inter-Provincial Bus Tracking System
+NTC Bus Tracker — Real-Time Inter-Provincial Bus Tracking System
 
 **Student ID:** COBSCCOMP4Y24.1P-010  
 **Student Name:** K.M.S Sewmini Kangara  
